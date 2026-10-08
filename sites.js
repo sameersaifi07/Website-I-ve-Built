@@ -43,18 +43,33 @@ window.SITES = [
     added: '2026-10-03',
     scroll: true,
   },
-     {
+   {
     title: 'Baby Ninja',
     url: 'https://babyninja.in/',
     thumb: 'thumbs/babyninja.webp',
     categories: ['Shopify Stores'],
     added: '2026-10-08',
   },
-
-     {
+   {
     title: 'TapnTrust',
     url: 'https://tapntrust.in//',
     thumb: 'thumbs/tapntrust.webp',
+    categories: ['Shopify Stores'],
+    added: '2026-10-08',
+  },
+
+   {
+    title: 'TapnTrust',
+    url: 'https://tapntrust.in//',
+    thumb: 'thumbs/tapntrust.webp',
+    categories: ['Shopify Stores'],
+    added: '2026-10-08',
+  },
+
+   {
+    title: 'Lumzo',
+    url: 'https://lumzo.in///',
+    thumb: 'thumbs/Lumzo.webp',
     categories: ['Shopify Stores'],
     added: '2026-10-08',
   },
