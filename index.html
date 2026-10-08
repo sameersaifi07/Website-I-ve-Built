@@ -252,6 +252,9 @@ footer .brand b { font-size: .9rem; color: #fff; }
   var sites = (window.SITES || []).slice();
   var NEW_DAYS = 21;
   var DESKTOP_W = 1280;
+  // Menus that always show in the top bar, even before any website uses them.
+  // A website appears under one when its categories in sites.js include the same name.
+  var PINNED = ['Shopify Stores'];
   var grid = document.getElementById('grid');
   var tabsEl = document.getElementById('tabs');
   var ink = document.getElementById('ink');
@@ -273,10 +276,11 @@ footer .brand b { font-size: .9rem; color: #fff; }
 
   sites.sort(function (a, b) { return time(b) - time(a); });
 
-  // Tabs: All, Recent, then categories by how often they are used
+  // Tabs: All, Recent, pinned menus, then categories by how often they are used
   var counts = {};
   sites.forEach(function (s) { (s.categories || []).forEach(function (c) { counts[c] = (counts[c] || 0) + 1; }); });
   var cats = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
+  cats = PINNED.concat(cats.filter(function (c) { return PINNED.indexOf(c) === -1; }));
   var tabs = [{ id: 'all', label: 'All', n: sites.length }, { id: 'recent', label: 'Recent' }]
     .concat(cats.map(function (c) { return { id: slug(c), label: c, n: counts[c] }; }));
   tabsEl.insertAdjacentHTML('beforeend', tabs.map(function (t) {
