@@ -46,7 +46,7 @@ window.SITES = [
    {
     title: 'Baby Ninja',
     url: 'https://babyninja.in/',
-    thumb: 'thumbs/babyninja(2).webp',
+    thumb: 'thumbs/babyninja.webp',
     categories: ['Shopify Stores'],
     added: '2026-10-08',
   },
