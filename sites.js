@@ -50,4 +50,12 @@ window.SITES = [
     categories: ['Shopify Stores'],
     added: '2026-10-08',
   },
+
+     {
+    title: 'TapnTrust',
+    url: 'https://tapntrust.in//',
+    thumb: 'thumbs/tapntrust.webp',
+    categories: ['Shopify Stores'],
+    added: '2026-10-08',
+  },
 ];
