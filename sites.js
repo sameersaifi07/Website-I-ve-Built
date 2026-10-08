@@ -43,4 +43,11 @@ window.SITES = [
     added: '2026-10-03',
     scroll: true,
   },
+     {
+    title: 'Store ka naam',
+    url: 'https://babyninja.in/',
+    thumb: 'thumbs/babyninja.webp',
+    categories: ['Shopify Stores'],
+    added: '2026-10-08',
+  },
 ];
