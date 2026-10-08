@@ -65,4 +65,12 @@ window.SITES = [
     categories: ['Shopify Stores'],
     added: '2026-10-08',
   },
+
+     {
+    title: 'Saekos',
+    url: 'https://saekos.com///',
+    thumb: 'thumbs/saekos.webp',
+    categories: ['Shopify Stores'],
+    added: '2026-10-08',
+  },
 ];
