@@ -22,6 +22,13 @@
 
 window.SITES = [
   {
+    title: 'Works Wheel',
+    url: 'works-wheel/',
+    thumb: 'thumbs/works-wheel.webp',
+    categories: ['3D', 'Interactive'],
+    added: '2026-10-11',
+  },
+  {
     title: 'Planet Jumping',
     url: 'planet-jumping/',
     thumb: 'thumbs/planet-jumping.webp',
