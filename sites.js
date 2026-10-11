@@ -21,7 +21,7 @@
    ========================================================================== */
 
 window.SITES = [
-  {
+   {
     title: 'Works Wheel',
     url: 'works-wheel/',
     thumb: 'thumbs/works-wheel.webp',
