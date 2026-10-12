@@ -3,573 +3,548 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sameer Saifi — Websites I've Built</title>
-<meta name="description" content="A growing gallery of live websites designed and developed by Sameer Saifi, Shopify developer and website developer.">
-<meta name="theme-color" content="#000000">
-<link rel="icon" href="logo.svg" type="image/svg+xml">
-<meta property="og:title" content="Sameer Saifi — Websites I've Built">
-<meta property="og:description" content="Live websites designed and developed by Sameer Saifi.">
-<meta property="og:image" content="thumbs/planet-jumping.jpg">
+<title>Forty-Four — An Unofficial Lewis Hamilton Tribute</title>
+<meta name="description" content="An unofficial fan tribute to the career of Lewis Hamilton. Not affiliated with Lewis Hamilton, Formula 1 or any team. Created by Sameer Saifi.">
+<meta name="theme-color" content="#050505">
+<meta name="gallery-title" content="Forty-Four">
+<meta name="gallery-category" content="Interactive, Landing Page">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23050505'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='%23ffd400'%3E44%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&display=swap">
 <style>
-/* Layout: black & white. Logo bar → "Show Work" title row with live count → underline tabs + expanding search → grid of live previews. */
 :root {
-  --bg: #000;
-  --panel: #0B0B0B;
-  --line: #1E1E1E;
-  --line-strong: #333;
-  --text: #FFF;
-  --soft: #BDBDBD;
-  --muted: #7A7A7A;
+  --bg: #050505;
+  --panel: #0D0D0D;
+  --line: #1D1D1D;
+  --text: #F4F4F2;
+  --soft: #B9B9B4;
+  --muted: #737370;
+  --accent: #FFD400;
+  --display: "Anton", Impact, "Arial Narrow", sans-serif;
   --font: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
   color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); -webkit-font-smoothing: antialiased; overflow-x: clip; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 10px; }
-.wrap { max-width: 1680px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 40px); }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1440px; margin-inline: auto; padding-inline: clamp(18px, 4vw, 56px); }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); font-size: .75rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; }
+.eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--accent); }
+.display { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: .9; letter-spacing: .005em; }
+.split .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .04em; }
+.split .c { display: inline-block; will-change: transform; }
 
-/* ---------- Logo bar ---------- */
-.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; border-bottom: 1px solid var(--line); }
-.brand { display: inline-flex; align-items: center; gap: 12px; }
-.brand img { width: 34px; height: auto; display: block; }
-.brand b { font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; }
-.brand span { color: var(--muted); font-size: .85rem; font-weight: 500; padding-left: 12px; margin-left: 2px; border-left: 1px solid var(--line-strong); }
-.credit { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-strong);
-  font-size: .8rem; color: var(--soft); white-space: nowrap; }
-.credit i { width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px #fff; animation: pulse 2.4s ease-in-out infinite; }
+/* ---------- Loader ---------- */
+.loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--bg); transition: opacity .7s var(--ease), visibility .7s; }
+.loader.done { opacity: 0; visibility: hidden; }
+.loader-in { display: grid; justify-items: center; gap: 18px; }
+.loader b { font-family: var(--display); font-size: clamp(64px, 12vw, 140px); line-height: 1; color: transparent; -webkit-text-stroke: 1px #333; position: relative; }
+.loader b span { position: absolute; inset: 0; color: var(--accent); -webkit-text-stroke: 0; clip-path: inset(100% 0 0 0); transition: clip-path .2s linear; }
+.loader small { color: var(--muted); font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+
+/* ---------- Nav ---------- */
+.nav { position: fixed; z-index: 50; top: 0; left: 0; right: 0; transition: background-color .4s, backdrop-filter .4s; }
+.nav.solid { background: rgba(5, 5, 5, .7); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 18px; height: 72px; }
+.mark { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: .02em; }
+.mark b { font-family: var(--display); font-weight: 400; font-size: 1.6rem; color: var(--accent); line-height: 1; }
+.mark span { font-size: .78rem; color: var(--soft); letter-spacing: .18em; text-transform: uppercase; }
+.links { display: flex; gap: 28px; font-size: .82rem; color: var(--soft); letter-spacing: .14em; text-transform: uppercase; }
+.links a { position: relative; transition: color .2s; }
+.links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -6px; height: 1px; background: var(--accent); transition: right .35s var(--ease); }
+.links a:hover { color: #fff; } .links a:hover::after { right: 0; }
+.tag-unofficial { padding: 7px 12px; border-radius: 999px; border: 1px solid #2A2A2A; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--soft); white-space: nowrap; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; }
+#warp { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(60% 50% at 50% 55%, transparent, rgba(5,5,5,.75) 100%), linear-gradient(180deg, transparent 70%, var(--bg)); }
+.hero-num { position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -54%); font-family: var(--display); font-size: clamp(260px, 52vw, 820px); line-height: .8;
+  color: transparent; -webkit-text-stroke: 1px rgba(255, 212, 0, .18); pointer-events: none; user-select: none; }
+.hero-copy { position: absolute; z-index: 2; left: 0; right: 0; bottom: clamp(48px, 9vh, 96px); }
+.hero h1 { margin: 18px 0 0; font-size: clamp(64px, 13.5vw, 230px); }
+.hero h1 .accent { color: var(--accent); }
+.hero-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 22px 40px; margin-top: 26px; }
+.hero-row p { margin: 0; max-width: 420px; color: var(--soft); font-size: clamp(.95rem, 1.2vw, 1.08rem); line-height: 1.55; }
+.scroll-cue { display: inline-flex; align-items: center; gap: 12px; color: var(--muted); font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; }
+.scroll-cue i { position: relative; width: 1px; height: 46px; background: #2A2A2A; overflow: hidden; }
+.scroll-cue i::after { content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--accent); animation: cue 1.8s var(--ease) infinite; }
+@keyframes cue { to { top: 100%; } }
+
+/* ---------- Statement ---------- */
+.statement { padding-block: clamp(110px, 18vh, 200px); }
+.statement p { margin: 26px 0 0; max-width: 1180px; font-size: clamp(1.7rem, 4.1vw, 3.6rem); font-weight: 500; line-height: 1.12; letter-spacing: -.025em; }
+.statement .word { color: #2B2B2B; transition: color .25s; }
+.statement .word.on { color: var(--text); }
+.statement .word.hl.on { color: var(--accent); }
+
+/* ---------- Stats ---------- */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { padding: clamp(28px, 4vw, 48px) clamp(16px, 2vw, 28px); }
+.stat + .stat { border-left: 1px solid var(--line); }
+.stat b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(56px, 7vw, 116px); line-height: .9; }
+.stat b sup { font-size: .38em; color: var(--accent); vertical-align: top; margin-left: 4px; }
+.stat > span { display: block; margin-top: 14px; color: var(--soft); font-size: .9rem; line-height: 1.45; max-width: 220px; }
+
+/* ---------- Timeline (pinned, horizontal on wide screens) ---------- */
+.timeline { position: relative; padding-top: clamp(110px, 16vh, 180px); }
+.timeline-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.timeline-head h2 { margin: 18px 0 0; font-size: clamp(56px, 9vw, 150px); }
+.timeline-head p { margin: 0; max-width: 360px; color: var(--soft); line-height: 1.55; }
+.track-wrap { overflow: hidden; margin-top: 56px; }
+.track { display: flex; gap: clamp(16px, 2vw, 28px); padding-inline: clamp(18px, 4vw, 56px); width: max-content; will-change: transform; }
+.chap { position: relative; flex: none; width: min(78vw, 520px); min-height: 520px; padding: 30px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel);
+  display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.chap::before { content: attr(data-year); position: absolute; right: -6px; top: -26px; font-family: var(--display); font-size: 190px; line-height: 1; color: transparent; -webkit-text-stroke: 1px #222; }
+.chap .num { position: relative; color: var(--accent); font-size: .78rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; }
+.chap h3 { position: relative; margin: 0; font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(38px, 4vw, 58px); line-height: .95; }
+.chap p { margin: 16px 0 0; color: var(--soft); line-height: 1.6; font-size: .98rem; }
+.chap .bar { margin-top: 26px; height: 2px; background: #1A1A1A; border-radius: 2px; overflow: hidden; }
+.chap .bar i { display: block; height: 100%; width: var(--w, 30%); background: var(--accent); }
+.chap.final { background: var(--accent); color: #0A0A0A; border-color: var(--accent); }
+.chap.final::before { -webkit-text-stroke-color: rgba(0, 0, 0, .14); }
+.chap.final .num, .chap.final p { color: rgba(10, 10, 10, .78); }
+.chap.final .bar { background: rgba(0, 0, 0, .15); } .chap.final .bar i { background: #0A0A0A; }
+.progress { margin: 26px clamp(18px, 4vw, 56px) 0; height: 1px; background: var(--line); }
+.progress i { display: block; height: 100%; width: 0; background: var(--accent); }
+
+/* ---------- Title years marquee ---------- */
+.titles { padding-block: clamp(110px, 16vh, 180px) 0; }
+.marquee { overflow: hidden; border-block: 1px solid var(--line); margin-top: 34px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.marquee-row { display: flex; width: max-content; animation: slide 28s linear infinite; }
+.marquee span { display: inline-flex; align-items: center; gap: 34px; padding: 26px 34px 22px 0; font-family: var(--display); font-size: clamp(64px, 9vw, 150px); line-height: 1; white-space: nowrap; }
+.marquee span::after { content: "✦"; font-family: var(--font); font-size: .28em; color: var(--accent); }
+.marquee span:nth-child(even) { color: transparent; -webkit-text-stroke: 1px #3A3A3A; }
+.marquee:hover .marquee-row { animation-play-state: paused; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---------- Circuits slider ---------- */
+.circuits { padding-block: clamp(110px, 16vh, 180px) 0; }
+.circuits-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.circuits-head h2 { margin: 18px 0 0; font-size: clamp(52px, 8vw, 130px); }
+.arrows { display: flex; gap: 10px; }
+.arrows button { width: 52px; height: 52px; border-radius: 50%; border: 1px solid #2A2A2A; background: none; cursor: pointer; display: grid; place-items: center; transition: background-color .25s, color .25s, border-color .25s; }
+.arrows button:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+.arrows button:disabled { opacity: .3; pointer-events: none; }
+.slider { margin-top: 44px; overflow: hidden; cursor: grab; touch-action: pan-y; }
+.slider.dragging { cursor: grabbing; }
+.slides { display: flex; gap: 18px; padding-inline: clamp(18px, 4vw, 56px); will-change: transform; transition: transform .7s var(--ease); }
+.slider.dragging .slides { transition: none; }
+.slide { flex: none; width: min(82vw, 430px); border: 1px solid var(--line); border-radius: 18px; background: var(--panel); padding: 26px; user-select: none; }
+.slide svg { display: block; width: 100%; height: 190px; margin-bottom: 22px; }
+.slide svg path { fill: none; stroke: #3A3A3A; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.slide svg .run { stroke: var(--accent); stroke-dasharray: 60 1000; animation: lap 4.5s linear infinite; }
+@keyframes lap { to { stroke-dashoffset: -1060; } }
+.slide small { color: var(--accent); font-size: .72rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
+.slide h3 { margin: 10px 0 0; font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 2.4rem; line-height: 1; }
+.slide p { margin: 12px 0 0; color: var(--soft); line-height: 1.55; font-size: .95rem; }
+
+/* ---------- Beyond the track ---------- */
+.beyond { padding-block: clamp(110px, 16vh, 180px); }
+.beyond-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
+.beyond h2 { margin: 18px 0 0; font-size: clamp(52px, 7.6vw, 124px); }
+.cards { display: grid; gap: 14px; }
+.card { padding: 26px 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); transition: border-color .3s, transform .4s var(--ease); }
+.card:hover { border-color: #333; transform: translateX(6px); }
+.card h3 { margin: 0; display: flex; align-items: center; gap: 12px; font-size: 1.15rem; font-weight: 600; }
+.card h3 i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.card p { margin: 10px 0 0; color: var(--soft); line-height: 1.6; font-size: .96rem; }
+
+/* ---------- Footer ---------- */
+footer { border-top: 1px solid var(--line); }
+.foot-big { padding-block: clamp(70px, 12vh, 130px) 40px; text-align: center; }
+.foot-big h2 { margin: 0; font-size: clamp(80px, 19vw, 320px); line-height: .82; color: transparent; -webkit-text-stroke: 1px #333; transition: color .5s; }
+.foot-big h2:hover { color: var(--accent); -webkit-text-stroke-color: var(--accent); }
+.foot-big p { margin: 22px auto 0; max-width: 560px; color: var(--soft); line-height: 1.6; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-block: 26px 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+.credit { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid #2A2A2A; color: var(--soft); white-space: nowrap; }
+.credit i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: pulse 2.4s ease-in-out infinite; }
 .credit strong { color: #fff; font-weight: 600; }
 @keyframes pulse { 50% { opacity: .35; } }
-@media (max-width: 600px) { .brand span { display: none; } .credit { font-size: .72rem; padding: 7px 11px; } }
 
-/* ---------- Title row ---------- */
-.head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 40px; padding-block: clamp(40px, 7vw, 88px) clamp(28px, 4vw, 44px); }
-.chip { display: inline-block; padding: 6px 12px; border-radius: 999px; background: #111; border: 1px solid var(--line-strong); font-size: .72rem; font-weight: 600; margin-bottom: 18px; }
-h1 { margin: 0; font-size: clamp(2.4rem, 7vw, 5.6rem); font-weight: 500; line-height: .98; letter-spacing: -.045em; }
-h1 em { font-style: normal; color: var(--muted); }
-.tally { display: flex; align-items: baseline; gap: 12px; }
-.tally b { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 300; letter-spacing: -.04em; font-variant-numeric: tabular-nums; line-height: 1; }
-.tally span { color: var(--muted); font-size: .9rem; line-height: 1.35; }
+/* Reveal */
+.js .rv { opacity: 0; transform: translateY(30px); }
 
-/* ---------- Tabs + search ---------- */
-.tabsbar { position: sticky; top: 0; z-index: 10; background: rgba(0, 0, 0, .82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
-.tabsrow { display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--line); }
-.tabs { position: relative; flex: 1; min-width: 0; display: flex; gap: clamp(18px, 2.4vw, 34px); overflow-x: auto; scrollbar-width: none; }
-.tabs::-webkit-scrollbar { display: none; }
-.tab { flex: none; position: relative; padding: 18px 0 16px; border: 0; background: none; color: var(--muted); font-size: .95rem; font-weight: 500;
-  cursor: pointer; white-space: nowrap; transition: color .2s; }
-.tab:hover, .tab[aria-pressed="true"] { color: #fff; }
-.tab sup { font-size: .62rem; font-weight: 600; margin-left: 3px; color: var(--muted); vertical-align: 6px; }
-.tab[aria-pressed="true"] sup { color: var(--soft); }
-.ink { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: #fff; border-radius: 2px;
-  transition: transform .45s cubic-bezier(.22, 1, .36, 1), width .45s cubic-bezier(.22, 1, .36, 1); }
-
-.search { flex: none; display: flex; align-items: center; height: 40px; border-radius: 999px; border: 1px solid var(--line-strong);
-  width: 40px; overflow: hidden; transition: width .35s cubic-bezier(.22, 1, .36, 1), border-color .2s; }
-.search.is-open, .search:focus-within { width: min(260px, 52vw); border-color: #555; }
-.search button { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border: 0; background: none; cursor: pointer; color: var(--soft); }
-.search input { flex: 1; min-width: 0; height: 100%; border: 0; background: none; color: #fff; font: 500 .9rem var(--font); padding-right: 14px; }
-.search input:focus { outline: none; }
-.search input::placeholder { color: var(--muted); }
-
-/* ---------- Grid of live previews ---------- */
-.grid { list-style: none; margin: 0; padding: clamp(24px, 3vw, 36px) 0 0; display: grid; gap: clamp(30px, 3.4vw, 48px) clamp(14px, 1.6vw, 24px);
-  grid-template-columns: repeat(3, minmax(0, 1fr)); }
-@media (min-width: 1500px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-
-.card { display: grid; gap: 14px; animation: rise .6s cubic-bezier(.22, 1, .36, 1) both; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-.frame { position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; background: var(--panel); border: 1px solid var(--line);
-  isolation: isolate; transition: border-color .3s; }
-.card:hover .frame { border-color: #444; }
-.frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
-.card:hover .frame img { transform: scale(1.03); }
-/* Shown for a website with no thumbnail until its live preview fades in */
-.ph-title { position: absolute; inset: 0; display: grid; place-items: center; padding: 0 12%; text-align: center; color: #2E2E2E;
-  font-size: clamp(1.4rem, 3vw, 2.6rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.05;
-  background: radial-gradient(120% 90% at 50% 0%, #161616, #0B0B0B 70%); }
-/* The live website, rendered at desktop size and scaled to the card */
-.frame iframe { position: absolute; left: 0; top: 0; width: 1280px; height: 800px; border: 0; transform-origin: 0 0;
-  transform: scale(var(--s, .3)); pointer-events: none; opacity: 0; transition: opacity .8s ease; background: #000; }
-.frame.is-live iframe { opacity: 1; }
-.cover { position: absolute; inset: 0; z-index: 3; border-radius: inherit; }
-.flag { position: absolute; z-index: 2; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px;
-  background: rgba(0, 0, 0, .7); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, .18);
-  font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-.flag.new { background: #fff; color: #000; border-color: #fff; }
-.live-dot { position: absolute; z-index: 2; right: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px;
-  background: rgba(0, 0, 0, .7); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: .68rem; font-weight: 600; letter-spacing: .06em;
-  text-transform: uppercase; opacity: 0; transition: opacity .4s; }
-.live-dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: pulse 1.6s ease-in-out infinite; }
-.frame.is-live .live-dot { opacity: 1; }
-
-.meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding-inline: 2px; }
-.meta h2 { margin: 0; font-size: clamp(1.05rem, 1.4vw, 1.25rem); font-weight: 600; letter-spacing: -.01em; }
-.tags { margin: 5px 0 0; color: var(--muted); font-size: .88rem; }
-.tags button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
-.tags button:hover { color: #fff; }
-.go { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line-strong); color: var(--soft);
-  transition: background-color .25s, color .25s, border-color .25s, transform .25s; }
-.card:hover .go { background: #fff; color: #000; border-color: #fff; transform: rotate(-45deg); }
-
-.empty { padding: 90px 0; text-align: center; color: var(--muted); }
-.empty strong { display: block; color: #fff; font-weight: 600; font-size: 1.15rem; margin-bottom: 6px; }
-
-footer { margin-top: clamp(64px, 9vw, 110px); padding-block: 26px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem;
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
-footer .brand img { width: 24px; }
-footer .brand b { font-size: .9rem; color: #fff; }
-
-/* ---------- Header icon buttons + category sheet (phone) ---------- */
-.icons { display: none; align-items: center; gap: 4px; }
-.icon-btn { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; background: none; color: #fff; cursor: pointer; }
-.icon-btn:hover { background: #111; }
-.filter-btn { display: none; flex: none; width: 48px; height: 48px; place-items: center; border: 0; border-radius: 50%; background: #161616; color: #fff; cursor: pointer; }
-
-.sheet { position: fixed; inset: 0; z-index: 40; display: flex; align-items: flex-end; background: rgba(0, 0, 0, .6); opacity: 0; pointer-events: none; transition: opacity .3s; }
-.sheet.is-open { opacity: 1; pointer-events: auto; }
-.sheet-panel { width: 100%; max-height: 82vh; overflow-y: auto; padding: 10px 18px calc(22px + env(safe-area-inset-bottom, 0px)); border-radius: 22px 22px 0 0;
-  background: #0E0E0E; border-top: 1px solid var(--line-strong); transform: translateY(100%); transition: transform .4s cubic-bezier(.22, 1, .36, 1); }
-.sheet.is-open .sheet-panel { transform: none; }
-.sheet-handle { width: 40px; height: 4px; border-radius: 4px; background: #333; margin: 4px auto 16px; }
-.sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.sheet-head b { font-size: 1.05rem; font-weight: 600; }
-.sheet-list { display: grid; gap: 4px; margin-bottom: 18px; }
-.sheet-list button { display: flex; justify-content: space-between; align-items: center; min-height: 50px; padding: 0 14px; border: 0; border-radius: 12px;
-  background: none; color: var(--soft); font-size: 1rem; font-weight: 500; text-align: left; cursor: pointer; }
-.sheet-list button[aria-pressed="true"] { background: #1A1A1A; color: #fff; }
-.sheet-list small { color: var(--muted); font-variant-numeric: tabular-nums; }
-
-/* ---------- Phone layout (motionsites-style) ---------- */
-@media (max-width: 640px) {
-  .bar { padding-block: 14px; border-bottom: 0; }
-  .bar .credit { display: none; }
-  .brand img { width: 30px; }
-  .icons { display: flex; }
-  .head { padding-block: 18px 16px; gap: 10px; align-items: center; }
-  .chip { margin-bottom: 10px; }
-  h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
-  .tally b { font-size: 2rem; }
-  .tally span { font-size: .75rem; }
-
-  .tabsbar { padding-block: 8px 10px; }
-  .tabsrow { flex-wrap: wrap; gap: 10px; border-bottom: 0; }
-  .tabs { gap: 4px; padding: 5px; border: 1px solid var(--line-strong); border-radius: 999px; }
-  .tab { padding: 10px 16px; border-radius: 999px; font-size: .95rem; }
-  .tab sup { display: none; }
-  .tab[aria-pressed="true"] { background: #1C1C1C; box-shadow: inset 0 0 0 1px #2E2E2E; }
-  .ink { display: none; }
-  .filter-btn { display: grid; }
-  .search { display: none; order: 3; width: 100% !important; height: 46px; }
-  body.show-search .search { display: flex; }
-
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 12px; padding-top: 12px; }
-  .card { gap: 10px; }
-  .frame { border-radius: 14px; }
-  .meta h2 { font-size: 1rem; font-weight: 700; }
-  .tags { font-size: .8rem; margin-top: 3px; }
-  .tags button + button, .tags button { white-space: nowrap; }
-  .go { width: 28px; height: 28px; border: 0; }
-  .go svg { width: 14px; height: 14px; }
-  .flag, .live-dot { top: 8px; padding: 3px 7px; font-size: .56rem; }
-  .flag { left: 8px; } .live-dot { right: 8px; }
-  footer { flex-direction: column; align-items: flex-start; }
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .links { display: none; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .beyond-grid { grid-template-columns: 1fr; }
+  /* Timeline becomes a vertical stack: no pinning on narrow screens */
+  .track-wrap { overflow: visible; }
+  .track { flex-direction: column; width: auto; }
+  .chap { width: 100%; min-height: 0; gap: 60px; }
+  .progress { display: none; }
 }
-@media (max-width: 340px) { .grid { grid-template-columns: 1fr; } }
-
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; } }
+@media (max-width: 560px) {
+  .tag-unofficial { display: none; }
+  .hero-row { flex-direction: column; align-items: flex-start; }
+  .chap::before { font-size: 130px; top: -14px; }
+  .slide svg { height: 150px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  .js .rv { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
-<header class="wrap bar">
-  <a class="brand" href="./"><img src="logo.svg" alt="Sameer Saifi logo" width="34" height="31"><b>Sameer Saifi</b><span>Websites</span></a>
-  <span class="credit"><i aria-hidden="true"></i>Created by <strong>Sameer Saifi</strong></span>
-  <div class="icons">
-    <button class="icon-btn" type="button" id="mSearch" aria-label="Search websites">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-    </button>
-    <button class="icon-btn" type="button" data-open-sheet aria-label="Open menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in"><b>44<span id="loadFill">44</span></b><small id="loadPct">000</small></div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top" aria-label="Forty-Four, back to top"><b>44</b><span>Forty-Four</span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#story">Story</a><a href="#career">Career</a><a href="#titles">Titles</a><a href="#circuits">Circuits</a><a href="#beyond">Beyond</a>
+    </nav>
+    <span class="tag-unofficial">Unofficial fan tribute</span>
   </div>
 </header>
 
-<section class="wrap head" aria-labelledby="title">
-  <div>
-    <span class="chip">Show Work</span>
-    <h1 id="title">Websites <em>I've Built</em></h1>
-  </div>
-  <div class="tally"><b id="tally">00</b><span>live<br>websites</span></div>
-</section>
-
-<div class="tabsbar">
-  <div class="wrap tabsrow">
-    <div class="tabs" id="tabs" role="group" aria-label="Categories"><span class="ink" id="ink" aria-hidden="true"></span></div>
-    <button class="filter-btn" type="button" data-open-sheet aria-label="All categories">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
-    </button>
-    <div class="search" id="searchBox">
-      <button type="button" id="searchBtn" aria-label="Search websites">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      </button>
-      <label class="sr" for="search">Search websites</label>
-      <input id="search" type="search" placeholder="Search websites" autocomplete="off">
+<main id="top">
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Introduction">
+    <canvas id="warp" aria-hidden="true"></canvas>
+    <div class="hero-num" aria-hidden="true">44</div>
+    <div class="wrap hero-copy">
+      <span class="eyebrow" data-hero>A tribute in five chapters</span>
+      <h1 class="display split" data-split>Lewis <span class="accent">Hamilton</span></h1>
+      <div class="hero-row">
+        <p data-hero>From a karting track in Hertfordshire to seven world titles. An unofficial look at one of the most successful careers Formula&nbsp;1 has seen.</p>
+        <span class="scroll-cue" data-hero><i aria-hidden="true"></i>Scroll to race</span>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<main class="wrap">
-  <ul class="grid" id="grid" aria-live="polite"></ul>
-  <div class="empty" id="empty" hidden><strong>Nothing here yet.</strong>Try another category or search.</div>
-  <noscript><p class="empty">Turn on JavaScript to see the websites.</p></noscript>
+  <!-- ===================== STATEMENT ===================== -->
+  <section class="wrap statement" id="story" aria-label="Story">
+    <span class="eyebrow rv">The story</span>
+    <p id="statement">A kid from Stevenage who raced on second-hand karts, told the boss of a top team he wanted to drive for them one day, and then spent two decades rewriting the record books. Seven championships. More wins and more pole positions than anyone before him. And a voice that kept pushing the sport to look like the world that watches it.</p>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="wrap" aria-label="Numbers">
+    <div class="stats">
+      <div class="stat rv"><b><span data-count="7">0</span></b><span>World Drivers’ Championships, level with the all-time record</span></div>
+      <div class="stat rv"><b><span data-count="100">0</span><sup>+</sup></b><span>Grand Prix wins, the first driver ever to reach one hundred</span></div>
+      <div class="stat rv"><b><span data-count="100">0</span><sup>+</sup></b><span>Pole positions, another century no one had reached before</span></div>
+      <div class="stat rv"><b><span data-count="2007">0</span></b><span>The year of his debut, finishing on the podium in his very first race</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== CAREER TIMELINE ===================== -->
+  <section class="timeline" id="career" aria-label="Career">
+    <div class="wrap timeline-head">
+      <div><span class="eyebrow rv">Career</span><h2 class="display split" data-split>Five chapters</h2></div>
+      <p class="rv">Scroll and the season rolls by. Each chapter is a turning point, from the first kart to the switch that surprised the whole paddock.</p>
+    </div>
+    <div class="track-wrap" id="trackWrap">
+      <div class="track" id="track">
+        <article class="chap" data-year="95">
+          <div><span class="num">Chapter 01 · The kart</span></div>
+          <div><h3>The foundation</h3><p>Born in Stevenage in 1985, he started karting with his father, who worked several jobs to keep him racing. At ten he met a team boss at an awards night and told him he would drive for him one day.</p><div class="bar" style="--w:20%"><i></i></div></div>
+        </article>
+        <article class="chap" data-year="07">
+          <div><span class="num">Chapter 02 · The debut</span></div>
+          <div><h3>Rookie on fire</h3><p>A podium on his Formula 1 debut and a first win in Canada later that season. He missed the title by a single point as a rookie, and the whole sport took notice.</p><div class="bar" style="--w:40%"><i></i></div></div>
+        </article>
+        <article class="chap" data-year="08">
+          <div><span class="num">Chapter 03 · The first crown</span></div>
+          <div><h3>Champion at 23</h3><p>Decided on the final corners of the final race in Brazil, his first world championship made him the youngest champion the sport had seen at the time.</p><div class="bar" style="--w:60%"><i></i></div></div>
+        </article>
+        <article class="chap" data-year="14">
+          <div><span class="num">Chapter 04 · The dynasty</span></div>
+          <div><h3>Six more titles</h3><p>A move in 2013 became an era. Titles in 2014, 2015, 2017, 2018, 2019 and 2020 took him to seven, alongside the most wins and poles in the history of the sport.</p><div class="bar" style="--w:80%"><i></i></div></div>
+        </article>
+        <article class="chap final" data-year="25">
+          <div><span class="num">Chapter 05 · The new red</span></div>
+          <div><h3>A new chapter</h3><p>In 2025 he began a fresh adventure in red: one of the biggest driver moves in Formula 1 history, chasing more history with the sport’s most famous team.</p><div class="bar" style="--w:100%"><i></i></div></div>
+        </article>
+      </div>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="trackProgress"></i></div>
+  </section>
+
+  <!-- ===================== TITLE YEARS ===================== -->
+  <section class="titles" id="titles" aria-label="Championship years">
+    <div class="wrap"><span class="eyebrow rv">Seven world championships</span></div>
+    <div class="marquee" aria-label="2008, 2014, 2015, 2017, 2018, 2019, 2020">
+      <div class="marquee-row" aria-hidden="true">
+        <span>2008</span><span>2014</span><span>2015</span><span>2017</span><span>2018</span><span>2019</span><span>2020</span>
+        <span>2008</span><span>2014</span><span>2015</span><span>2017</span><span>2018</span><span>2019</span><span>2020</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CIRCUITS ===================== -->
+  <section class="circuits" id="circuits" aria-label="Signature circuits">
+    <div class="wrap circuits-head">
+      <div><span class="eyebrow rv">Signature circuits</span><h2 class="display split" data-split>Where he ruled</h2></div>
+      <div class="arrows rv">
+        <button type="button" id="prev" aria-label="Previous circuit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button type="button" id="next" aria-label="Next circuit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="slider" id="slider">
+      <div class="slides" id="slides">
+        <article class="slide"><svg viewBox="0 0 300 190" aria-hidden="true"><path d="M40 140 L70 60 Q80 40 100 50 L150 80 Q170 90 190 70 L230 40 Q255 30 262 55 L265 120 Q262 150 230 150 L120 150 Q100 150 90 160 L60 165 Q35 165 40 140Z"/><path class="run" d="M40 140 L70 60 Q80 40 100 50 L150 80 Q170 90 190 70 L230 40 Q255 30 262 55 L265 120 Q262 150 230 150 L120 150 Q100 150 90 160 L60 165 Q35 165 40 140Z"/></svg>
+          <small>Great Britain</small><h3>Silverstone</h3><p>Home. More British Grand Prix wins than any driver in history, in front of the loudest crowd on the calendar.</p></article>
+        <article class="slide"><svg viewBox="0 0 300 190" aria-hidden="true"><path d="M50 50 L240 45 Q260 45 258 65 L250 95 Q245 110 225 105 L170 95 Q150 92 145 110 L140 150 Q136 168 115 166 L60 160 Q40 158 42 138 L45 70 Q46 50 50 50Z"/><path class="run" d="M50 50 L240 45 Q260 45 258 65 L250 95 Q245 110 225 105 L170 95 Q150 92 145 110 L140 150 Q136 168 115 166 L60 160 Q40 158 42 138 L45 70 Q46 50 50 50Z"/></svg>
+          <small>Hungary</small><h3>Hungaroring</h3><p>A twisting, dusty circuit where overtaking is hard, and where he won more often than at any other track.</p></article>
+        <article class="slide"><svg viewBox="0 0 300 190" aria-hidden="true"><path d="M30 120 L120 120 Q135 120 140 105 L150 70 Q156 52 175 55 L260 70 Q275 73 270 90 L250 140 Q244 155 225 152 L45 150 Q25 148 30 120Z"/><path class="run" d="M30 120 L120 120 Q135 120 140 105 L150 70 Q156 52 175 55 L260 70 Q275 73 270 90 L250 140 Q244 155 225 152 L45 150 Q25 148 30 120Z"/></svg>
+          <small>Canada</small><h3>Montréal</h3><p>Where it all clicked: the first Grand Prix win of his career came here in his rookie season.</p></article>
+        <article class="slide"><svg viewBox="0 0 300 190" aria-hidden="true"><path d="M60 40 Q40 45 45 70 L60 130 Q66 155 95 152 L200 145 Q225 142 230 120 L238 90 Q242 70 222 66 L160 60 Q140 58 130 45 Q120 32 100 35Z"/><path class="run" d="M60 40 Q40 45 45 70 L60 130 Q66 155 95 152 L200 145 Q225 142 230 120 L238 90 Q242 70 222 66 L160 60 Q140 58 130 45 Q120 32 100 35Z"/></svg>
+          <small>Brazil</small><h3>Interlagos</h3><p>The rain, the last lap, the fifth place he needed. The first title was won here in one of the most dramatic finishes ever.</p></article>
+        <article class="slide"><svg viewBox="0 0 300 190" aria-hidden="true"><path d="M40 60 L150 40 Q170 37 178 55 L190 85 Q196 100 215 98 L255 95 Q272 95 270 112 L265 150 Q262 165 245 163 L70 158 Q48 156 45 135 L35 80 Q33 63 40 60Z"/><path class="run" d="M40 60 L150 40 Q170 37 178 55 L190 85 Q196 100 215 98 L255 95 Q272 95 270 112 L265 150 Q262 165 245 163 L70 158 Q48 156 45 135 L35 80 Q33 63 40 60Z"/></svg>
+          <small>Abu Dhabi</small><h3>Yas Marina</h3><p>The twilight finale. Several of his championship seasons ended under its lights, and some of his most famous duels did too.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BEYOND ===================== -->
+  <section class="wrap beyond" id="beyond" aria-label="Beyond the track">
+    <div class="beyond-grid">
+      <div><span class="eyebrow rv">Beyond the track</span><h2 class="display split" data-split>More than lap times</h2></div>
+      <div class="cards">
+        <div class="card rv"><h3><i aria-hidden="true"></i>A knighthood</h3><p>Knighted in 2021 for services to motorsport, he became Sir Lewis, while still racing at the front.</p></div>
+        <div class="card rv"><h3><i aria-hidden="true"></i>Opening doors</h3><p>He set up a commission and a charitable foundation to help young people from under-represented backgrounds into motorsport, engineering and science.</p></div>
+        <div class="card rv"><h3><i aria-hidden="true"></i>A voice in the paddock</h3><p>He used his platform to speak about diversity, equality and the environment, and pushed the sport to change with him.</p></div>
+        <div class="card rv"><h3><i aria-hidden="true"></i>Style and culture</h3><p>Music, fashion and film: few drivers have carried Formula 1 so far beyond the racing world.</p></div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="wrap">
-  <a class="brand" href="./"><img src="logo.svg" alt="" width="24" height="22"><b>Sameer Saifi</b></a>
-  <span class="credit"><i aria-hidden="true"></i>Created by <strong>Sameer Saifi</strong></span>
-  <span>© <span id="year">2026</span> · Shopify developer &amp; website developer</span>
+<footer>
+  <div class="wrap foot-big">
+    <h2 class="display">Lights out</h2>
+    <p>This is an unofficial fan tribute made for design practice. It is not affiliated with, endorsed by or connected to Lewis Hamilton, Formula 1, the FIA or any team. All names belong to their respective owners.</p>
+  </div>
+  <div class="wrap foot">
+    <span>© <span id="year">2026</span> Forty-Four · Fan tribute</span>
+    <span class="credit"><i aria-hidden="true"></i>Created by <strong>Sameer Saifi</strong></span>
+    <a href="../" class="credit" style="border-color:#2A2A2A">← All websites</a>
+  </div>
 </footer>
 
-<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Categories" aria-hidden="true">
-  <div class="sheet-panel">
-    <div class="sheet-handle" aria-hidden="true"></div>
-    <div class="sheet-head"><b>Categories</b>
-      <button class="icon-btn" type="button" id="sheetClose" aria-label="Close">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-      </button>
-    </div>
-    <div class="sheet-list" id="sheetList"></div>
-    <span class="credit"><i aria-hidden="true"></i>Created by <strong>Sameer Saifi</strong></span>
-  </div>
-</div>
-
-<!-- sites.js is loaded fresh on every visit (no stale copy after an upload) -->
-<script>document.write('<script src="sites.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <script>
 (function () {
-  var sites = (window.SITES || []).slice();
-  var NEW_DAYS = 21;
-  var DESKTOP_W = 1280;
-  // Menus that always show in the top bar, even before any website uses them.
-  // A website appears under one when its categories in sites.js include the same name.
-  var PINNED = ['Shopify Stores'];
-  var grid = document.getElementById('grid');
-  var tabsEl = document.getElementById('tabs');
-  var ink = document.getElementById('ink');
-  var empty = document.getElementById('empty');
-  var search = document.getElementById('search');
-  var searchBox = document.getElementById('searchBox');
-  var mq = function (q) { return window.matchMedia && window.matchMedia(q).matches; };
-  var conn = navigator.connection || {};
-  // Live previews: off for reduced motion and data saver
-  var livePreviews = !mq('(prefers-reduced-motion: reduce)') && !conn.saveData;
-
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = !!(window.gsap && window.ScrollTrigger);
+  document.documentElement.classList.toggle('js', hasGsap && !reduced);
   document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('tally').textContent = String(sites.length).padStart(2, '0');
 
-  var slug = function (s) { return String(s).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); };
-  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
-  var time = function (s) { var t = Date.parse(s.added || ''); return isNaN(t) ? 0 : t; };
-  var isExternal = function (u) { return /^https?:/i.test(u); };
-
-  // Tabs: All, Recent, pinned menus, then categories by how often they are used.
-  // Rebuilt whenever the list changes (sites.js first, then folders found in the repository).
-  var sheet = document.getElementById('sheet');
-  var sheetList = document.getElementById('sheetList');
-  var tabs = [];
-  function buildTabs() {
-    sites.sort(function (a, b) { return time(b) - time(a); });
-    document.getElementById('tally').textContent = String(sites.length).padStart(2, '0');
-    var counts = {};
-    sites.forEach(function (s) { (s.categories || []).forEach(function (c) { counts[c] = (counts[c] || 0) + 1; }); });
-    var cats = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
-    cats = PINNED.concat(cats.filter(function (c) { return PINNED.indexOf(c) === -1; }));
-    tabs = [{ id: 'all', label: 'All', n: sites.length }, { id: 'recent', label: 'Recent' }]
-      .concat(cats.map(function (c) { return { id: slug(c), label: c, n: counts[c] }; }));
-    tabsEl.querySelectorAll('.tab').forEach(function (b) { b.remove(); });
-    tabsEl.insertAdjacentHTML('beforeend', tabs.map(function (t) {
-      return '<button class="tab" type="button" data-cat="' + t.id + '" aria-pressed="false">' + esc(t.label) +
-        (t.n ? '<sup>' + String(t.n).padStart(2, '0') + '</sup>' : '') + '</button>';
-    }).join(''));
-    // Category sheet (phone menu / filter button)
-    sheetList.innerHTML = tabs.map(function (t) {
-      return '<button type="button" data-cat="' + t.id + '" aria-pressed="false"><span>' + esc(t.label) + '</span>' +
-        (t.n ? '<small>' + String(t.n).padStart(2, '0') + '</small>' : '') + '</button>';
-    }).join('');
-  }
-  buildTabs();
-  var lastFocus = null;
-  function openSheet() {
-    lastFocus = document.activeElement;
-    sheet.classList.add('is-open'); sheet.setAttribute('aria-hidden', 'false');
-    var cur = sheetList.querySelector('[aria-pressed="true"]') || sheetList.querySelector('button');
-    if (cur) cur.focus();
-  }
-  function closeSheet() {
-    sheet.classList.remove('is-open'); sheet.setAttribute('aria-hidden', 'true');
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
-  }
-  document.querySelectorAll('[data-open-sheet]').forEach(function (b) { b.addEventListener('click', openSheet); });
-  document.getElementById('sheetClose').addEventListener('click', closeSheet);
-  sheet.addEventListener('click', function (e) { if (e.target === sheet) closeSheet(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('is-open')) closeSheet(); });
-  sheetList.addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return;
-    setCategory(b.dataset.cat, true); closeSheet();
-  });
-
-  // Phone search icon shows the search field under the tabs
-  document.getElementById('mSearch').addEventListener('click', function () {
-    var on = document.body.classList.toggle('show-search');
-    if (on) { search.focus(); } else { search.value = ''; query = ''; render(); }
-  });
-
-  var active = 'all', query = '';
-
-  function moveInk() {
-    var b = tabsEl.querySelector('.tab[aria-pressed="true"]');
-    if (!b) return;
-    ink.style.width = b.offsetWidth + 'px';
-    ink.style.transform = 'translateX(' + b.offsetLeft + 'px)';
-  }
-
-  function cardHTML(s, i) {
-    var isNew = time(s) && (Date.now() - time(s)) / 864e5 <= NEW_DAYS;
-    var live = livePreviews && (s.live === true || (s.live !== false && !isExternal(s.url)));
-    var tags = (s.categories || []).map(function (c) { return '<button type="button" data-goto="' + slug(c) + '">' + esc(c) + '</button>'; }).join(' · ');
-    return '<li class="card" style="animation-delay:' + Math.min(i, 8) * 60 + 'ms">' +
-      '<div class="frame"' + (live ? ' data-live="' + esc(s.url) + '"' + (s.scroll ? ' data-scroll="1"' : '') : '') + '>' +
-        (s.thumb ? '<img src="' + esc(s.thumb) + '" alt="" width="1200" height="750" loading="lazy" decoding="async">'
-          : '<span class="ph-title" aria-hidden="true">' + esc(s.title) + '</span>') +
-        (isNew ? '<span class="flag new">New</span>' : '') +
-        (live ? '<span class="live-dot">Live</span>' : '') +
-        '<a class="cover" href="' + esc(s.url) + '" target="_blank" rel="noopener" aria-label="Open ' + esc(s.title) + '"></a>' +
-      '</div>' +
-      '<div class="meta"><div><h2><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title) + '</a></h2>' +
-        '<p class="tags">' + tags + '</p></div>' +
-        '<a class="go" href="' + esc(s.url) + '" target="_blank" rel="noopener" aria-label="Open ' + esc(s.title) + '">' +
-          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
-        '</a></div>' +
-    '</li>';
-  }
-
-  function render() {
-    stopAll();
-    var list = sites.filter(function (s) {
-      var inCat = active === 'all' || active === 'recent' || (s.categories || []).some(function (c) { return slug(c) === active; });
-      var text = (s.title + ' ' + (s.categories || []).join(' ')).toLowerCase();
-      return inCat && (!query || text.indexOf(query) !== -1);
-    });
-    if (active === 'recent') list = list.slice(0, 12);
-    grid.innerHTML = list.map(cardHTML).join('');
-    empty.hidden = list.length > 0;
-    tabsEl.querySelectorAll('.tab').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.cat === active)); });
-    sheetList.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.cat === active)); });
-    moveInk();
-    observeFrames();
-  }
-
-  function setCategory(id, push) {
-    if (!tabs.some(function (t) { return t.id === id; })) id = 'all';
-    active = id;
-    render();
-    var b = tabsEl.querySelector('[data-cat="' + id + '"]');
-    if (b && b.scrollIntoView) b.scrollIntoView({ block: 'nearest', inline: 'center' });
-    if (push) history.replaceState(null, '', id === 'all' ? location.pathname + location.search : '#' + id);
-  }
-
-  // ---------- Live previews: the real site, scaled into the card ----------
-  var io = 'IntersectionObserver' in window ? new IntersectionObserver(onSeen, { rootMargin: '120px 0px', threshold: .15 }) : null;
-  var ro = 'ResizeObserver' in window ? new ResizeObserver(function (es) { es.forEach(function (e) { setScale(e.target); }); }) : null;
-
-  function setScale(frame) { frame.style.setProperty('--s', frame.clientWidth / DESKTOP_W); }
-
-  function observeFrames() {
-    grid.querySelectorAll('.frame').forEach(function (f) {
-      setScale(f);
-      if (ro) ro.observe(f);
-      if (io && f.dataset.live) io.observe(f);
-    });
-  }
-
-  function onSeen(entries) {
-    entries.forEach(function (e) {
-      var f = e.target;
-      if (e.isIntersecting) { clearTimeout(f._off); start(f); }
-      else { f._off = setTimeout(function () { stop(f); }, 1500); }
-    });
-  }
-
-  function start(f) {
-    if (f.querySelector('iframe')) { f._visible = true; return; }
-    var fr = document.createElement('iframe');
-    fr.src = f.dataset.live;
-    fr.title = 'Live preview';
-    fr.setAttribute('aria-hidden', 'true');
-    fr.tabIndex = -1;
-    fr.setAttribute('scrolling', 'no');
-    fr.setAttribute('allow', 'autoplay');
-    fr.addEventListener('load', function () {
-      setTimeout(function () { f.classList.add('is-live'); }, 500);
-      if (f.dataset.scroll) autoScroll(f, fr);
-    });
-    f._visible = true;
-    f.appendChild(fr);
-  }
-
-  function stop(f) {
-    f._visible = false;
-    var fr = f.querySelector('iframe');
-    if (fr) { f.classList.remove('is-live'); fr.remove(); }
-  }
-  function stopAll() { grid.querySelectorAll('.frame').forEach(stop); }
-
-  // Slowly scroll scroll-animated sites (same-site folders only), loop forever while visible
-  function autoScroll(f, fr) {
-    var w; try { w = fr.contentWindow; void w.document; } catch (err) { return; }
-    var y = 0, last = performance.now(), pause = 1200;
-    function tick(now) {
-      if (!f._visible || !fr.isConnected) return;
-      var dt = Math.min(64, now - last); last = now;
-      var max = Math.max(0, w.document.documentElement.scrollHeight - w.innerHeight);
-      if (pause > 0) { pause -= dt; }
-      else if (y >= max - 2) { y = 0; w.scrollTo(0, 0); pause = 1600; }
-      else { y = Math.min(max, y + dt * .32); w.scrollTo(0, y); if (y >= max - 2) pause = 1400; }
-      requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  // ---------- Events ----------
-  tabsEl.addEventListener('click', function (e) { var b = e.target.closest('.tab'); if (b) setCategory(b.dataset.cat, true); });
-  grid.addEventListener('click', function (e) {
-    var g = e.target.closest('[data-goto]');
-    if (g) { e.preventDefault(); setCategory(g.dataset.goto, true); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  });
-  document.getElementById('searchBtn').addEventListener('click', function () { searchBox.classList.add('is-open'); search.focus(); });
-  search.addEventListener('blur', function () { if (!search.value) searchBox.classList.remove('is-open'); });
-  search.addEventListener('input', function () {
-    query = search.value.trim().toLowerCase();
-    if (query && active !== 'all') setCategory('all', true); else render();
-  });
-  window.addEventListener('resize', moveInk);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveInk);
-
-  setCategory((location.hash || '').slice(1) || 'all', false);
-  window.addEventListener('hashchange', function () { setCategory((location.hash || '').slice(1) || 'all', false); });
-
-  // ---------- Automatic: every website folder in the repository becomes a card ----------
-  // Upload a folder that has an index.html inside and it appears here — no need to touch
-  // this file or sites.js. Optional, inside that website's own <head>:
-  //   <meta name="gallery-title" content="My Site">            (otherwise its <title> is used)
-  //   <meta name="gallery-category" content="3D, Landing Page"> (otherwise "Website")
-  //   <meta name="gallery-hide" content="true">                 (keep a folder out of the gallery)
-  // Thumbnail: put thumbs/<folder-name>.webp (or .jpg / .png) — otherwise the live site is the preview.
-  // A folder listed in sites.js keeps the details written there.
-  var SKIP = ['thumbs', 'assets', 'images', 'img', 'css', 'js', 'fonts', 'node_modules'];
-  var CACHE_MIN = 3; // how long a visitor's browser reuses the folder list before asking GitHub again
-  function repoFromLocation() {
-    if (window.GALLERY_REPO) return window.GALLERY_REPO;
-    var host = location.hostname.match(/^([^.]+)\.github\.io$/i);
-    if (!host) return null;
-    var first = location.pathname.split('/').filter(Boolean)[0];
-    // A project site lives at user.github.io/<repo>/; a user site is the repo user.github.io itself.
-    return host[1] + '/' + (first && !/\.html?$/i.test(first) ? first : host[1] + '.github.io');
-  }
-  function cached(key, maxAgeMin, loader) {
-    try {
-      var hit = JSON.parse(localStorage.getItem(key) || 'null');
-      if (hit && Date.now() - hit.t < maxAgeMin * 6e4) return Promise.resolve(hit.v);
-    } catch (e) {}
-    return loader().then(function (v) {
-      try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), v: v })); } catch (e) {}
-      return v;
-    });
-  }
-  function getJSON(url) {
-    return fetch(url, { headers: { Accept: 'application/vnd.github+json' } }).then(function (r) {
-      if (!r.ok) throw new Error(r.status);
-      return r.json();
-    });
-  }
-  var folderOf = function (u) { return String(u || '').replace(/^\.\//, '').replace(/\/?(index\.html?)?$/i, '').toLowerCase(); };
-  var pretty = function (name) { return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); }); };
-
-  function readSite(dir, thumbs, date) {
-    return fetch(dir + '/', { cache: 'no-cache' }).then(function (r) {
-      if (!r.ok) return null; // no index.html: not a website
-      return r.text().then(function (html) {
-        var doc = new DOMParser().parseFromString(html, 'text/html');
-        var meta = function (n) { var m = doc.querySelector('meta[name="' + n + '"]'); return m ? m.getAttribute('content').trim() : ''; };
-        if (/^(true|yes|1)$/i.test(meta('gallery-hide'))) return null;
-        var title = meta('gallery-title') || (doc.title || '').split(/\s+[—–|-]\s+|\s*[|·]\s*/)[0].trim() || pretty(dir);
-        var cats = (meta('gallery-category') || 'Website').split(',').map(function (c) { return c.trim(); }).filter(Boolean);
-        var thumb = thumbs[dir.toLowerCase()];
-        return { title: title, url: dir + '/', thumb: thumb ? 'thumbs/' + thumb : '', categories: cats, added: date || '', auto: true };
-      });
-    }).catch(function (err) {
-      if (window.console) console.warn('Gallery: could not read ' + dir + '/index.html', err);
-      return null;
-    });
-  }
-
-  function discover() {
-    var repo = repoFromLocation();
-    if (!repo || !window.fetch || !window.DOMParser) return;
-    var api = 'https://api.github.com/repos/' + repo;
-    var known = {};
-    sites.forEach(function (s) { if (!isExternal(s.url)) known[folderOf(s.url)] = true; });
-
-    cached('gallery-tree:' + repo, CACHE_MIN, function () {
-      // One request for the whole repository: every folder plus the files in thumbs/.
-      return getJSON(api).then(function (info) {
-        return getJSON(api + '/git/trees/' + encodeURIComponent(info.default_branch || 'main') + '?recursive=1');
-      }).then(function (tree) {
-        var dirs = [], thumbs = {};
-        (tree.tree || []).forEach(function (n) {
-          if (n.type === 'tree' && n.path.indexOf('/') === -1) dirs.push(n.path);
-          var m = n.type === 'blob' && n.path.match(/^thumbs\/(([^/]+)\.(webp|jpe?g|png|avif))$/i);
-          if (m) thumbs[m[2].toLowerCase()] = m[1];
-          if (n.type === 'blob' && /^[^/]+\/index\.html?$/i.test(n.path)) dirs.push('#' + n.path.split('/')[0]);
-        });
-        // Keep only top-level folders that contain an index.html
-        var withIndex = {};
-        dirs.forEach(function (d) { if (d[0] === '#') withIndex[d.slice(1)] = true; });
-        dirs = dirs.filter(function (d) { return d[0] !== '#' && withIndex[d]; });
-        return { dirs: dirs, thumbs: thumbs };
-      });
-    }).then(function (data) {
-      var fresh = data.dirs.filter(function (d) {
-        return !known[d.toLowerCase()] && d[0] !== '.' && d[0] !== '_' && SKIP.indexOf(d.toLowerCase()) === -1;
-      });
-      if (!fresh.length) return;
-      // When each folder was last uploaded, for "newest first" and the New badge.
-      return Promise.all(fresh.map(function (d) {
-        return cached('gallery-date:' + repo + ':' + d, 60 * 12, function () {
-          return getJSON(api + '/commits?per_page=1&path=' + encodeURIComponent(d)).then(function (c) {
-            return c[0] && c[0].commit && c[0].commit.committer ? c[0].commit.committer.date : '';
+  // ---------- Split headings into letters (wrapped per word so lines break naturally) ----------
+  document.querySelectorAll('[data-split]').forEach(function (el) {
+    var walk = function (node) {
+      [].slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var w = document.createElement('span'); w.className = 'w';
+            part.split('').forEach(function (ch) { var c = document.createElement('span'); c.className = 'c'; c.textContent = ch; w.appendChild(c); });
+            frag.appendChild(w);
           });
-        }).catch(function () { return ''; }).then(function (date) { return readSite(d, data.thumbs, date); });
-      })).then(function (found) {
-        found = found.filter(Boolean);
-        if (!found.length) return;
-        sites = sites.concat(found);
-        buildTabs();
-        setCategory(active, false);
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) { walk(n); }
       });
-    }).catch(function (err) {
-      // GitHub unreachable or rate-limited: the sites.js list alone still shows.
-      if (window.console) console.warn('Gallery: could not list the repository folders', err);
+    };
+    el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+    walk(el);
+  });
+
+  // ---------- Statement: split into words that light up with scroll ----------
+  var statement = document.getElementById('statement');
+  var highlight = ['Seven', 'championships.', 'wins', 'pole', 'positions'];
+  statement.innerHTML = statement.textContent.trim().split(/\s+/).map(function (w) {
+    return '<span class="word' + (highlight.indexOf(w) > -1 ? ' hl' : '') + '">' + w + '</span>';
+  }).join(' ');
+  var words = [].slice.call(statement.querySelectorAll('.word'));
+
+  // ---------- Hero warp-speed canvas ----------
+  var canvas = document.getElementById('warp'), ctx = canvas.getContext('2d');
+  var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2), stars = [], speed = 1, heroVisible = true;
+  function sizeCanvas() {
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    var n = Math.round(Math.min(520, W * H / 2600));
+    stars = []; for (var i = 0; i < n; i++) stars.push(newStar(true));
+  }
+  function newStar(any) {
+    return { x: (Math.random() - .5) * W * 2, y: (Math.random() - .5) * H * 2, z: any ? Math.random() * W : W, hot: Math.random() < .12 };
+  }
+  function frame() {
+    if (heroVisible) {
+      ctx.fillStyle = 'rgba(5,5,5,.38)'; ctx.fillRect(0, 0, W, H);
+      var cx = W / 2, cy = H * .55;
+      for (var i = 0; i < stars.length; i++) {
+        var s = stars[i], pz = s.z;
+        s.z -= (6 + speed * 14);
+        if (s.z <= 1) { stars[i] = newStar(false); continue; }
+        var k = 260 / s.z, pk = 260 / pz;
+        var x = cx + s.x * k / 2, y = cy + s.y * k / 2, px = cx + s.x * pk / 2, py = cy + s.y * pk / 2;
+        if (x < -50 || x > W + 50 || y < -50 || y > H + 50) { stars[i] = newStar(false); continue; }
+        var a = Math.min(1, (W - s.z) / W + .1);
+        ctx.strokeStyle = s.hot ? 'rgba(255,212,0,' + a + ')' : 'rgba(255,255,255,' + a * .7 + ')';
+        ctx.lineWidth = Math.max(.6, k * .9);
+        ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x, y); ctx.stroke();
+      }
+    }
+    if (!reduced) requestAnimationFrame(frame);
+  }
+  sizeCanvas(); window.addEventListener('resize', sizeCanvas);
+  if (reduced) { speed = 0; frame(); } else requestAnimationFrame(frame);
+
+  // ---------- Loader ----------
+  var loader = document.getElementById('loader'), fill = document.getElementById('loadFill'), pct = document.getElementById('loadPct');
+  var p = 0, started = Date.now();
+  function tick() {
+    var ready = document.readyState === 'complete' && (!document.fonts || document.fonts.status === 'loaded');
+    p = Math.min(ready ? 100 : 92, p + (ready ? 6 : 2.2));
+    fill.style.clipPath = 'inset(' + (100 - p) + '% 0 0 0)';
+    pct.textContent = String(Math.round(p)).padStart(3, '0');
+    if (p >= 100 && Date.now() - started > 900) { loader.classList.add('done'); intro(); return; }
+    setTimeout(tick, 40);
+  }
+  if (reduced) { loader.classList.add('done'); } else tick();
+
+  // Without GSAP (blocked CDN) or with reduced motion the page simply shows everything.
+  if (!hasGsap || reduced) {
+    words.forEach(function (w) { w.classList.add('on'); });
+    document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = el.dataset.count; });
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ---------- Smooth scroll (Lenis) driving ScrollTrigger ----------
+  var lenis = null;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: .09, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href'); if (id.length < 2) return;
+        var t = document.querySelector(id); if (!t) return;
+        e.preventDefault(); lenis.scrollTo(t, { offset: -60 });
+      });
     });
   }
-  discover();
+
+  // ---------- Hero intro (runs when the loader lifts) ----------
+  gsap.set('.hero h1 .c', { yPercent: 110 });
+  gsap.set('[data-hero]', { opacity: 0, y: 20 });
+  gsap.set('.hero-num', { opacity: 0, scale: 1.15 });
+  function intro() {
+    gsap.timeline()
+      .to('.hero-num', { opacity: 1, scale: 1, duration: 1.8, ease: 'expo.out' }, 0)
+      .to('.hero h1 .c', { yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: .035 }, .15)
+      .to('[data-hero]', { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .12 }, .6);
+    gsap.fromTo({ v: 6 }, { v: 6 }, { v: 1, duration: 2.2, ease: 'power3.out', onUpdate: function () { speed = this.targets()[0].v; } });
+  }
+  // Hero parallax + warp speed-up while scrolling away
+  gsap.to('.hero-copy', { yPercent: -30, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.to('.hero-num', { scale: 1.35, opacity: .2, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  ScrollTrigger.create({ trigger: '.hero', start: 'top top', end: 'bottom top',
+    onUpdate: function (s) { if (s.isActive) speed = 1 + s.progress * 5; },
+    onToggle: function (s) { heroVisible = s.isActive || s.progress < 1; } });
+  ScrollTrigger.create({ start: 80, onToggle: function (s) { document.getElementById('nav').classList.toggle('solid', s.isActive); } });
+
+  // ---------- Letter reveals for section headings ----------
+  gsap.utils.toArray('[data-split]').forEach(function (el) {
+    if (el.closest('.hero')) return;
+    gsap.from(el.querySelectorAll('.c'), { yPercent: 110, duration: 1, ease: 'expo.out', stagger: .025,
+      scrollTrigger: { trigger: el, start: 'top 85%' } });
+  });
+
+  // ---------- Generic fade-up reveals ----------
+  gsap.utils.toArray('.rv').forEach(function (el) {
+    gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+  });
+
+  // ---------- Statement words light up as you read ----------
+  ScrollTrigger.create({ trigger: statement, start: 'top 75%', end: 'bottom 45%', scrub: true,
+    onUpdate: function (s) {
+      var lit = Math.round(s.progress * words.length);
+      words.forEach(function (w, i) { w.classList.toggle('on', i < lit); });
+    } });
+
+  // ---------- Count-up stats ----------
+  document.querySelectorAll('[data-count]').forEach(function (el) {
+    var end = Number(el.dataset.count), from = end > 1000 ? 1985 : 0, o = { v: from };
+    gsap.to(o, { v: end, duration: 2, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%' },
+      onUpdate: function () { el.textContent = Math.round(o.v); } });
+  });
+
+  // ---------- Career: pinned horizontal scroll on wide screens ----------
+  ScrollTrigger.matchMedia({
+    '(min-width: 901px)': function () {
+      var track = document.getElementById('track');
+      var dist = function () { return Math.max(0, track.scrollWidth - window.innerWidth); };
+      gsap.to(track, { x: function () { return -dist(); }, ease: 'none',
+        scrollTrigger: { trigger: '#career', start: 'top top', end: function () { return '+=' + dist(); }, pin: true, scrub: .8, invalidateOnRefresh: true,
+          onUpdate: function (s) { document.getElementById('trackProgress').style.width = (s.progress * 100) + '%'; } } });
+    },
+    '(max-width: 900px)': function () {
+      gsap.utils.toArray('.chap').forEach(function (c) {
+        gsap.from(c, { y: 50, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: c, start: 'top 88%' } });
+      });
+    }
+  });
+
+  // ---------- Circuits slider: arrows + drag/swipe ----------
+  var slider = document.getElementById('slider'), slides = document.getElementById('slides');
+  var items = [].slice.call(slides.children), index = 0;
+  var stepW = function () { return items[0].getBoundingClientRect().width + 18; };
+  var maxIndex = function () {
+    var visible = Math.max(1, Math.floor((slider.clientWidth - 40) / stepW()));
+    return Math.max(0, items.length - visible);
+  };
+  function go(i) {
+    index = Math.max(0, Math.min(maxIndex(), i));
+    slides.style.transform = 'translateX(' + (-index * stepW()) + 'px)';
+    document.getElementById('prev').disabled = index === 0;
+    document.getElementById('next').disabled = index === maxIndex();
+  }
+  document.getElementById('prev').addEventListener('click', function () { go(index - 1); });
+  document.getElementById('next').addEventListener('click', function () { go(index + 1); });
+  var startX = null, dx = 0;
+  slider.addEventListener('pointerdown', function (e) { startX = e.clientX; dx = 0; slider.classList.add('dragging'); slider.setPointerCapture(e.pointerId); });
+  slider.addEventListener('pointermove', function (e) {
+    if (startX === null) return;
+    dx = e.clientX - startX;
+    slides.style.transform = 'translateX(' + (-index * stepW() + dx) + 'px)';
+  });
+  var end = function () {
+    if (startX === null) return;
+    startX = null; slider.classList.remove('dragging');
+    go(index + (dx < -50 ? 1 : dx > 50 ? -1 : 0));
+  };
+  slider.addEventListener('pointerup', end); slider.addEventListener('pointercancel', end);
+  window.addEventListener('resize', function () { go(index); });
+  go(0);
+  gsap.from('.slide', { x: 80, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: .08, scrollTrigger: { trigger: '#slider', start: 'top 85%' } });
+
+  // Re-measure once fonts settle (heading widths change the pinned distance)
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
 })();
 </script>
 </body>
