@@ -3,573 +3,1641 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sameer Saifi — Websites I've Built</title>
-<meta name="description" content="A growing gallery of live websites designed and developed by Sameer Saifi, Shopify developer and website developer.">
+<title>Sameer Saifi — Web Developer &amp; CRO Expert</title>
+<meta name="description" content="Sameer Saifi — Shopify developer and CRO expert building fast, premium, high-converting stores and immersive websites.">
 <meta name="theme-color" content="#000000">
+<!-- ADDED: link previews on WhatsApp / LinkedIn / Instagram DMs -->
+<link rel="canonical" href="https://sameersaifi07.github.io/Animated-portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sameer Saifi — Shopify Developer &amp; CRO Expert">
+<meta property="og:description" content="Fast, premium Shopify stores for Indian D2C brands. Custom builds, conversion fixes and 3D web experiences.">
+<meta property="og:url" content="https://sameersaifi07.github.io/Animated-portfolio/">
+<meta property="og:image" content="https://sameersaifi07.github.io/Animated-portfolio/billboard.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sameer Saifi — Shopify Developer &amp; CRO Expert">
+<meta name="twitter:description" content="Fast, premium Shopify stores for Indian D2C brands. Custom builds, conversion fixes and 3D web experiences.">
+<meta name="twitter:image" content="https://sameersaifi07.github.io/Animated-portfolio/billboard.webp">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Sameer Saifi","jobTitle":"Shopify Developer & CRO Expert","url":"https://sameersaifi07.github.io/Animated-portfolio/","image":"https://sameersaifi07.github.io/Animated-portfolio/portrait.webp","email":"mailto:samsaifi2526@gmail.com","knowsAbout":["Shopify","Conversion rate optimisation","Web design","3D websites"],"address":{"@type":"PostalAddress","addressCountry":"IN"}}
+</script>
+<meta name="gallery-title" content="Sameer Saifi — Portfolio">
+<meta name="gallery-category" content="Portfolio, Interactive">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
-<meta property="og:title" content="Sameer Saifi — Websites I've Built">
-<meta property="og:description" content="Live websites designed and developed by Sameer Saifi.">
-<meta property="og:image" content="thumbs/planet-jumping.jpg">
+<script>if (!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) document.documentElement.classList.add('js-wow');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: black & white. Logo bar → "Show Work" title row with live count → underline tabs + expanding search → grid of live previews. */
+/* Colours taken from sameersaifi07.github.io: black, near-black cards, soft greys,
+   the white-to-silver name gradient, the dark-grey hero glow and the green "available" dot. */
 :root {
   --bg: #000;
-  --panel: #0B0B0B;
-  --line: #1E1E1E;
-  --line-strong: #333;
+  --card: #0A0A0A;
+  --card-2: #111;
+  --card-3: #161616;
+  --line: #1A1A1A;
+  --line-2: #262626;
+  --line-3: #333;
   --text: #FFF;
-  --soft: #BDBDBD;
-  --muted: #7A7A7A;
-  --font: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --soft: #B5B5B5;
+  --muted: #8C8C8C;
+  --green: #22C55E;
+  --glow: #3E4142;
+  --silver: linear-gradient(180deg, #FFFFFF 30%, #9A9A9A 100%);
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --pad: clamp(18px, 4vw, 56px);
   color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; overflow-x: clip; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+body.locked { overflow: hidden; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 10px; }
-.wrap { max-width: 1680px; margin-inline: auto; padding-inline: clamp(16px, 3vw, 40px); }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+img { display: block; max-width: 100%; }
+:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 6px; }
+::selection { background: #fff; color: #000; }
+em.serif, .serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+.silver { background: var(--silver); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* Animated words carry their own gradient (a clipped parent can't paint moving children in Chrome) */
+.silver.words { background: none; color: #fff; }
+.silver.words .w > span { background: var(--silver); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.mono { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.mono b { color: #fff; font-weight: 500; }
 
-/* ---------- Logo bar ---------- */
-.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; border-bottom: 1px solid var(--line); }
-.brand { display: inline-flex; align-items: center; gap: 12px; }
-.brand img { width: 34px; height: auto; display: block; }
-.brand b { font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; }
-.brand span { color: var(--muted); font-size: .85rem; font-weight: 500; padding-left: 12px; margin-left: 2px; border-left: 1px solid var(--line-strong); }
-.credit { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-strong);
-  font-size: .8rem; color: var(--soft); white-space: nowrap; }
-.credit i { width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px #fff; animation: pulse 2.4s ease-in-out infinite; }
-.credit strong { color: #fff; font-weight: 600; }
+/* Buttons: white primary, glass secondary; magnetic on desktop; a sheen passes on hover */
+.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 0;
+  font-weight: 500; font-size: .96rem; cursor: pointer; overflow: hidden; isolation: isolate; transition: transform .35s var(--ease), background-color .25s, box-shadow .3s, color .25s; }
+.btn::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%); transform: translateX(-120%); }
+.btn:hover::after { transform: translateX(120%); transition: transform .8s var(--ease); }
+.btn-white { background: #fff; color: #000; }
+.btn-white:hover { box-shadow: 0 12px 34px -10px rgba(255,255,255,.35); }
+.btn-glass { background: rgba(255,255,255,.08); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.btn-glass:hover { background: rgba(255,255,255,.14); }
+.btn-dark { background: #000; color: #fff; box-shadow: inset 0 0 0 1px var(--line-3); }
+.btn-dark:hover { box-shadow: inset 0 0 0 1px #fff; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #141414; border: 1px solid var(--line-2); font-size: .74rem; color: var(--soft); white-space: nowrap; }
+.gdot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 2.2s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: .35; } }
-@media (max-width: 600px) { .brand span { display: none; } .credit { font-size: .72rem; padding: 7px 11px; } }
 
-/* ---------- Title row ---------- */
-.head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 40px; padding-block: clamp(40px, 7vw, 88px) clamp(28px, 4vw, 44px); }
-.chip { display: inline-block; padding: 6px 12px; border-radius: 999px; background: #111; border: 1px solid var(--line-strong); font-size: .72rem; font-weight: 600; margin-bottom: 18px; }
-h1 { margin: 0; font-size: clamp(2.4rem, 7vw, 5.6rem); font-weight: 500; line-height: .98; letter-spacing: -.045em; }
-h1 em { font-style: normal; color: var(--muted); }
-.tally { display: flex; align-items: baseline; gap: 12px; }
-.tally b { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 300; letter-spacing: -.04em; font-variant-numeric: tabular-nums; line-height: 1; }
-.tally span { color: var(--muted); font-size: .9rem; line-height: 1.35; }
+/* Scroll reveals; headings rise word by word */
+.rv { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.rv.in { opacity: 1; transform: none; }
+.words .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .06em; }
+.words .w > span { display: inline-block; transform: translateY(105%); transition: transform .9s var(--ease); transition-delay: calc(var(--i) * 45ms); }
+.words.in .w > span { transform: none; }
 
-/* ---------- Tabs + search ---------- */
-.tabsbar { position: sticky; top: 0; z-index: 10; background: rgba(0, 0, 0, .82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
-.tabsrow { display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--line); }
-.tabs { position: relative; flex: 1; min-width: 0; display: flex; gap: clamp(18px, 2.4vw, 34px); overflow-x: auto; scrollbar-width: none; }
-.tabs::-webkit-scrollbar { display: none; }
-.tab { flex: none; position: relative; padding: 18px 0 16px; border: 0; background: none; color: var(--muted); font-size: .95rem; font-weight: 500;
-  cursor: pointer; white-space: nowrap; transition: color .2s; }
-.tab:hover, .tab[aria-pressed="true"] { color: #fff; }
-.tab sup { font-size: .62rem; font-weight: 600; margin-left: 3px; color: var(--muted); vertical-align: 6px; }
-.tab[aria-pressed="true"] sup { color: var(--soft); }
-.ink { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: #fff; border-radius: 2px;
-  transition: transform .45s cubic-bezier(.22, 1, .36, 1), width .45s cubic-bezier(.22, 1, .36, 1); }
+/* Scroll progress + custom cursor */
+.progress { position: fixed; z-index: 90; left: 0; top: 0; height: 2px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, #6B6B6B, #fff); }
+.cursor { position: fixed; z-index: 300; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 1px solid rgba(255,255,255,.6);
+  pointer-events: none; display: grid; place-items: center; transition: width .35s var(--ease), height .35s var(--ease), margin .35s var(--ease), background-color .3s, border-color .3s, opacity .3s;
+  mix-blend-mode: normal; opacity: 0; }
+.cursor span { font-size: .72rem; font-weight: 600; color: #000; opacity: 0; transition: opacity .2s; }
+.cursor.on { opacity: 1; }
+.cursor.view { width: 84px; height: 84px; margin: -42px 0 0 -42px; background: #fff; border-color: #fff; }
+.cursor.view span { opacity: 1; }
+.cursor.press { width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
 
-.search { flex: none; display: flex; align-items: center; height: 40px; border-radius: 999px; border: 1px solid var(--line-strong);
-  width: 40px; overflow: hidden; transition: width .35s cubic-bezier(.22, 1, .36, 1), border-color .2s; }
-.search.is-open, .search:focus-within { width: min(260px, 52vw); border-color: #555; }
-.search button { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border: 0; background: none; cursor: pointer; color: var(--soft); }
-.search input { flex: 1; min-width: 0; height: 100%; border: 0; background: none; color: #fff; font: 500 .9rem var(--font); padding-right: 14px; }
-.search input:focus { outline: none; }
-.search input::placeholder { color: var(--muted); }
+/* ===================== INTRO ===================== */
+.intro { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; background: radial-gradient(70% 60% at 50% 40%, #1F2021, #000 70%); transition: opacity .8s var(--ease), visibility .8s; }
+.intro.gone { opacity: 0; visibility: hidden; }
+.in-stage { display: grid; justify-items: center; gap: 16px; text-align: center; padding: 0 20px; }
+.in-logo { width: 70px; opacity: 0; animation: inLogo 1.4s var(--ease) .2s forwards; }
+@keyframes inLogo { from { opacity: 0; transform: scale(.7) rotate(-20deg); } to { opacity: 1; transform: none; } }
+.in-name { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 .25em; font-size: clamp(60px, 12vw, 170px); line-height: .95; letter-spacing: -.03em; }
+.in-name .w { display: inline-block; overflow: hidden; padding-bottom: .05em; }
+.in-name .w > span { display: inline-block; transform: translateY(105%); animation: rise 1.1s var(--ease) forwards; }
+.in-name .first { animation-delay: .7s !important; } .in-name .last { font-weight: 600; animation-delay: .85s !important; }
+@keyframes rise { to { transform: none; } }
+.in-line { width: 0; height: 1px; background: linear-gradient(90deg, transparent, #fff, transparent); animation: line 1.2s var(--ease) 1.5s forwards; }
+@keyframes line { to { width: min(440px, 70vw); } }
+.in-sub { color: var(--soft); font-size: .82rem; letter-spacing: .5em; padding-left: .5em; text-transform: uppercase; opacity: 0; animation: fade 1s ease 1.9s forwards; }
+@keyframes fade { to { opacity: 1; } }
+.in-enter { margin-top: 22px; opacity: 0; animation: fade .8s ease 2.4s forwards; }
+.in-skip { position: absolute; right: 22px; bottom: 22px; background: none; border: 0; color: var(--muted); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; }
+.in-skip:hover { color: #fff; }
 
-/* ---------- Grid of live previews ---------- */
-.grid { list-style: none; margin: 0; padding: clamp(24px, 3vw, 36px) 0 0; display: grid; gap: clamp(30px, 3.4vw, 48px) clamp(14px, 1.6vw, 24px);
-  grid-template-columns: repeat(3, minmax(0, 1fr)); }
-@media (min-width: 1500px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+/* ===================== VISITOR TYPE ===================== */
+.who { position: fixed; inset: 0; z-index: 150; display: grid; place-items: center; background: radial-gradient(60% 60% at 50% 30%, #161717, #000 70%); opacity: 0; visibility: hidden; transition: opacity .6s var(--ease), visibility .6s; }
+.who.open { opacity: 1; visibility: visible; }
+.who-in { text-align: center; padding: 30px 20px; }
+.who h2 { margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 500; letter-spacing: -.03em; }
+.who p { margin: 12px 0 0; color: var(--muted); }
+.profiles { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(14px, 3vw, 30px); margin-top: 42px; }
+.profile { width: clamp(150px, 18vw, 210px); padding: 26px 18px; border-radius: 18px; background: var(--card); border: 1px solid var(--line-2); cursor: pointer; display: grid; justify-items: center; gap: 12px;
+  transition: transform .45s var(--ease), border-color .3s, background-color .3s; }
+.profile:hover, .profile:focus-visible { transform: translateY(-8px); border-color: #fff; background: var(--card-2); }
+.profile .ava { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, #fff, #9A9A9A); color: #000; transition: transform .45s var(--ease); }
+.profile:hover .ava { transform: rotate(-8deg) scale(1.08); }
+.profile .ava svg { width: 28px; height: 28px; }
+.profile b { font-size: 1.05rem; font-weight: 600; }
+.profile small { color: var(--muted); font-size: .8rem; }
 
-.card { display: grid; gap: 14px; animation: rise .6s cubic-bezier(.22, 1, .36, 1) both; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-.frame { position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden; background: var(--panel); border: 1px solid var(--line);
-  isolation: isolate; transition: border-color .3s; }
-.card:hover .frame { border-color: #444; }
-.frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
-.card:hover .frame img { transform: scale(1.03); }
-/* Shown for a website with no thumbnail until its live preview fades in */
-.ph-title { position: absolute; inset: 0; display: grid; place-items: center; padding: 0 12%; text-align: center; color: #2E2E2E;
-  font-size: clamp(1.4rem, 3vw, 2.6rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.05;
-  background: radial-gradient(120% 90% at 50% 0%, #161616, #0B0B0B 70%); }
-/* The live website, rendered at desktop size and scaled to the card */
-.frame iframe { position: absolute; left: 0; top: 0; width: 1280px; height: 800px; border: 0; transform-origin: 0 0;
-  transform: scale(var(--s, .3)); pointer-events: none; opacity: 0; transition: opacity .8s ease; background: #000; }
-.frame.is-live iframe { opacity: 1; }
-.cover { position: absolute; inset: 0; z-index: 3; border-radius: inherit; }
-.flag { position: absolute; z-index: 2; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px;
-  background: rgba(0, 0, 0, .7); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, .18);
-  font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-.flag.new { background: #fff; color: #000; border-color: #fff; }
-.live-dot { position: absolute; z-index: 2; right: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px;
-  background: rgba(0, 0, 0, .7); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: .68rem; font-weight: 600; letter-spacing: .06em;
-  text-transform: uppercase; opacity: 0; transition: opacity .4s; }
-.live-dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: pulse 1.6s ease-in-out infinite; }
-.frame.is-live .live-dot { opacity: 1; }
+/* ===================== NAV ===================== */
+.nav { position: fixed; z-index: 60; top: 0; left: 0; right: 0; transition: transform .45s var(--ease), background-color .4s; }
+.nav.solid { background: rgba(0, 0, 0, .78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.nav.hide { transform: translateY(-100%); }
+.nav-in { display: flex; align-items: center; gap: 26px; height: 72px; padding-inline: var(--pad); }
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand span { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; background: #1B1B1B; border: 1px solid #2A2A2A; transition: transform .5s var(--ease); }
+.brand:hover span { transform: rotate(-12deg) scale(1.06); }
+.brand img { width: 24px; }
+.links { display: flex; gap: 6px; }
+.links a { padding: 8px 14px; border-radius: 999px; font-size: .9rem; color: var(--soft); transition: background-color .25s, color .25s; }
+.links a:hover { background: #1C1C1C; color: #fff; }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.nav .btn { min-height: 40px; padding: 0 18px; font-size: .88rem; }
+.who-btn { display: inline-flex; align-items: center; gap: 8px; padding: 0 12px 0 4px; height: 40px; border-radius: 999px; border: 1px solid var(--line-2); background: none; cursor: pointer; color: var(--soft); font-size: .84rem; }
+.who-btn i { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, #fff, #9A9A9A); color: #000; font-style: normal; font-weight: 700; font-size: .78rem; }
+.burger { display: none; width: 42px; height: 42px; background: none; border: 0; cursor: pointer; place-items: center; }
+.burger span, .burger span::before, .burger span::after { display: block; width: 22px; height: 2px; background: #fff; position: relative; transition: transform .3s var(--ease), background-color .2s; }
+.burger span::before, .burger span::after { content: ""; position: absolute; left: 0; }
+.burger span::before { top: -7px; } .burger span::after { top: 7px; }
+.menu-open .burger span { background: transparent; }
+.menu-open .burger span::before { transform: translateY(7px) rotate(45deg); }
+.menu-open .burger span::after { transform: translateY(-7px) rotate(-45deg); }
+.mmenu { position: fixed; z-index: 59; top: 110px; left: 0; right: 0; bottom: 0; background: #000; padding: 10px var(--pad) 30px; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility .3s; }
+.menu-open .mmenu { opacity: 1; visibility: visible; }
+.mmenu a { display: flex; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 1.6rem; font-weight: 500; }
+.mmenu a::after { content: "→"; color: var(--muted); }
 
-.meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding-inline: 2px; }
-.meta h2 { margin: 0; font-size: clamp(1.05rem, 1.4vw, 1.25rem); font-weight: 600; letter-spacing: -.01em; }
-.tags { margin: 5px 0 0; color: var(--muted); font-size: .88rem; }
-.tags button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
-.tags button:hover { color: #fff; }
-.go { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--line-strong); color: var(--soft);
-  transition: background-color .25s, color .25s, border-color .25s, transform .25s; }
-.card:hover .go { background: #fff; color: #000; border-color: #fff; transform: rotate(-45deg); }
+/* Skills ticker */
+.ticker { overflow: hidden; border-block: 1px solid #141414; background: rgba(5, 5, 5, .85); }
+.ticker-row { display: flex; width: max-content; animation: slide 45s linear infinite; }
+.ticker span { display: inline-flex; align-items: center; gap: 22px; padding: 10px 22px 10px 0; font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: #8C8C8C; white-space: nowrap; }
+.ticker span::after { content: "✦"; color: #444; font-size: .8em; }
+@keyframes slide { to { transform: translateX(-50%); } }
 
-.empty { padding: 90px 0; text-align: center; color: var(--muted); }
-.empty strong { display: block; color: #fff; font-weight: 600; font-size: 1.15rem; margin-bottom: 6px; }
+/* ===================== HERO ===================== */
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; align-items: center; overflow: hidden; padding: 140px var(--pad) 90px;
+  background: radial-gradient(70% 70% at 70% 35%, #2C2E2F 0%, #141516 40%, #000 75%); }
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background: repeating-linear-gradient(115deg, transparent 0 80px, rgba(255,255,255,.025) 80px 81px); }
+.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(30px, 5vw, 80px); align-items: center; max-width: 1320px; width: 100%; margin-inline: auto; }
+.avail { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid var(--line-2); font-size: .85rem; color: var(--soft); }
+.hero h1 { margin: 22px 0 0; font-size: clamp(64px, 9.5vw, 150px); line-height: .9; letter-spacing: -.04em; font-weight: 600; }
+.hero h1 .serif { font-weight: 400; padding-right: .06em; }
+.hero .role { margin: 18px 0 0; font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 500; letter-spacing: -.02em; }
+.hero .role span { color: var(--muted); }
+.hero .lead { margin: 18px 0 0; max-width: 520px; color: var(--soft); font-size: clamp(1rem, 1.25vw, 1.12rem); line-height: 1.6; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-mini { display: flex; flex-wrap: wrap; gap: 22px 30px; margin-top: 36px; }
+.hero-mini div b { display: block; font-size: 1.7rem; font-weight: 600; letter-spacing: -.03em; }
+.hero-mini div span { color: var(--muted); font-size: .82rem; }
 
-footer { margin-top: clamp(64px, 9vw, 110px); padding-block: 26px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem;
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
-footer .brand img { width: 24px; }
-footer .brand b { font-size: .9rem; color: #fff; }
+/* Tilted portrait card with badge and floating panels (same look as the Framer Motion site) */
+/* While you scroll past the hero the card drifts down and turns from -4° through straight to +6°, like the Framer Motion site */
+.photo-wrap { position: relative; justify-self: center; width: min(430px, 82vw); perspective: 1100px; translate: 0 var(--cy, 0px); }
+/* The text side rises and fades as you scroll away from the hero */
+.hero-copy { translate: 0 var(--hy, 0px); opacity: var(--ho, 1); }
+.photo { position: relative; aspect-ratio: 4 / 5; border-radius: 22px; padding: 12px; background: linear-gradient(160deg, #2A2A2A, #0E0E0E); border: 1px solid #333;
+  transform: rotate(var(--rot, -4deg)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d; transition: transform .6s var(--ease);
+  box-shadow: 0 50px 90px -40px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.04), 0 30px 120px -40px rgba(255,255,255,.12); animation: float 7s ease-in-out infinite; }
+@keyframes float { 50% { translate: 0 -12px; } }
+.photo .frame { position: relative; height: 100%; border-radius: 14px; overflow: hidden; background: #1A1A1A; }
+.photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transform: scale(1.04); transition: transform 1.2s var(--ease); }
+.photo:hover img { transform: scale(1.1); }
+.photo .frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.25) 50%, transparent 65%); transform: translateX(-130%); animation: sheen 6s ease-in-out 2.5s infinite; }
+@keyframes sheen { 0%, 70% { transform: translateX(-130%); } 100% { transform: translateX(130%); } }
+.badge { position: absolute; z-index: 2; left: 26px; top: 26px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 6px; background: #fff; color: #000;
+  font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; }
+.badge::before { content: ""; position: absolute; left: -12px; top: 50%; width: 46px; height: 46px; margin-top: -23px; border-radius: 50%; border: 1px solid rgba(255,255,255,.5); animation: ring 2.6s ease-out infinite; }
+@keyframes ring { from { transform: scale(.6); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+.panel { position: absolute; z-index: 3; padding: 16px 18px; border-radius: 14px; background: rgba(10, 10, 10, .72); border: 1px solid rgba(255,255,255,.12);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 24px 50px -24px rgba(0,0,0,.9); animation: float 6s ease-in-out infinite; }
+.panel .mono { display: block; margin-bottom: 8px; color: #fff; }
+.panel p { margin: 0; color: var(--soft); font-size: .86rem; line-height: 1.5; }
+.panel.p1 { right: -44%; top: 34%; width: 290px; animation-delay: -2s; }
 
-/* ---------- Header icon buttons + category sheet (phone) ---------- */
-.icons { display: none; align-items: center; gap: 4px; }
-.icon-btn { width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; background: none; color: #fff; cursor: pointer; }
-.icon-btn:hover { background: #111; }
-.filter-btn { display: none; flex: none; width: 48px; height: 48px; place-items: center; border: 0; border-radius: 50%; background: #161616; color: #fff; cursor: pointer; }
+/* ===================== SECTIONS ===================== */
+.section { position: relative; isolation: isolate; padding-top: clamp(80px, 12vh, 130px); overflow-x: clip; }
+.head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 18px; padding-inline: var(--pad); }
+.head .mono { display: block; margin-bottom: 14px; }
+.head h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; letter-spacing: -.04em; line-height: 1; }
+.head h2 .serif { color: var(--soft); }
+.head p { margin: 14px 0 0; max-width: 520px; color: var(--muted); font-size: 1rem; line-height: 1.55; }
+.arrows { display: flex; gap: 8px; }
+.arrows button { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--card); cursor: pointer; display: grid; place-items: center; color: var(--soft); transition: background-color .25s, color .25s, border-color .25s; }
+.arrows button:hover { background: #fff; color: #000; border-color: #fff; }
+.rail { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--pad); padding: 30px var(--pad) 36px; scrollbar-width: none; }
+.rail::-webkit-scrollbar { display: none; }
 
-.sheet { position: fixed; inset: 0; z-index: 40; display: flex; align-items: flex-end; background: rgba(0, 0, 0, .6); opacity: 0; pointer-events: none; transition: opacity .3s; }
-.sheet.is-open { opacity: 1; pointer-events: auto; }
-.sheet-panel { width: 100%; max-height: 82vh; overflow-y: auto; padding: 10px 18px calc(22px + env(safe-area-inset-bottom, 0px)); border-radius: 22px 22px 0 0;
-  background: #0E0E0E; border-top: 1px solid var(--line-strong); transform: translateY(100%); transition: transform .4s cubic-bezier(.22, 1, .36, 1); }
-.sheet.is-open .sheet-panel { transform: none; }
-.sheet-handle { width: 40px; height: 4px; border-radius: 4px; background: #333; margin: 4px auto 16px; }
-.sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.sheet-head b { font-size: 1.05rem; font-weight: 600; }
-.sheet-list { display: grid; gap: 4px; margin-bottom: 18px; }
-.sheet-list button { display: flex; justify-content: space-between; align-items: center; min-height: 50px; padding: 0 14px; border: 0; border-radius: 12px;
-  background: none; color: var(--soft); font-size: 1rem; font-weight: 500; text-align: left; cursor: pointer; }
-.sheet-list button[aria-pressed="true"] { background: #1A1A1A; color: #fff; }
-.sheet-list small { color: var(--muted); font-variant-numeric: tabular-nums; }
+/* Project cards: original colours; on hover they pop up straight (no tilt), zoom, sheen, white glow */
+.card { position: relative; flex: none; width: clamp(270px, 28vw, 400px); scroll-snap-align: start; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; color: inherit;
+  transition: transform .5s var(--ease); }
+.card:hover, .card:focus-visible { transform: translateY(-12px) scale(1.02); }
+.card .art { position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden; background: var(--card-2); box-shadow: 0 0 0 1px var(--line-2); transition: box-shadow .45s var(--ease); }
+.card:hover .art, .card:focus-visible .art { box-shadow: 0 0 0 1px rgba(255,255,255,.7), 0 30px 60px -28px rgba(255,255,255,.22), 0 40px 70px -40px #000; }
+.card img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 1.1s var(--ease), object-position 5s ease; }
+.card:hover img, .card:focus-visible img { transform: scale(1.07); object-position: bottom; }
+.card .art::before { content: ""; position: absolute; z-index: 2; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.28) 50%, transparent 65%); transform: translateX(-130%); pointer-events: none; }
+.card:hover .art::before { transform: translateX(130%); transition: transform 1s var(--ease); }
+.card .art::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,.78)); opacity: 0; transition: opacity .4s; }
+.card:hover .art::after, .card:focus-visible .art::after { opacity: 1; }
+.card .ph { position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; text-align: center; font-size: 2rem; font-weight: 600; letter-spacing: -.03em; color: #3A3A3A;
+  background: radial-gradient(120% 100% at 50% 0%, #1E1E1E, #0B0B0B); }
+.card .tagnew { position: absolute; z-index: 3; left: 12px; top: 12px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border-radius: 999px; background: rgba(0,0,0,.65); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); font-size: .7rem; color: #fff; }
+.card .open { position: absolute; z-index: 3; left: 14px; right: 14px; bottom: 14px; display: flex; align-items: center; justify-content: space-between; opacity: 0; transform: translateY(12px); transition: opacity .35s var(--ease), transform .45s var(--ease); }
+.card:hover .open, .card:focus-visible .open { opacity: 1; transform: none; }
+.card .open b { font-size: .85rem; font-weight: 600; }
+.card .open i { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: #000; transition: transform .4s var(--ease); }
+.card:hover .open i { transform: rotate(-45deg); }
+.card h3 { margin: 16px 0 0; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600; letter-spacing: -.01em; }
+.card h3 small { color: var(--muted); font-weight: 400; font-size: .82rem; }
+.card .tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
 
-/* ---------- Phone layout (motionsites-style) ---------- */
+/* All websites banner */
+.allsites { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 28px; margin: 6px var(--pad) 0; padding: clamp(26px, 4vw, 46px); border-radius: 22px; overflow: hidden;
+  border: 1px solid var(--line-2); background: radial-gradient(90% 140% at 0% 0%, #2A2B2C, transparent 60%), var(--card); transition: border-color .3s, transform .6s var(--ease); }
+.allsites:hover { border-color: #fff; transform: translateY(-4px); }
+.allsites h3 { margin: 10px 0 0; font-size: clamp(2rem, 4.4vw, 3.6rem); font-weight: 600; letter-spacing: -.04em; line-height: 1; }
+.allsites h3 .serif { color: var(--soft); }
+.allsites p { margin: 12px 0 0; max-width: 540px; color: var(--soft); line-height: 1.55; }
+.allsites .btn { margin-top: 22px; }
+.allsites .stack { display: flex; padding-left: 50px; }
+.allsites .stack img { width: 130px; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 10px; border: 3px solid #0A0A0A; margin-left: -50px;
+  transform: rotate(var(--r)) translateY(0); transition: transform .6s var(--ease); box-shadow: 0 18px 34px -14px #000; }
+.allsites:hover .stack img { transform: rotate(0) translateY(-8px); }
+.allsites:hover .stack img:nth-child(2) { transition-delay: .05s; } .allsites:hover .stack img:nth-child(3) { transition-delay: .1s; } .allsites:hover .stack img:nth-child(4) { transition-delay: .15s; }
+
+/* Spotlight cards (services, steps, plans, FAQ): a soft light follows the cursor */
+.spot { position: relative; isolation: isolate; overflow: hidden; }
+.spot::before { content: ""; position: absolute; z-index: -1; inset: 0; opacity: 0; transition: opacity .35s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.09), transparent 60%); }
+.spot:hover::before { opacity: 1; }
+
+/* Services: 3D ring turning with scroll on wide screens */
+.ring-sec { height: 270vh; padding-top: 0; }
+.ring-pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-top: 80px; overflow: hidden; isolation: isolate; }
+.ring-stage { position: relative; height: 470px; perspective: 1500px; }
+.ring { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d; }
+.rc { position: absolute; width: 310px; height: 390px; margin: -195px 0 0 -155px; padding: 26px; border-radius: 20px; background: linear-gradient(160deg, #1A1A1A, #0A0A0A); border: 1px solid #2A2A2A;
+  display: flex; flex-direction: column; justify-content: space-between; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 34px 70px -34px #000; transition: border-color .3s, box-shadow .3s; }
+.rc.front { border-color: rgba(255,255,255,.75); box-shadow: 0 34px 80px -30px rgba(255,255,255,.18); }
+.rc .ico { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; background: #1C1C1C; border: 1px solid #2E2E2E; }
+.rc .ico svg { width: 26px; height: 26px; }
+.rc .no { font-family: var(--mono); font-size: .72rem; color: var(--muted); }
+.rc h3 { margin: 22px 0 0; font-size: 1.4rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.15; }
+.rc p { margin: 10px 0 0; color: var(--soft); font-size: .92rem; line-height: 1.5; }
+.rc .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.ring-hint { position: absolute; left: 0; right: 0; bottom: 6%; text-align: center; }
+
+/* Results */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 30px var(--pad) 0; border-block: 1px solid var(--line-2); }
+.stat { padding: clamp(26px, 3.5vw, 44px) clamp(12px, 2vw, 26px); text-align: center; transition: background-color .3s; }
+.stat:hover { background: #070707; }
+.stat + .stat { border-left: 1px solid var(--line-2); }
+.stat b { display: block; font-size: clamp(2.6rem, 5vw, 4.4rem); font-weight: 500; letter-spacing: -.05em; line-height: 1; }
+.stat span { display: block; margin-top: 10px; color: var(--muted); font-size: .9rem; }
+.logos { overflow: hidden; margin-top: 30px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); }
+.logos-row { display: flex; align-items: center; gap: 70px; width: max-content; animation: slide 30s linear infinite; }
+.logos:hover .logos-row { animation-play-state: paused; }
+.logos img { height: 30px; width: auto; opacity: .75; transition: opacity .3s, transform .3s; }
+.logos img:hover { opacity: 1; transform: scale(1.1); }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(26px, 5vw, 70px); align-items: center; margin: 30px var(--pad) 0; }
+.about-img { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 16 / 11; background: var(--card-2); border: 1px solid var(--line-2); }
+.about-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform 1.4s var(--ease); }
+.about-img:hover img { transform: scale(1.06); }
+.about-img .chip { position: absolute; left: 16px; bottom: 16px; background: rgba(0,0,0,.65); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #fff; }
+.about h3 { margin: 0; font-size: clamp(2.2rem, 4.4vw, 3.6rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.02; }
+.about h3 .serif { color: var(--soft); }
+.about p { margin: 18px 0 0; color: var(--soft); line-height: 1.7; font-size: 1.03rem; }
+.about strong { color: #fff; }
+.about .points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 24px; }
+.about .points div { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 12px; background: var(--card); border: 1px solid var(--line-2); font-size: .9rem; color: var(--soft); transition: border-color .3s, color .3s; }
+.about .points div:hover { border-color: #555; color: #fff; }
+.about .points svg { flex: none; }
+
+/* Process: a vertical timeline. The line fills as you scroll and each number lights up white when reached */
+.timeline { position: relative; max-width: 1040px; margin: 44px auto 0; padding-inline: var(--pad); display: grid; gap: 40px; }
+.tl-line { position: absolute; left: calc(var(--pad) + 33px); top: 34px; bottom: 34px; width: 2px; border-radius: 2px; background: #1E1E1E; overflow: hidden; }
+.tl-line i { display: block; width: 100%; height: 100%; background: linear-gradient(180deg, #fff, #9A9A9A); transform-origin: 50% 0; transform: scaleY(var(--p, 0)); }
+.tl-item { position: relative; display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: 30px; align-items: start; }
+.tl-dot { position: relative; z-index: 1; width: 68px; height: 68px; display: grid; place-items: center; }
+.tl-dot span { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #111; border: 1px solid #333; color: #fff; font-size: .56rem; font-weight: 600;
+  transition: width .6s var(--ease), height .6s var(--ease), background-color .5s, color .5s, font-size .5s, box-shadow .6s; }
+.tl-item.on .tl-dot span { width: 68px; height: 68px; background: #fff; color: #000; font-size: 1.05rem; border-color: #fff; box-shadow: 0 0 0 6px rgba(255,255,255,.06), 0 0 44px rgba(255,255,255,.22); }
+.tl-card { padding: 30px; border-radius: 20px; background: var(--card); border: 1px solid var(--line-2); transition: border-color .4s, transform .5s var(--ease); }
+.tl-item.on .tl-card { border-color: #333; }
+.tl-card:hover { transform: translateY(-4px); border-color: #555; }
+.tl-card h3 { margin: 12px 0 0; font-size: 1.45rem; font-weight: 600; letter-spacing: -.02em; }
+.tl-card p { margin: 10px 0 0; color: var(--soft); font-size: 1rem; line-height: 1.6; }
+
+/* Pricing */
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 30px var(--pad) 0; }
+.plan { display: flex; flex-direction: column; padding: 28px; border-radius: 20px; background: var(--card); border: 1px solid var(--line-2); transition: transform .5s var(--ease), border-color .3s; }
+.plan:hover { transform: translateY(-6px); border-color: #4A4A4A; }
+.plan.pop { background: linear-gradient(180deg, #161616, #0A0A0A); border-color: rgba(255,255,255,.6); }
+.plan .top-l { display: flex; justify-content: space-between; align-items: center; }
+.plan .name { padding: 7px 14px; border-radius: 999px; background: #1C1C1C; font-size: .88rem; font-weight: 500; }
+.plan .spots { display: inline-flex; align-items: center; gap: 8px; color: var(--soft); font-size: .88rem; }
+.plan .price { margin-top: 24px; display: flex; align-items: flex-start; gap: 6px; font-size: clamp(2.6rem, 3.6vw, 3.2rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+.plan .price small { font-size: 1rem; margin-top: 6px; color: var(--soft); }
+.plan .per { margin-top: 8px; color: var(--muted); font-size: .9rem; }
+.plan .btn { width: 100%; margin-top: 24px; }
+.plan ul { list-style: none; margin: 26px 0 0; padding: 24px 0 0; border-top: 1px solid var(--line-2); display: grid; gap: 13px; }
+.plan li { display: flex; align-items: center; gap: 10px; color: var(--soft); font-size: .93rem; }
+.plan li svg { flex: none; }
+
+/* FAQ */
+.faq { display: grid; gap: 10px; margin: 30px auto 0; padding-inline: var(--pad); max-width: 900px; }
+.faq details { border-radius: 14px; background: var(--card); border: 1px solid var(--line-2); transition: border-color .3s; }
+.faq details[open], .faq details:hover { border-color: #3A3A3A; }
+.faq summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 22px; font-weight: 500; cursor: pointer; font-size: 1.02rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary i { flex: none; width: 34px; height: 34px; border-radius: 50%; background: #000; border: 1px solid var(--line-2); display: grid; place-items: center; transition: transform .4s var(--ease), background-color .3s; }
+.faq details[open] summary i { transform: rotate(45deg); background: #fff; color: #000; }
+.faq .ans { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease); }
+.faq details[open] .ans { grid-template-rows: 1fr; }
+.faq .ans > div { overflow: hidden; }
+.faq .ans p { margin: 0; padding: 0 22px 20px; color: var(--soft); line-height: 1.65; }
+
+/* Contact */
+.contact { position: relative; isolation: isolate; margin-top: clamp(90px, 14vh, 150px); padding: clamp(100px, 16vh, 170px) var(--pad); text-align: center; overflow: hidden; border-top: 1px solid var(--line);
+  background: radial-gradient(60% 70% at 50% 100%, #222324, #000 70%); }
+.contact h2 { margin: 24px auto 0; max-width: 1000px; font-size: clamp(3rem, 8vw, 7rem); font-weight: 600; letter-spacing: -.05em; line-height: .95; }
+.contact h2 .serif { font-weight: 400; }
+.contact p { margin: 22px auto 0; max-width: 520px; color: var(--soft); font-size: 1.08rem; line-height: 1.6; }
+.contact .acts { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+.mail { display: inline-block; margin-top: 30px; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 500; background: linear-gradient(#fff, #fff) left bottom / 100% 1px no-repeat; padding-bottom: 4px; transition: background-size .45s var(--ease); }
+.mail:hover { background-size: 0 1px; background-position: right bottom; }
+.socials { display: flex; justify-content: center; gap: 10px; margin-top: 26px; }
+.socials a { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--soft); transition: color .25s, border-color .25s, transform .4s var(--ease), background-color .25s; }
+.socials a:hover { color: #000; background: #fff; border-color: #fff; transform: translateY(-4px); }
+.socials svg { width: 18px; height: 18px; }
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; padding: 24px var(--pad) 32px; border-top: 1px solid var(--line); background: #0B0B0B; color: var(--muted); font-size: .88rem; }
+.credit { display: inline-flex; align-items: center; gap: 10px; }
+.credit b { padding: 8px 14px; border-radius: 999px; background: #1C1C1C; color: #fff; font-weight: 500; }
+
+/* ===================== OVERLAYS ===================== */
+.overlay { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; padding: 20px; background: rgba(0, 0, 0, .8); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); opacity: 0; visibility: hidden; transition: opacity .35s var(--ease), visibility .35s; }
+.overlay.open { opacity: 1; visibility: visible; }
+.modal { position: relative; width: min(880px, 100%); max-height: calc(100svh - 40px); overflow-y: auto; border-radius: 22px; background: #0E0E0E; border: 1px solid var(--line-2); transform: translateY(26px) scale(.97); transition: transform .5s var(--ease); scrollbar-width: thin; }
+.overlay.open .modal { transform: none; }
+.m-art { position: relative; aspect-ratio: 16 / 9; background: var(--card-2); }
+.m-art img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.m-art .ph { position: absolute; inset: 0; display: grid; place-items: center; font-size: 3rem; font-weight: 600; color: #3A3A3A; }
+.m-close { position: absolute; z-index: 3; right: 14px; top: 14px; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-3); background: rgba(0,0,0,.6); cursor: pointer; display: grid; place-items: center; transition: background-color .25s, color .25s, transform .4s var(--ease); }
+.m-close:hover { background: #fff; color: #000; transform: rotate(90deg); }
+.m-body { padding: 28px clamp(20px, 4vw, 40px) 36px; }
+.m-body h3 { margin: 0; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 600; letter-spacing: -.04em; line-height: 1; }
+.m-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.m-body p { margin: 18px 0 0; color: var(--soft); line-height: 1.7; max-width: 640px; }
+.m-acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.m-more { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line-2); }
+.m-more h4 { margin: 0 0 14px; font-size: 1rem; font-weight: 600; }
+.m-more .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.m-more button { background: var(--card-2); border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden; padding: 0; cursor: pointer; text-align: left; color: inherit; transition: border-color .3s, transform .4s var(--ease); }
+.m-more button:hover { border-color: #fff; transform: translateY(-4px); }
+.m-more button img { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; object-position: top; }
+.m-more button span { display: block; padding: 10px 12px; font-size: .88rem; font-weight: 500; }
+
+/* Quick intro */
+/* Quick intro: a story player. Each slide shows the full image in a framed card (never awkwardly cropped),
+   a soft blurred glow of the same image behind, and the words rising in one by one. */
+.reel { position: fixed; inset: 0; z-index: 130; background: #050505; opacity: 0; visibility: hidden; transition: opacity .45s var(--ease), visibility .45s; overflow: hidden; }
+.reel.open { opacity: 1; visibility: visible; }
+.reel-top { position: absolute; z-index: 6; left: 0; right: 0; top: 0; padding: 16px var(--pad) 0; }
+.reel-bars { display: flex; gap: 6px; }
+.reel-bars span { flex: 1; height: 3px; border-radius: 3px; background: rgba(255,255,255,.16); overflow: hidden; }
+.reel-bars i { display: block; height: 100%; width: 0; border-radius: 3px; background: linear-gradient(90deg, #9A9A9A, #fff); }
+.reel-meta { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+.reel-brand { display: inline-flex; align-items: center; gap: 10px; margin-right: auto; font-size: .88rem; font-weight: 500; color: #fff; }
+.reel-brand img { width: 30px; height: 30px; padding: 6px; border-radius: 9px; background: #1B1B1B; border: 1px solid #2A2A2A; }
+.reel-count { font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; color: var(--muted); }
+.reel-count b { color: #fff; font-weight: 500; }
+.reel-btn { position: relative; z-index: 6; width: 42px; height: 42px; flex: none; border-radius: 50%; display: grid; place-items: center; cursor: pointer; color: #fff;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: background-color .25s, color .25s, transform .4s var(--ease); }
+.reel-btn:hover { background: #fff; color: #000; }
+.reel-btn svg { width: 16px; height: 16px; }
+.reel-btn .ic-play { display: none; }
+.reel.paused .reel-btn .ic-pause { display: none; } .reel.paused .reel-btn .ic-play { display: block; }
+.reel-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .7s var(--ease), visibility .7s; }
+.reel-slide.on { opacity: 1; visibility: visible; }
+.reel-amb { position: absolute; inset: -12%; width: 124%; height: 124%; object-fit: cover; filter: blur(70px) saturate(1.3); opacity: .38; transform: scale(1.1); pointer-events: none; }
+.reel-slide::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(80% 70% at 50% 45%, transparent, rgba(5,5,5,.75) 75%), linear-gradient(180deg, rgba(5,5,5,.6), transparent 22%, transparent 75%, rgba(5,5,5,.85)); }
+.reel-in { position: relative; z-index: 2; height: 100%; max-width: 1320px; margin: 0 auto; padding: 130px var(--pad) 110px;
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: center; gap: clamp(30px, 5vw, 80px); }
+.reel-media { position: relative; margin: 0; aspect-ratio: 16 / 10; max-height: 100%; border-radius: 24px; overflow: hidden; background: #111;
+  border: 1px solid rgba(255,255,255,.12); box-shadow: 0 50px 110px -40px #000, 0 30px 90px -50px rgba(255,255,255,.25);
+  opacity: 0; transform: translateY(34px) scale(.95); transition: opacity .9s var(--ease), transform 1.1s var(--ease); }
+.reel-media img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); transition: transform 7s linear; }
+/* Portrait photo: the card takes the photo's own tall shape, so the whole photo shows (head to shirt) */
+/* Portrait photo in the same wide card as the others: the whole photo sits in the middle,
+   on a soft studio backdrop made from the same photo, so nothing is cut off */
+.reel-media.tall { background: radial-gradient(60% 90% at 50% 40%, #3B4855 0%, #24303B 45%, #121920 100%); }
+.reel-media.tall .full { position: relative; display: block; width: auto; height: 100%; margin: 0 auto; object-fit: contain; transform: scale(1.04);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent); }
+.reel-slide.on .reel-media.tall .full { transform: scale(1); }
+.reel-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.18) 50%, transparent 65%); transform: translateX(-130%); }
+.reel-slide.on .reel-media { opacity: 1; transform: none; }
+.reel-slide.on .reel-media img { transform: scale(1); }
+.reel-slide.on .reel-media::after { transform: translateX(130%); transition: transform 1.4s var(--ease) .5s; }
+.reel-text > * { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .9s var(--ease); }
+.reel-slide.on .reel-text > * { opacity: 1; transform: none; }
+.reel-slide.on .reel-text > :nth-child(1) { transition-delay: .15s; } .reel-slide.on .reel-text > :nth-child(2) { transition-delay: .25s; }
+.reel-slide.on .reel-text > :nth-child(3) { transition-delay: .38s; } .reel-slide.on .reel-text > :nth-child(4) { transition-delay: .5s; }
+.reel-tag { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: #fff; }
+.reel-tag i { width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+.reel-text h3 { margin: 20px 0 0; font-size: clamp(2.8rem, 5.6vw, 5.4rem); font-weight: 600; letter-spacing: -.045em; line-height: .98; }
+.reel-text h3 .serif { font-weight: 400; }
+.reel-text p { margin: 18px 0 0; max-width: 480px; color: var(--soft); font-size: clamp(1rem, 1.3vw, 1.12rem); line-height: 1.65; }
+.reel-text .btn { margin-top: 26px; }
+.reel-tap { position: absolute; z-index: 4; top: 110px; bottom: 90px; width: 30%; background: none; border: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.reel-tap.prev { left: 0; } .reel-tap.next { right: 0; }
+.reel-text .btn { position: relative; z-index: 5; }
+.reel-foot { position: absolute; z-index: 6; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 10px; padding: 0 var(--pad) 22px; }
+.reel-hint { margin-right: auto; color: #6E6E6E; font-size: .78rem; }
+.reel-hint.touch { display: none; }
+@media (hover: none) { .reel-hint.keys { display: none; } .reel-hint.touch { display: block; } }
+/* Tablets & phones (portrait): image card on top, words below */
+@media (max-width: 860px) {
+  .reel-in { display: flex; flex-direction: column; justify-content: center; gap: 28px; padding: 118px 20px 96px; }
+  .reel-media, .reel-text { flex: none; }
+  .reel-media { aspect-ratio: 4 / 3; max-height: none; width: min(100%, calc(40vh * 4 / 3)); width: min(100%, calc(40svh * 4 / 3)); justify-self: center; border-radius: 20px; }
+  .reel-text h3 { font-size: clamp(2.3rem, 10.5vw, 3.6rem); margin-top: 16px; }
+  .reel-text p { font-size: 1rem; }
+  .reel-tap { top: 100px; bottom: 80px; }
+}
+@media (max-width: 860px) and (min-width: 560px) { .reel-media { aspect-ratio: 16 / 10; width: min(100%, 620px, calc(40vh * 16 / 10)); } .reel-text { max-width: 620px; justify-self: center; width: 100%; } }
+@media (max-width: 559px) and (max-height: 700px) { .reel-in { gap: 18px; padding: 104px 18px 84px; } .reel-media { width: min(100%, calc(32vh * 4 / 3)); width: min(100%, calc(32svh * 4 / 3)); } .reel-text h3 { font-size: 2.1rem; } .reel-text .btn { margin-top: 16px; } }
+@media (max-width: 380px) { .reel-in { gap: 20px; padding-top: 108px; } .reel-text p { font-size: .94rem; line-height: 1.55; } .reel-brand span { display: none; } }
+/* Phones on their side / short screens: back to two columns, everything smaller */
+@media (max-height: 560px) and (min-width: 560px) {
+  .reel-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-content: center; align-items: center; gap: 28px; padding: 92px var(--pad) 70px; }
+  .reel-media { aspect-ratio: 16 / 10; max-height: none; width: 100%; }
+  .reel-text h3 { font-size: clamp(1.9rem, 5vw, 2.8rem); margin-top: 12px; }
+  .reel-text p { font-size: .92rem; margin-top: 10px; }
+  .reel-text .btn { margin-top: 14px; min-height: 42px; }
+  .reel-meta { margin-top: 10px; }
+  .reel-foot { padding-bottom: 12px; }
+}
+/* Tall portrait card: sized by screen height on every device so the full photo always fits */
+
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1100px) {
+  .panel.p1 { right: -14%; top: auto; bottom: -6%; width: 250px; }
+}
+@media (max-width: 960px) {
+  .links, .who-btn span, .nav-book { display: none; }
+  .burger { display: grid; }
+  .hero { padding-top: 130px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .photo-wrap { width: min(400px, 78vw); margin-top: 20px; }
+  .about { grid-template-columns: 1fr; }
+  .plans { grid-template-columns: 1fr; max-width: 560px; }
+  .allsites { grid-template-columns: 1fr; }
+  .ring-sec { height: auto; padding-top: clamp(80px, 12vh, 130px); }
+  .ring-pin { position: static; height: auto; display: block; padding-top: 0; overflow: visible; }
+  .ring-stage { height: auto; perspective: none; }
+  /* Narrow screens: a swipeable 3D coverflow (side cards turn away, the centre one comes forward) */
+  .ring { position: static; width: auto; height: auto; display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; padding: 40px calc(50vw - min(40vw, 170px)) 40px;
+    scrollbar-width: none; perspective: 900px; transform-style: flat; }
+  .ring::-webkit-scrollbar { display: none; }
+  .rc { position: relative; flex: none; margin: 0 -14px; width: 80vw; max-width: 340px; height: auto; min-height: 330px; scroll-snap-align: center; will-change: transform; transition: border-color .3s, box-shadow .3s; }
+  .ring-hint { display: none; }
+}
 @media (max-width: 640px) {
-  .bar { padding-block: 14px; border-bottom: 0; }
-  .bar .credit { display: none; }
-  .brand img { width: 30px; }
-  .icons { display: flex; }
-  .head { padding-block: 18px 16px; gap: 10px; align-items: center; }
-  .chip { margin-bottom: 10px; }
-  h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
-  .tally b { font-size: 2rem; }
-  .tally span { font-size: .75rem; }
-
-  .tabsbar { padding-block: 8px 10px; }
-  .tabsrow { flex-wrap: wrap; gap: 10px; border-bottom: 0; }
-  .tabs { gap: 4px; padding: 5px; border: 1px solid var(--line-strong); border-radius: 999px; }
-  .tab { padding: 10px 16px; border-radius: 999px; font-size: .95rem; }
-  .tab sup { display: none; }
-  .tab[aria-pressed="true"] { background: #1C1C1C; box-shadow: inset 0 0 0 1px #2E2E2E; }
-  .ink { display: none; }
-  .filter-btn { display: grid; }
-  .search { display: none; order: 3; width: 100% !important; height: 46px; }
-  body.show-search .search { display: flex; }
-
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 12px; padding-top: 12px; }
-  .card { gap: 10px; }
-  .frame { border-radius: 14px; }
-  .meta h2 { font-size: 1rem; font-weight: 700; }
-  .tags { font-size: .8rem; margin-top: 3px; }
-  .tags button + button, .tags button { white-space: nowrap; }
-  .go { width: 28px; height: 28px; border: 0; }
-  .go svg { width: 14px; height: 14px; }
-  .flag, .live-dot { top: 8px; padding: 3px 7px; font-size: .56rem; }
-  .flag { left: 8px; } .live-dot { right: 8px; }
+  .hero h1 { font-size: clamp(56px, 17vw, 80px); }
+  .hero-actions .btn { flex: 1 1 auto; }
+  /* Four stats as a neat 2 x 2 grid on phones */
+  .hero-mini { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 18px; }
+  .panel.p1 { right: -4%; bottom: -10%; width: 210px; padding: 12px 14px; }
+  .panel.p1 p { font-size: .78rem; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line-2); }
+  .arrows { display: none; }
+  .card { width: 80vw; }
+  .timeline { gap: 22px; }
+  .tl-line { left: calc(var(--pad) + 23px); top: 24px; bottom: 24px; }
+  .tl-item { grid-template-columns: 48px minmax(0, 1fr); gap: 14px; }
+  .tl-dot { width: 48px; height: 48px; }
+  .tl-dot span { width: 22px; height: 22px; font-size: .5rem; }
+  .tl-item.on .tl-dot span { width: 48px; height: 48px; font-size: .85rem; }
+  .tl-card { padding: 20px; }
+  .tl-card h3 { font-size: 1.2rem; }
+  .tl-card p { font-size: .93rem; }
+  .about .points { grid-template-columns: 1fr; }
+  .m-more .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   footer { flex-direction: column; align-items: flex-start; }
 }
-@media (max-width: 340px) { .grid { grid-template-columns: 1fr; } }
+/* ===================== WOW LAYER =====================
+   Particle logo intro, a 3D wave of dots behind the hero, decoding labels, morphing project open,
+   speed-warp on scroll and curtain reveals. All of it switches off for reduced motion. */
+.intro canvas, .hero canvas.wave { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.intro canvas { z-index: 0; }
+.in-stage { position: relative; z-index: 1; }
+.js-wow .in-logo { animation: none; opacity: 0; transition: opacity .6s ease; }
+.js-wow .in-logo.formed { opacity: 1; }
+.js-wow .in-name .w > span { animation-delay: 1.9s !important; }
+.js-wow .in-name .last { animation-delay: 2.05s !important; }
+.js-wow .in-line { animation-delay: 2.5s; } .js-wow .in-sub { animation-delay: 2.8s; } .js-wow .in-enter { animation-delay: 3.2s; }
+.hero canvas.wave { z-index: 0; opacity: .95; }
+/* Curtain reveals for project images */
+.js-wow .rail .card .art { clip-path: inset(0 0 100% 0 round 16px); transition: clip-path 1.1s var(--ease), box-shadow .45s var(--ease); transition-delay: var(--d, 0s), 0s; }
+.js-wow .rail.shown .card .art { clip-path: inset(0 0 0 0 round 16px); }
+/* About photo: always visible on every screen; it only settles in with a soft zoom */
+/* Curtain: the photo opens from left to right when it arrives (same as the Framer Motion site) */
+.about-img.rv { opacity: 1; transform: none; }
+.js-wow .about-img { clip-path: inset(0 100% 0 0 round 22px); transition: clip-path 1.4s var(--ease); }
+.js-wow .about-img.open { clip-path: inset(0 0 0 0 round 22px); }
+.about-img img { transform: scale(1.08); transition: transform 1.6s var(--ease); }
+.about-img.open img { transform: scale(1); }
+.about-img.open:hover img { transform: scale(1.05); }
+/* Morphing open */
+.flip-img { position: fixed; z-index: 140; margin: 0; object-fit: cover; object-position: top; border-radius: 16px; pointer-events: none; box-shadow: 0 40px 90px -30px #000; }
+.overlay.noanim .modal { transform: none; transition: none; }
+.overlay.flipping .m-art img { opacity: 0; }
+/* Decode labels */
+.mono.scramble { font-variant-numeric: tabular-nums; }
 
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; } }
+/* ===================== TOUCH SCREENS (phones & tablets) =====================
+   No hover on touch, so the same effects play on their own: the card in the middle of a row
+   comes alive, spotlights drift, the services become a 3D coverflow and taps get a press. */
+@keyframes sweep { from { transform: translateX(-130%); } to { transform: translateX(130%); } }
+@keyframes spotMove { from { background-position: 0% 0%; } to { background-position: 100% 100%; } }
+@keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.12) translate(-2%, -1%); } }
+@media (hover: none) {
+  .card.live { transform: translateY(-10px); }
+  .card.live .art { box-shadow: 0 0 0 1px rgba(255,255,255,.7), 0 30px 60px -28px rgba(255,255,255,.22), 0 40px 70px -40px #000; }
+  .card.live img { transform: scale(1.07); object-position: bottom; }
+  .card.live .art::after, .card.live .open { opacity: 1; transform: none; }
+  .card.live .art::before { animation: sweep 1.2s var(--ease) .15s both; }
+  .card:active { transform: scale(.97); transition-duration: .15s; }
+  .spot.in::before { opacity: 1; background: radial-gradient(260px circle at 50% 50%, rgba(255,255,255,.09), transparent 60%); background-size: 220% 220%; animation: spotMove 7s ease-in-out infinite alternate; }
+  .allsites.in .stack img { transform: rotate(0) translateY(-8px); }
+  .allsites.in .stack img:nth-child(2) { transition-delay: .1s; } .allsites.in .stack img:nth-child(3) { transition-delay: .2s; } .allsites.in .stack img:nth-child(4) { transition-delay: .3s; }
+  .about-img.in img { animation: kenburns 14s ease-in-out infinite alternate; }
+  .btn:active, .socials a:active, .profile:active, .arrows button:active { transform: scale(.95); transition-duration: .12s; }
+  .photo { transition: transform .25s ease-out; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  .rv { opacity: 1; transform: none; }
+  .words .w > span, .in-name .w > span { transform: none; }
+  .in-logo, .in-sub, .in-enter { opacity: 1; } .in-line { width: min(440px, 70vw); }
+}
+
+/* ===================== ADDED: proof + lead capture =====================
+   Testimonials, result lines on projects, WhatsApp button and the lead form.
+   Everything above this line is untouched. */
+/* Result line under a project card (filled from RESULTS below) */
+.card .win { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 6px 10px; border-radius: 8px; background: #0F0F0F; border: 1px solid var(--line-2); font-family: var(--mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; }
+.card .win i { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
+/* Result block inside the project details */
+.m-win { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 22px; }
+.m-win div { padding: 16px; border-radius: 14px; background: var(--card-2); border: 1px solid var(--line-2); }
+.m-win b { display: block; font-size: 1.6rem; font-weight: 600; letter-spacing: -.03em; line-height: 1; }
+.m-win span { display: block; margin-top: 6px; color: var(--muted); font-size: .8rem; }
+/* Testimonials */
+.quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 30px var(--pad) 0; }
+.quote { display: flex; flex-direction: column; gap: 18px; padding: 28px; border-radius: 20px; background: var(--card); border: 1px solid var(--line-2); transition: transform .5s var(--ease), border-color .3s; }
+.quote:hover { transform: translateY(-6px); border-color: #4A4A4A; }
+.quote .stars { display: flex; gap: 3px; color: #fff; }
+.quote .stars svg { width: 16px; height: 16px; }
+.quote p { margin: 0; flex: 1; font-size: 1.02rem; line-height: 1.65; color: var(--soft); }
+.quote p::before { content: "\201C"; font-family: var(--serif); font-size: 2.2rem; line-height: 0; margin-right: 4px; color: #fff; vertical-align: -.3em; }
+.quote .who-q { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line-2); }
+.quote .who-q i { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, #fff, #9A9A9A); color: #000; font-style: normal; font-weight: 700; font-size: .9rem; flex: none; overflow: hidden; }
+.quote .who-q i img { width: 100%; height: 100%; object-fit: cover; }
+.quote .who-q b { display: block; font-size: .95rem; font-weight: 600; }
+.quote .who-q small { display: block; color: var(--muted); font-size: .8rem; margin-top: 2px; }
+.quote .who-q a { margin-left: auto; color: var(--muted); font-size: .78rem; border-bottom: 1px solid var(--line-3); white-space: nowrap; }
+.quote .who-q a:hover { color: #fff; border-color: #fff; }
+.quote .result { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; background: #0F0F0F; border: 1px solid var(--line-2); font-family: var(--mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: #fff; align-self: flex-start; }
+.quote .result i { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
+/* WhatsApp: floating button + social icon */
+.wa-fab { position: fixed; z-index: 80; right: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 18px 0 14px; border-radius: 999px; background: #fff; color: #000; font-weight: 600; font-size: .92rem;
+  box-shadow: 0 18px 40px -14px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.15); transition: transform .4s var(--ease), box-shadow .3s; }
+.wa-fab:hover { transform: translateY(-3px); box-shadow: 0 24px 50px -14px rgba(255,255,255,.25), 0 0 0 1px #fff; }
+.wa-fab svg { width: 22px; height: 22px; }
+.wa-fab[hidden] { display: none; }
+.socials a.wa svg { width: 20px; height: 20px; }
+/* Lead form (inside Contact) */
+.lead { margin: 44px auto 0; max-width: 680px; text-align: left; padding: clamp(22px, 3vw, 34px); border-radius: 22px; background: rgba(10, 10, 10, .72); border: 1px solid var(--line-2); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.lead h3 { margin: 0; font-size: 1.4rem; font-weight: 600; letter-spacing: -.02em; }
+.lead > p { margin: 8px 0 0; font-size: .95rem; color: var(--muted); text-align: left; max-width: none; }
+.lead form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+.lead label { display: grid; gap: 6px; font-size: .8rem; color: var(--soft); }
+.lead label.full { grid-column: 1 / -1; }
+.lead input, .lead select, .lead textarea { width: 100%; min-height: 46px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line-2); background: #0A0A0A; color: #fff; font: inherit; font-size: .95rem; transition: border-color .25s; }
+.lead textarea { min-height: 96px; resize: vertical; }
+.lead input:focus, .lead select:focus, .lead textarea:focus { outline: 0; border-color: #fff; }
+.lead select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, #8C8C8C 50%), linear-gradient(135deg, #8C8C8C 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+.lead .hp { position: absolute; left: -9999px; }
+.lead .lead-acts { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 6px; }
+.lead .lead-acts small { color: var(--muted); font-size: .78rem; }
+.lead .sent { grid-column: 1 / -1; display: none; padding: 14px 16px; border-radius: 12px; background: #0F0F0F; border: 1px solid var(--line-2); color: var(--soft); font-size: .92rem; }
+.lead .sent.on { display: block; }
+@media (max-width: 960px) { .quotes { grid-template-columns: 1fr; max-width: 560px; } .m-win { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .lead form { grid-template-columns: 1fr; } .wa-fab span { display: none; } .wa-fab { padding: 0 14px; } }
 </style>
 </head>
-<body>
-<header class="wrap bar">
-  <a class="brand" href="./"><img src="logo.svg" alt="Sameer Saifi logo" width="34" height="31"><b>Sameer Saifi</b><span>Websites</span></a>
-  <span class="credit"><i aria-hidden="true"></i>Created by <strong>Sameer Saifi</strong></span>
-  <div class="icons">
-    <button class="icon-btn" type="button" id="mSearch" aria-label="Search websites">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-    </button>
-    <button class="icon-btn" type="button" data-open-sheet aria-label="Open menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-  </div>
-</header>
+<body class="locked">
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span>View</span></div>
 
-<section class="wrap head" aria-labelledby="title">
-  <div>
-    <span class="chip">Show Work</span>
-    <h1 id="title">Websites <em>I've Built</em></h1>
+<!-- ===================== INTRO ===================== -->
+<div class="intro" id="intro" role="dialog" aria-label="Welcome">
+  <canvas id="inCanvas" aria-hidden="true"></canvas>
+  <div class="in-stage">
+    <img class="in-logo" src="logo.svg" alt="" width="70" height="64">
+    <div class="in-name" aria-label="Sameer Saifi"><span class="w"><span class="first serif silver">Sameer</span></span><span class="w"><span class="last silver">Saifi</span></span></div>
+    <div class="in-line" aria-hidden="true"></div>
+    <div class="in-sub">Web Developer &amp; CRO Expert</div>
+    <button class="btn btn-white in-enter" type="button" id="inEnter">Enter portfolio
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   </div>
-  <div class="tally"><b id="tally">00</b><span>live<br>websites</span></div>
-</section>
+  <button class="in-skip" type="button" id="inSkip">Skip</button>
+</div>
 
-<div class="tabsbar">
-  <div class="wrap tabsrow">
-    <div class="tabs" id="tabs" role="group" aria-label="Categories"><span class="ink" id="ink" aria-hidden="true"></span></div>
-    <button class="filter-btn" type="button" data-open-sheet aria-label="All categories">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
-    </button>
-    <div class="search" id="searchBox">
-      <button type="button" id="searchBtn" aria-label="Search websites">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      </button>
-      <label class="sr" for="search">Search websites</label>
-      <input id="search" type="search" placeholder="Search websites" autocomplete="off">
+<!-- ===================== VISITOR TYPE ===================== -->
+<div class="who" id="who" role="dialog" aria-modal="true" aria-labelledby="whoTitle">
+  <div class="who-in">
+    <h2 id="whoTitle">What brings you here?</h2>
+    <p>Pick one and the page puts what matters to you first.</p>
+    <div class="profiles">
+      <button class="profile" type="button" data-profile="client"><span class="ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1.1 13H6.6L5.5 8Z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/></svg></span><b>I need a store</b><small>Stores, services &amp; pricing</small></button>
+      <button class="profile" type="button" data-profile="recruiter"><span class="ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span><b>I’m hiring</b><small>About, results &amp; work</small></button>
+      <button class="profile" type="button" data-profile="developer"><span class="ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg></span><b>I build too</b><small>3D sites, motion &amp; builds</small></button>
     </div>
   </div>
 </div>
 
-<main class="wrap">
-  <ul class="grid" id="grid" aria-live="polite"></ul>
-  <div class="empty" id="empty" hidden><strong>Nothing here yet.</strong>Try another category or search.</div>
-  <noscript><p class="empty">Turn on JavaScript to see the websites.</p></noscript>
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Sameer Saifi, back to top"><span><img src="logo.svg" alt="" width="24" height="22"></span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#stores">Stores</a><a href="#websites">Websites</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a><a data-gallery href="#websites" target="_blank" rel="noopener">All Websites ↗</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-white nav-book mag" data-book href="#contact">Book a call</a>
+      <button class="who-btn" type="button" id="whoBtn" aria-label="Change what you’re here for"><i id="whoInitial">S</i><span id="whoName">Store</span></button>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <div class="ticker" aria-hidden="true"><div class="ticker-row" id="ticker"></div></div>
+</header>
+<nav class="mmenu" id="mmenu" aria-label="Mobile">
+  <a href="#stores">Stores</a><a href="#websites">Websites</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a><a data-gallery href="#websites" target="_blank" rel="noopener">All Websites</a>
+</nav>
+
+<main id="top">
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero" aria-label="Introduction">
+    <canvas class="wave" id="wave" aria-hidden="true"></canvas>
+    <div class="hero-grid">
+      <div class="hero-copy" id="heroCopy">
+        <span class="avail rv"><i class="gdot" aria-hidden="true"></i>Available for new projects</span>
+        <h1 class="silver rv"><span class="serif">Sameer</span> Saifi</h1>
+        <p class="role rv">Web Developer <span>&amp;</span> CRO Expert</p>
+        <p class="lead rv" id="tagline">I don’t just build stores. I design sales. Fast, premium Shopify stores that turn browsers into buyers.</p>
+        <div class="hero-actions rv">
+          <a class="btn btn-white mag" data-book href="#contact">Book a 15-min call
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <button class="btn btn-glass mag" type="button" id="playIntro"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg>Quick intro</button>
+          <a class="btn btn-dark mag" href="#stores">See my work</a>
+        </div>
+        <div class="hero-mini rv">
+          <div><b data-count="4" data-suffix="+">0</b><span>Years building stores</span></div>
+          <div><b data-count="250" data-suffix="+">0</b><span>Websites delivered</span></div>
+          <div><b data-count="98" data-suffix="%">0</b><span>Client retention</span></div>
+          <div><b data-count="1" data-suffix="M+">0</b><span>Revenue driven for clients</span></div>
+        </div>
+      </div>
+      <div class="photo-wrap rv" id="photoWrap">
+        <div class="photo" id="photo">
+          <span class="badge">Shopify Developer</span>
+          <div class="frame"><img src="portrait.webp" alt="Portrait of Sameer Saifi" width="700" height="1167" fetchpriority="high"></div>
+        </div>
+        <div class="panel p1"><span class="mono">Core skills &amp; results</span><p>Custom Shopify stores, conversion optimisation and custom sections, with 250+ websites delivered for brands across India.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="sections">
+    <!-- ===================== STORES ===================== -->
+    <section class="section" id="stores" data-sec="stores" aria-labelledby="h-stores">
+      <div class="head">
+        <div><span class="mono">01 // <b>Shopify stores</b></span><h2 class="words" id="h-stores">Stores I’ve <span class="serif">built</span></h2><p>Real Shopify stores for Indian brands. Open any store for details and the live link.</p></div>
+        <div class="arrows"><button type="button" data-scroll="-1" aria-label="Scroll left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" data-scroll="1" aria-label="Scroll right"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      </div>
+      <div class="rail" data-rail="stores"></div>
+    </section>
+
+    <!-- ===================== WEBSITES ===================== -->
+    <section class="section" id="websites" data-sec="websites" aria-labelledby="h-websites">
+      <div class="head">
+        <div><span class="mono">02 // <b>Web experiences</b></span><h2 class="words" id="h-websites">Websites that <span class="serif">move</span></h2><p>3D worlds, scroll stories and motion. Every one is live: open it and try it yourself.</p></div>
+        <div class="arrows"><button type="button" data-scroll="-1" aria-label="Scroll left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" data-scroll="1" aria-label="Scroll right"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+      </div>
+      <div class="rail" data-rail="websites"></div>
+      <a class="allsites rv" data-gallery href="#websites" target="_blank" rel="noopener">
+        <div>
+          <span class="mono">Full collection // <b>Websites I’ve built</b></span>
+          <h3>See every <span class="serif">website</span></h3>
+          <p>Shopify stores, 3D worlds and scroll stories, all live in one gallery.</p>
+          <span class="btn btn-white">Open the gallery ↗</span>
+        </div>
+        <div class="stack" aria-hidden="true">
+          <img src="kage.webp" alt="" style="--r:-9deg" loading="lazy"><img src="tapntrust.webp" alt="" style="--r:5deg" loading="lazy"><img src="planet-jumping.webp" alt="" style="--r:-4deg" loading="lazy"><img src="babyninja.webp" alt="" style="--r:8deg" loading="lazy">
+        </div>
+      </a>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="section ring-sec" id="services" data-sec="services" aria-labelledby="h-services">
+      <div class="ring-pin">
+        <div class="head"><div><span class="mono">03 // <b>Services</b></span><h2 class="words" id="h-services">What I <span class="serif">do</span></h2><p>Creative website services for dropshippers, brands and businesses looking to stand out online.</p></div></div>
+        <div class="ring-stage"><div class="ring" id="ring"></div></div>
+        <span class="ring-hint mono" aria-hidden="true">Scroll to turn // <b id="ringNow">01</b> / 04</span>
+      </div>
+    </section>
+
+    <!-- ===================== RESULTS ===================== -->
+    <section class="section" id="results" data-sec="results" aria-labelledby="h-results">
+      <div class="head"><div><span class="mono">04 // <b>Results</b></span><h2 class="words" id="h-results">Numbers that <span class="serif">matter</span></h2></div></div>
+      <div class="stats">
+        <div class="stat rv"><b data-count="24" data-suffix="K">0</b><span>Total views generated</span></div>
+        <div class="stat rv"><b data-count="250" data-suffix="+">0</b><span>Websites delivered</span></div>
+        <div class="stat rv"><b data-count="1" data-suffix="M+">0</b><span>Revenue driven for clients</span></div>
+        <div class="stat rv"><b data-count="98" data-suffix="%">0</b><span>Client retention rate</span></div>
+      </div>
+      <p class="mono" style="text-align:center;margin:34px 0 0">Worked with Indian brands like</p>
+      <div class="logos" aria-label="Adsalign, TapnTrusts, Saekos, BabyNinja, NJ Sports, Lumzo, SwasthHub"><div class="logos-row" id="logos"></div></div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about" data-sec="about" aria-labelledby="h-about">
+      <div class="head"><div><span class="mono">05 // <b>About me</b></span></div></div>
+      <div class="about">
+        <div class="about-img rv"><img src="billboard.webp" alt="Sameer Saifi seated in a black armchair" width="1672" height="941" loading="lazy"><span class="chip"><i class="gdot" aria-hidden="true"></i>4+ years in Shopify</span></div>
+        <div class="rv">
+          <h3 class="words" id="h-about">I don’t just build stores. I <span class="serif">design</span> sales.</h3>
+          <p>I’m a Shopify developer obsessed with clean design, smooth shopping and the small details that turn browsers into buyers. With <strong>4+ years</strong> of building online stores, from custom sections to complete store builds, I create stores that look premium, load fast, and sell.</p>
+          <p>Every project starts with your customers. I listen first, build second. The result? A store that feels like your brand, works beautifully on mobile, and keeps visitors moving toward checkout.</p>
+          <div class="points" id="points"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESS ===================== -->
+    <section class="section" id="process" data-sec="process" aria-labelledby="h-process">
+      <div class="head"><div><span class="mono">06 // <b>Process</b></span><h2 class="words" id="h-process">How we <span class="serif">work</span></h2><p>Four simple steps, the same on every project.</p></div></div>
+      <div class="timeline" id="steps"></div>
+    </section>
+
+    <!-- ===================== PRICING ===================== -->
+    <section class="section" id="pricing" data-sec="pricing" aria-labelledby="h-pricing">
+      <div class="head"><div><span class="mono">07 // <b>Pricing</b></span><h2 class="words" id="h-pricing">Simple, honest <span class="serif">packages</span></h2><p>One-time payment. No hidden costs.</p></div></div>
+      <div class="plans" id="plans"></div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section" id="faq" data-sec="faq" aria-labelledby="h-faq">
+      <div class="head"><div><span class="mono">08 // <b>FAQ</b></span><h2 class="words" id="h-faq">Got <span class="serif">questions?</span></h2></div></div>
+      <div class="faq" id="faqList"></div>
+    </section>
+
+    <!-- ===================== ADDED: REVIEWS ===================== -->
+    <section class="section" id="reviews" data-sec="reviews" aria-labelledby="h-reviews" hidden>
+      <div class="head"><div><span class="mono">09 // <b>Reviews</b></span><h2 class="words" id="h-reviews">What clients <span class="serif">say</span></h2><p>Real words from the brands whose stores I built. Each one links to the live store.</p></div></div>
+      <div class="quotes" id="quotes"></div>
+    </section>
+  </div>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact" aria-labelledby="h-contact">
+    <span class="avail rv"><i class="gdot" aria-hidden="true"></i>Available for new projects</span>
+    <h2 class="silver words" id="h-contact">Your store deserves <span class="serif">better sales.</span></h2>
+    <p class="rv">From quick Shopify setups to fully custom brand stores, let’s build a store your customers love to buy from.</p>
+    <div class="acts rv">
+      <a class="btn btn-white mag" data-book href="#contact">Start your project</a>
+      <a class="btn btn-glass mag" data-gallery href="#websites" target="_blank" rel="noopener">See all websites ↗</a>
+    </div>
+    <a class="mail rv" id="mail" href="#contact"></a>
+    <div class="socials rv" id="socials"></div>
+
+    <!-- ADDED: lead form. Asks for monthly ad spend so serious brands sort themselves out. -->
+    <div class="lead rv" id="lead">
+      <h3>Get a free 5-minute store teardown</h3>
+      <p>Send your store link. I record a short video with the 3 fixes I would make first. No pitch, no obligation.</p>
+      <form id="leadForm" novalidate>
+        <label>Your name<input type="text" name="name" autocomplete="name" required placeholder="Priya Sharma"></label>
+        <label>WhatsApp number<input type="tel" name="phone" autocomplete="tel" required placeholder="+91 98765 43210"></label>
+        <label class="full">Store URL<input type="url" name="store" inputmode="url" required placeholder="https://yourbrand.in"></label>
+        <label>Monthly ad spend<select name="spend" required><option value="" selected disabled>Choose one</option><option>Not running ads yet</option><option>Under ₹1 lakh</option><option>₹1–3 lakh</option><option>₹3–10 lakh</option><option>₹10 lakh+</option></select></label>
+        <label>What do you need?<select name="need" required><option value="" selected disabled>Choose one</option><option>New Shopify store</option><option>Redesign my existing store</option><option>Fix conversion / speed</option><option>Custom website or 3D site</option></select></label>
+        <label class="full">Anything else? (optional)<textarea name="message" placeholder="Biggest problem with the store right now…"></textarea></label>
+        <label class="hp" aria-hidden="true">Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="lead-acts">
+          <button class="btn btn-white" type="submit" id="leadSend">Send on WhatsApp
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <small>Usually replies within a few hours, 7 days a week.</small>
+        </div>
+        <div class="sent" id="leadSent" role="status"></div>
+      </form>
+    </div>
+  </section>
 </main>
 
-<footer class="wrap">
-  <a class="brand" href="./"><img src="logo.svg" alt="" width="24" height="22"><b>Sameer Saifi</b></a>
-  <span class="credit"><i aria-hidden="true"></i>Created by <strong>Sameer Saifi</strong></span>
-  <span>© <span id="year">2026</span> · Shopify developer &amp; website developer</span>
+<!-- ADDED: floating WhatsApp button (shown only when CONFIG.whatsapp is filled in) -->
+<a class="wa-fab" id="waFab" href="#contact" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" hidden>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3.3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.5 0 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4l-.5-.3-1.8-.9c-.3-.1-.4-.1-.6.2l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.4 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5Z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<footer>
+  <span>© <span id="year">2026</span> Sameer Saifi. All rights reserved.</span>
+  <span class="credit">Created by <b>Sameer Saifi</b></span>
 </footer>
 
-<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Categories" aria-hidden="true">
-  <div class="sheet-panel">
-    <div class="sheet-handle" aria-hidden="true"></div>
-    <div class="sheet-head"><b>Categories</b>
-      <button class="icon-btn" type="button" id="sheetClose" aria-label="Close">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
-      </button>
+<!-- Project details -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal" id="modal">
+    <button class="m-close" type="button" id="mClose" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="m-art" id="mArt"></div>
+    <div class="m-body">
+      <h3 id="mTitle"></h3>
+      <div class="m-meta" id="mMeta"></div>
+      <p id="mDesc"></p>
+      <div class="m-acts" id="mActs"></div>
+      <div class="m-more"><h4>More projects</h4><div class="grid" id="mMore"></div></div>
     </div>
-    <div class="sheet-list" id="sheetList"></div>
-    <span class="credit"><i aria-hidden="true"></i>Created by <strong>Sameer Saifi</strong></span>
   </div>
 </div>
 
-<!-- sites.js is loaded fresh on every visit (no stale copy after an upload) -->
-<script>document.write('<script src="sites.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');</script>
+<!-- Quick intro -->
+<div class="reel" id="reel" role="dialog" aria-modal="true" aria-label="Quick intro">
+  <div id="reelSlides"></div>
+  <button class="reel-tap prev" type="button" id="reelPrev" aria-label="Previous slide"></button>
+  <button class="reel-tap next" type="button" id="reelNext" aria-label="Next slide"></button>
+  <div class="reel-top">
+    <div class="reel-bars" id="reelBars"></div>
+    <div class="reel-meta">
+      <span class="reel-brand"><img src="logo.svg" alt="" width="30" height="30"><span>Sameer Saifi</span></span>
+      <span class="reel-count" id="reelCount" aria-live="polite"><b>01</b> / 05</span>
+      <button class="reel-btn" type="button" id="reelPause" aria-label="Pause"><svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg></button>
+      <button class="reel-btn" type="button" id="reelClose" aria-label="Close intro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+  </div>
+  <div class="reel-foot">
+    <span class="reel-hint keys">← → to move · Space pauses · Esc closes</span>
+    <span class="reel-hint touch">Tap left or right to move</span>
+    <button class="reel-btn" type="button" id="reelBack" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="reel-btn" type="button" id="reelFwd" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+</div>
+
 <script>
+/* ======================================================================
+   EDIT YOUR DETAILS HERE
+   ====================================================================== */
+var CONFIG = {
+  bookingLink: 'https://cal.com/sameer-saifi-9ci6kx',
+  email: 'samsaifi2526@gmail.com',
+  instagram: 'https://www.instagram.com/',   // replace with your Instagram profile link
+  x: 'https://x.com/',                       // replace with your X profile link
+  linkedin: 'https://www.linkedin.com/',     // replace with your LinkedIn profile link
+  gallery: 'https://sameersaifi07.github.io/Website-I-ve-Built/'
+};
+var G = CONFIG.gallery;
+
+var STORES = [
+  { title: 'SwasthHub', img: 'swasthhub.webp', url: 'https://www.swasthhub.in/', tags: ['Shopify', 'Health & wellness', 'D2C'],
+    desc: 'A Shopify store for everyday health and wellness: home fitness gear, weight-loss essentials and self-care products, with a warm, natural look and offers that push visitors to checkout.' },
+  { title: 'TapnTrust', img: 'tapntrust.webp', url: 'https://tapntrust.in/', tags: ['Shopify', 'NFC & QR', 'Reviews'],
+    desc: 'One tap, more reviews. A Shopify store for smart review stands that let customers leave a Google review with a single tap or scan.' },
+  { title: 'Baby Ninja', img: 'babyninja.webp', url: 'https://babyninja.in/', tags: ['Shopify', 'Kids fashion', 'Mobile-first'],
+    desc: 'A playful, mobile-first Shopify store for a kids’ brand, with festive collections, bright storytelling and a quick path to checkout.' },
+  { title: 'Lumzo', img: 'lumzo.webp', url: 'https://lumzo.in/', tags: ['Shopify', 'Multi-category', 'Offers'],
+    desc: 'An everyday essentials store across baby care, toys, beauty and home, with bestsellers, product reels, offer timers and trust badges built in.' },
+  { title: 'Saekos', img: 'saekos.webp', url: 'https://saekos.com/', tags: ['Shopify', 'Kids learning', 'D2C'],
+    desc: 'Screen-free busy books for toddlers. A clean D2C store that shows parents exactly how each activity book helps their child learn.' },
+  { title: 'NJ Sports', img: 'nj-sports.webp', url: 'https://nj-info.in/', tags: ['Landing page', 'Community', 'Telegram'],
+    desc: 'A cricket and football community landing page: live match threads, real analysis and a one-tap path into the Telegram channel.' }
+];
+
+var WEBSITES = [
+  { title: 'Kage', img: 'kage.webp', url: G + 'kage/', tags: ['3D', 'Scroll scenes', 'Landing page'],
+    desc: 'A five-chapter night walk through a mountain temple: a live 3D world, scroll-driven scenes and layered foreground art.' },
+  { title: 'Works Wheel', img: 'works-wheel.webp', url: G + 'works-wheel/', tags: ['3D', 'Interactive', 'Portfolio'],
+    desc: 'A portfolio you turn. Nine pieces sit in a ring that opens into a 3D drum as you scroll, drag or use the arrow keys.' },
+  { title: 'Planet Jumping', img: 'planet-jumping.webp', url: G + 'planet-jumping/', tags: ['3D', 'Space portal', 'Interactive'],
+    desc: 'A 3D space portal that hops from planet to planet, with interactive animation at every stop.' },
+  { title: 'VEX', img: 'vex.webp', url: G + 'vex/', tags: ['Video hero', 'Liquid glass UI'],
+    desc: 'A cinematic video hero with a liquid-glass interface and smooth, layered motion.' },
+  { title: 'Ladakh: Parallax Story', img: 'india.webp', url: G + 'india/', tags: ['Parallax', 'Scroll animation', 'Travel'],
+    desc: 'A journey through Ladakh told in layered parallax: mountains, monasteries and type that move as you scroll.' }
+];
+
+var SERVICES = [
+  { title: 'Shopify Development', text: 'Your store is your best closer. I build fast, premium stores that move every visitor toward one thing: checkout.', tags: ['Custom storefronts', 'High-converting layouts', 'Custom sections', 'Mobile-first'],
+    icon: '<path d="M5.5 8h13l-1.1 13H6.6L5.5 8Z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/>' },
+  { title: 'Website Design & Development', text: 'First impressions sell. I design clean, responsive websites that make your brand look trusted at first scroll.', tags: ['Responsive design', 'Dynamic transitions', 'Brand-led visuals', 'Clear navigation'],
+    icon: '<rect x="3" y="4" width="18" height="12.5" rx="2"/><path d="M8.5 20.5h7M12 16.5v4"/>' },
+  { title: 'Conversion Optimisation', text: 'Traffic isn’t the problem. I fix the friction in your product pages and checkout so more visitors become buyers.', tags: ['Product pages', 'Checkout flow', 'CTA optimisation', 'UX audits'],
+    icon: '<path d="M3.5 17 9 11.5l4 4L20.5 8"/><path d="M15 8h5.5v5.5"/>' },
+  { title: 'Custom Website Templates', text: 'Launch like a premium brand. My original templates are built to look sharp, load fast, and sell from day one.', tags: ['Original designs', 'Easy to edit', 'Reusable sections', 'Fast launch'],
+    icon: '<rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M3.5 9.5h17M10 9.5v11"/>' }
+];
+
+var POINTS = ['Custom Shopify stores', 'Conversion optimisation', 'Custom sections', 'Speed & SEO setup', 'Razorpay / UPI setup', 'Mobile-first design'];
+
+var STEPS = [
+  { title: 'Discovery call', len: '15 min', w: '25%', text: 'A quick call about your brand, your customers and the stores you love. You get a clear plan and timeline before anything starts.' },
+  { title: 'Design', len: 'Week 1', w: '50%', text: 'Layouts built around your products: clean, premium and mobile-first, with the path to checkout planned from the first screen.' },
+  { title: 'Build', len: 'Weeks 1–3', w: '75%', text: 'Your store comes to life inside your own Shopify account, with custom sections you can edit and progress shared at every stage.' },
+  { title: 'Launch & support', len: 'Day 7 to week 4', w: '100%', text: 'Speed, payments and shipping checked, then launch. Premium includes 30 days of post-launch support and conversion fixes.' }
+];
+
+var PLANS = [
+  { name: 'Starter', price: '9,999', features: ['Shopify store setup', 'Premium theme customisation', 'Up to 5 pages', 'Mobile-optimised design', 'Razorpay / UPI & shipping setup', '7-day delivery'] },
+  { name: 'Growth', price: '19,999', spots: '2 Spots', features: ['Custom-designed Shopify store', 'Up to 10 pages', 'Custom sections you can edit', 'High-converting product pages', 'Speed optimisation', '2 rounds of revisions'] },
+  { name: 'Premium', price: '29,999', features: ['Fully custom store design', 'Unlimited pages & sections', 'Conversion (CRO) audit + fixes', 'Checkout & cart optimisation', 'Speed + SEO setup', '30 days of post-launch support'] }
+];
+
+var FAQ = [
+  ['What kind of Shopify work do you do?', 'Everything from new store setups to fully custom builds: theme customisation, custom sections, product page redesigns and conversion fixes. Whether you’re a new dropshipper or an established brand, I’ll build a store that looks premium and sells.'],
+  ['What do I need to get started?', 'Just your Shopify login (collaborator access), logo, product details and a few stores you love. Don’t have everything ready? No problem. We’ll figure it out together on a quick 15-minute call.'],
+  ['Can you redesign my existing Shopify store?', 'Yes. I can refresh your current theme or rebuild it completely, without losing your products, orders or customer data.'],
+  ['How many revisions do I get?', 'Starter includes 1 round, Growth includes 2, and Premium continues with 30 days of post-launch support. I share progress at every stage, so there are no surprises at the end.'],
+  ['How long does it take to build my store?', 'Starter stores are ready in 7 days. Growth and Premium projects usually take 2–4 weeks, depending on pages and custom features. You’ll get a clear timeline before we begin.'],
+  ['Who owns the store after it’s built?', 'You do, 100%. The store, design, content and custom sections are fully yours. I build inside your Shopify account, and once the final payment is made, everything is handed over completely.']
+];
+
+var CLIENTS = [['client-1', 'Adsalign'], ['client-2', 'TapnTrusts'], ['client-3', 'Saekos'], ['client-4', 'BabyNinja'], ['client-5', 'NJ Sports'], ['client-6', 'Lumzo'], ['client-7', 'SwasthHub']];
+
+var TICKER = ['Shopify development', 'Conversion optimisation', 'Custom sections', 'Speed optimisation', 'Mobile-first design', '3D & motion', 'Razorpay / UPI setup', 'Custom templates'];
+
+// What each visitor sees first, and the hero line they get.
+// Shopify stores and websites always sit together (stores first) so a client can check all the work in one go.
+var PROFILES = {
+  client:    { short: 'Store',  order: ['stores', 'websites', 'services', 'results', 'about', 'process', 'pricing', 'faq'],
+               tagline: 'I don’t just build stores. I design sales. Fast, premium Shopify stores that turn browsers into buyers.' },
+  recruiter: { short: 'Hiring', order: ['about', 'results', 'stores', 'websites', 'services', 'process', 'faq', 'pricing'],
+               tagline: 'Web developer and CRO expert with 4+ years of building Shopify stores and immersive, high-performance websites.' },
+  developer: { short: 'Dev',    order: ['stores', 'websites', 'services', 'process', 'about', 'results', 'faq', 'pricing'],
+               tagline: '3D worlds, scroll scenes, GSAP motion and custom Shopify sections. Built by hand, shipped fast.' }
+};
+
+/* ======================================================================
+   ADDED: fill these in. Nothing shows on the page until it is filled.
+   ====================================================================== */
+CONFIG.whatsapp = '917881192526';           // your number with country code, digits only, e.g. '919876543210'
+CONFIG.waText = 'Hi Sameer, I saw your portfolio. Can you do a free teardown of my store?';
+CONFIG.formEndpoint = '';       // optional: a Formspree / Web3Forms / Google Apps Script URL that accepts a JSON POST. Empty = the form opens WhatsApp (or email) with the details pre-filled.
+
+// One line of proof per project, shown on the card and in the details. Key = the project's title above.
+// Keep it short and real: a number a client gave you, a speed score, a timeline.
+// Example: 'Baby Ninja': { line: 'Mobile speed 41 → 92', stats: [['92', 'Mobile PageSpeed after'], ['41', 'PageSpeed before'], ['12 days', 'Build time']] }
+var RESULTS = {
+};
+
+// Real client reviews. Ask each client for 2–3 sentences on WhatsApp and paste them here with permission.
+// photo is optional (a square jpg/webp in this folder). link = the live store, so a visitor can verify it.
+// Example: { text: 'Our checkout was leaking on mobile; Sameer rebuilt the product page and cart in 10 days and the difference showed in the first week.', name: 'Geetam Goyal', role: 'Founder, Baby Ninja', link: 'https://babyninja.in/', result: 'Launched in 10 days', photo: '' }
+var REVIEWS = [
+  // approved: true  = shows on the site.  approved: false = hidden until the client says "ok" to the text.
+  { approved: true,  text: 'I run a performance marketing agency, so I judge a store by how it converts, not how it looks. Every store Sameer has built for our clients is mobile-first, fast, and planned around the checkout. He is the developer we send our brands to.', name: 'Omar Sikari', role: 'Founder, Adsalign', link: 'https://adsalign.io/', result: 'Agency partner since 2025', photo: '' },
+  { approved: true,  text: 'TapnTrust sells a product people have not seen before, so the store had to explain it in one scroll. Sameer nailed that: clean pages, fast on mobile, and the tap-to-review demo right where customers look. Orders started the week we went live.', name: 'Fahad', role: 'Founder, TapnTrust', link: 'https://tapntrust.in/', result: 'Orders in week one', photo: '' },
+  { approved: true,  text: 'We needed a kids\u2019 store that felt playful but still pushed people to checkout. Sameer built it mobile-first with festive collections and a quick cart flow. Parents shop on their phones, and the store finally works the way they do.', name: 'Geetam Goyal', role: 'Founder, Baby Ninja', link: 'https://babyninja.in/', result: 'Mobile-first rebuild', photo: '' },
+  { approved: true,  text: 'I wanted one page that pulls cricket and football fans into our Telegram channel. Sameer built it fast, kept it simple, and the one-tap join button does the job. Exactly what we asked for, delivered quickly.', name: 'Vivek', role: 'Founder, NJ Sports', link: 'https://nj-info.in/', result: 'Delivered in days', photo: '' },
+  { approved: true,  text: 'Our busy books need parents to understand why before they buy. Sameer designed the product pages so every activity is explained clearly, and the store looks like a premium kids\u2019 brand. Clean work, on time.', name: 'Gaurav', role: 'Founder, Saekos', link: 'https://saekos.com/', result: 'Premium D2C store', photo: '' }
+];
+
+// The new Reviews section joins every visitor order; the client view gets it right after the stores.
+Object.keys(PROFILES).forEach(function (k) {
+  var o = PROFILES[k].order;
+  if (o.indexOf('reviews') === -1) { if (k === 'client') o.splice(o.indexOf('websites') + 1, 0, 'reviews'); else o.push('reviews'); }
+});
+
+/* ====================================================================== */
 (function () {
-  var sites = (window.SITES || []).slice();
-  var NEW_DAYS = 21;
-  var DESKTOP_W = 1280;
-  // Menus that always show in the top bar, even before any website uses them.
-  // A website appears under one when its categories in sites.js include the same name.
-  var PINNED = ['Shopify Stores'];
-  var grid = document.getElementById('grid');
-  var tabsEl = document.getElementById('tabs');
-  var ink = document.getElementById('ink');
-  var empty = document.getElementById('empty');
-  var search = document.getElementById('search');
-  var searchBox = document.getElementById('searchBox');
-  var mq = function (q) { return window.matchMedia && window.matchMedia(q).matches; };
-  var conn = navigator.connection || {};
-  // Live previews: off for reduced motion and data saver
-  var livePreviews = !mq('(prefers-reduced-motion: reduce)') && !conn.saveData;
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('tally').textContent = String(sites.length).padStart(2, '0');
-
-  var slug = function (s) { return String(s).toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); };
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
-  var time = function (s) { var t = Date.parse(s.added || ''); return isNaN(t) ? 0 : t; };
-  var isExternal = function (u) { return /^https?:/i.test(u); };
+  var pad2 = function (n) { return String(n).padStart(2, '0'); };
+  var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  var session = { get: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} } };
+  var CHECK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#3A3A3A"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>';
+  var ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  $('year').textContent = new Date().getFullYear();
 
-  // Tabs: All, Recent, pinned menus, then categories by how often they are used.
-  // Rebuilt whenever the list changes (sites.js first, then folders found in the repository).
-  var sheet = document.getElementById('sheet');
-  var sheetList = document.getElementById('sheetList');
-  var tabs = [];
-  function buildTabs() {
-    sites.sort(function (a, b) { return time(b) - time(a); });
-    document.getElementById('tally').textContent = String(sites.length).padStart(2, '0');
-    var counts = {};
-    sites.forEach(function (s) { (s.categories || []).forEach(function (c) { counts[c] = (counts[c] || 0) + 1; }); });
-    var cats = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
-    cats = PINNED.concat(cats.filter(function (c) { return PINNED.indexOf(c) === -1; }));
-    tabs = [{ id: 'all', label: 'All', n: sites.length }, { id: 'recent', label: 'Recent' }]
-      .concat(cats.map(function (c) { return { id: slug(c), label: c, n: counts[c] }; }));
-    tabsEl.querySelectorAll('.tab').forEach(function (b) { b.remove(); });
-    tabsEl.insertAdjacentHTML('beforeend', tabs.map(function (t) {
-      return '<button class="tab" type="button" data-cat="' + t.id + '" aria-pressed="false">' + esc(t.label) +
-        (t.n ? '<sup>' + String(t.n).padStart(2, '0') + '</sup>' : '') + '</button>';
-    }).join(''));
-    // Category sheet (phone menu / filter button)
-    sheetList.innerHTML = tabs.map(function (t) {
-      return '<button type="button" data-cat="' + t.id + '" aria-pressed="false"><span>' + esc(t.label) + '</span>' +
-        (t.n ? '<small>' + String(t.n).padStart(2, '0') + '</small>' : '') + '</button>';
+  // ---------- Links ----------
+  document.querySelectorAll('[data-book]').forEach(function (a) { a.href = CONFIG.bookingLink; a.target = '_blank'; a.rel = 'noopener'; });
+  document.querySelectorAll('[data-gallery]').forEach(function (a) { a.href = CONFIG.gallery; });
+  $('mail').href = 'mailto:' + CONFIG.email; $('mail').textContent = CONFIG.email;
+  var ICON = {
+    instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>',
+    x: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.8 3h3l-6.6 7.5L22 21h-6.1l-4.8-6.2L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7zm-1 16.2h1.7L7.3 4.7H5.5z"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.5v.5M12 16v-3.2a2.3 2.3 0 0 1 4.6 0V16M12 10.5V16"/></svg>'
+  };
+  $('socials').innerHTML = ['instagram', 'x', 'linkedin'].map(function (k) {
+    return '<a href="' + esc(CONFIG[k]) + '" target="_blank" rel="noopener" aria-label="' + (k === 'x' ? 'X' : k.charAt(0).toUpperCase() + k.slice(1)) + '">' + ICON[k] + '</a>';
+  }).join('');
+
+  // ---------- Build content ----------
+  var tick = TICKER.map(function (t) { return '<span>' + esc(t) + '</span>'; }).join('');
+  $('ticker').innerHTML = tick + tick;
+  var ALL = STORES.map(function (p) { p.kind = 'Shopify store'; return p; }).concat(WEBSITES.map(function (p) { p.kind = 'Website'; return p; }));
+  function cards(list, offset) {
+    return list.map(function (p, i) {
+      return '<button class="card" type="button" data-p="' + (offset + i) + '" aria-label="' + esc(p.title) + ', open details">' +
+        '<span class="art">' + (p.img ? '<img src="' + esc(p.img) + '" alt="" loading="lazy" decoding="async">' : '<span class="ph">' + esc(p.title) + '</span>') +
+        (i === 0 ? '<span class="tagnew"><i class="gdot" aria-hidden="true"></i>Latest</span>' : '') +
+        '<span class="open"><b>Open project</b><i>' + ARROW + '</i></span></span>' +
+        '<h3>' + esc(p.title) + ' <small>' + pad2(i + 1) + '</small></h3>' +
+        '<span class="tags">' + p.tags.map(function (t) { return '<span class="chip">' + esc(t) + '</span>'; }).join('') + '</span></button>';
     }).join('');
   }
-  buildTabs();
-  var lastFocus = null;
-  function openSheet() {
-    lastFocus = document.activeElement;
-    sheet.classList.add('is-open'); sheet.setAttribute('aria-hidden', 'false');
-    var cur = sheetList.querySelector('[aria-pressed="true"]') || sheetList.querySelector('button');
-    if (cur) cur.focus();
+  document.querySelector('[data-rail="stores"]').innerHTML = cards(STORES, 0);
+  document.querySelector('[data-rail="websites"]').innerHTML = cards(WEBSITES, STORES.length);
+  $('ring').innerHTML = SERVICES.map(function (s, i) {
+    return '<article class="rc spot"><div><div style="display:flex;justify-content:space-between;align-items:center"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#E5E5E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + s.icon + '</svg></span><span class="no">' + pad2(i + 1) + ' / 04</span></div>' +
+      '<h3>' + esc(s.title) + '</h3><p>' + esc(s.text) + '</p></div><div class="tags">' + s.tags.map(function (t) { return '<span class="chip">' + esc(t) + '</span>'; }).join('') + '</div></article>';
+  }).join('');
+  $('points').innerHTML = POINTS.map(function (t) { return '<div>' + CHECK + esc(t) + '</div>'; }).join('');
+  $('steps').innerHTML = '<div class="tl-line" aria-hidden="true"><i></i></div>' + STEPS.map(function (s, i) {
+    return '<div class="tl-item rv"><div class="tl-dot" aria-hidden="true"><span>' + pad2(i + 1) + '</span></div><div class="tl-card spot"><span class="mono">' + esc(s.len) + '</span><h3>' + esc(s.title) + '</h3><p>' + esc(s.text) + '</p></div></div>';
+  }).join('');
+  // Timeline: the line fills with scroll and each step lights up as the fill reaches it
+  var tl = $('steps'), tlFill = tl.querySelector('.tl-line'), tlItems = [].slice.call(tl.querySelectorAll('.tl-item'));
+  function readTimeline() {
+    var mark = window.innerHeight * .62, lr = tlFill.getBoundingClientRect();
+    var p = lr.height > 0 ? Math.min(1, Math.max(0, (mark - lr.top) / lr.height)) : 0;
+    tlFill.style.setProperty('--p', reduced ? 1 : p.toFixed(4));
+    tlItems.forEach(function (it) { var d = it.querySelector('.tl-dot').getBoundingClientRect(); it.classList.toggle('on', reduced || d.top + d.height / 2 < mark); });
   }
-  function closeSheet() {
-    sheet.classList.remove('is-open'); sheet.setAttribute('aria-hidden', 'true');
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  window.addEventListener('scroll', function () { requestAnimationFrame(readTimeline); }, { passive: true });
+
+  // Scrolling away from the hero (same as the Framer Motion site): the card turns from -4° through straight to +6°
+  // and drifts down, while the text rises and fades out
+  var heroSec = $('hero'), photoWrap = $('photoWrap'), photoCard = $('photo'), heroCopy = $('heroCopy');
+  function cardScroll() {
+    var k = Math.min(1, Math.max(0, window.scrollY / Math.max(1, heroSec.offsetHeight)));
+    photoCard.style.setProperty('--rot', (-4 + k * 10).toFixed(2) + 'deg');
+    photoWrap.style.setProperty('--cy', (k * 120).toFixed(1) + 'px');
+    heroCopy.style.setProperty('--hy', (k * -140).toFixed(1) + 'px');
+    heroCopy.style.setProperty('--ho', Math.max(0, 1 - k / .7).toFixed(3));
   }
-  document.querySelectorAll('[data-open-sheet]').forEach(function (b) { b.addEventListener('click', openSheet); });
-  document.getElementById('sheetClose').addEventListener('click', closeSheet);
-  sheet.addEventListener('click', function (e) { if (e.target === sheet) closeSheet(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && sheet.classList.contains('is-open')) closeSheet(); });
-  sheetList.addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return;
-    setCategory(b.dataset.cat, true); closeSheet();
+  if (!reduced) { window.addEventListener('scroll', function () { requestAnimationFrame(cardScroll); }, { passive: true }); cardScroll(); }
+
+  // About photo: the curtain opens once the photo is on screen (checked on scroll, so it never stays shut)
+  var aboutImg = document.querySelector('.about-img');
+  function openCurtain() {
+    if (aboutImg.classList.contains('open')) return;
+    var r = aboutImg.getBoundingClientRect();
+    if (r.top < window.innerHeight * .88 && r.bottom > 0) aboutImg.classList.add('open');
+  }
+  window.addEventListener('scroll', function () { requestAnimationFrame(openCurtain); }, { passive: true });
+  window.addEventListener('resize', openCurtain);
+  setTimeout(openCurtain, 300);
+  window.addEventListener('resize', readTimeline);
+  readTimeline();
+  $('plans').innerHTML = PLANS.map(function (p) {
+    return '<div class="plan spot rv' + (p.spots ? ' pop' : '') + '"><div class="top-l"><span class="name">' + esc(p.name) + '</span>' + (p.spots ? '<span class="spots"><i class="gdot" aria-hidden="true"></i>' + esc(p.spots) + '</span>' : '') + '</div>' +
+      '<div class="price"><small>₹</small>' + esc(p.price) + '</div><div class="per">One-time</div>' +
+      '<a class="btn ' + (p.spots ? 'btn-white' : 'btn-dark') + '" href="' + esc(CONFIG.bookingLink) + '" target="_blank" rel="noopener">Get started</a>' +
+      '<ul>' + p.features.map(function (f) { return '<li>' + CHECK + esc(f) + '</li>'; }).join('') + '</ul></div>';
+  }).join('');
+  $('faqList').innerHTML = FAQ.map(function (f) {
+    return '<details class="spot rv"><summary>' + esc(f[0]) + '<i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></i></summary><div class="ans"><div><p>' + esc(f[1]) + '</p></div></div></details>';
+  }).join('');
+  // ---------- ADDED: reviews ----------
+  var STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>';
+  var LIVE_REVIEWS = REVIEWS.filter(function (r) { return r.approved !== false; });
+  if (LIVE_REVIEWS.length) {
+    $('reviews').hidden = false;
+    $('quotes').innerHTML = LIVE_REVIEWS.map(function (r) {
+      var initials = String(r.name || '').split(/\s+/).map(function (w) { return w.charAt(0); }).join('').slice(0, 2).toUpperCase();
+      return '<figure class="quote spot rv" style="margin:0"><div class="stars" aria-label="5 out of 5">' + STAR + STAR + STAR + STAR + STAR + '</div>' +
+        '<p>' + esc(r.text) + '</p>' +
+        (r.result ? '<span class="result"><i aria-hidden="true"></i>' + esc(r.result) + '</span>' : '') +
+        '<figcaption class="who-q"><i>' + (r.photo ? '<img src="' + esc(r.photo) + '" alt="" loading="lazy">' : esc(initials)) + '</i><div><b>' + esc(r.name) + '</b><small>' + esc(r.role || '') + '</small></div>' +
+        (r.link ? '<a href="' + esc(r.link) + '" target="_blank" rel="noopener">See the store ↗</a>' : '') + '</figcaption></figure>';
+    }).join('');
+    // Nav links to the new section (desktop + mobile), placed before "All Websites"
+    [document.querySelector('.links'), $('mmenu')].forEach(function (nav) {
+      if (!nav) return;
+      var a = document.createElement('a'); a.href = '#reviews'; a.textContent = 'Reviews';
+      var gal = nav.querySelector('[data-gallery]');
+      if (gal) nav.insertBefore(a, gal); else nav.appendChild(a);
+    });
+  }
+  // ---------- ADDED: result line on each project card ----------
+  document.querySelectorAll('.rail .card').forEach(function (c) {
+    var h = c.querySelector('h3'), title = h ? h.childNodes[0].textContent.trim() : '', r = RESULTS[title];
+    if (r && r.line) c.insertAdjacentHTML('beforeend', '<span class="win"><i aria-hidden="true"></i>' + esc(r.line) + '</span>');
   });
-
-  // Phone search icon shows the search field under the tabs
-  document.getElementById('mSearch').addEventListener('click', function () {
-    var on = document.body.classList.toggle('show-search');
-    if (on) { search.focus(); } else { search.value = ''; query = ''; render(); }
-  });
-
-  var active = 'all', query = '';
-
-  function moveInk() {
-    var b = tabsEl.querySelector('.tab[aria-pressed="true"]');
-    if (!b) return;
-    ink.style.width = b.offsetWidth + 'px';
-    ink.style.transform = 'translateX(' + b.offsetLeft + 'px)';
-  }
-
-  function cardHTML(s, i) {
-    var isNew = time(s) && (Date.now() - time(s)) / 864e5 <= NEW_DAYS;
-    var live = livePreviews && (s.live === true || (s.live !== false && !isExternal(s.url)));
-    var tags = (s.categories || []).map(function (c) { return '<button type="button" data-goto="' + slug(c) + '">' + esc(c) + '</button>'; }).join(' · ');
-    return '<li class="card" style="animation-delay:' + Math.min(i, 8) * 60 + 'ms">' +
-      '<div class="frame"' + (live ? ' data-live="' + esc(s.url) + '"' + (s.scroll ? ' data-scroll="1"' : '') : '') + '>' +
-        (s.thumb ? '<img src="' + esc(s.thumb) + '" alt="" width="1200" height="750" loading="lazy" decoding="async">'
-          : '<span class="ph-title" aria-hidden="true">' + esc(s.title) + '</span>') +
-        (isNew ? '<span class="flag new">New</span>' : '') +
-        (live ? '<span class="live-dot">Live</span>' : '') +
-        '<a class="cover" href="' + esc(s.url) + '" target="_blank" rel="noopener" aria-label="Open ' + esc(s.title) + '"></a>' +
-      '</div>' +
-      '<div class="meta"><div><h2><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title) + '</a></h2>' +
-        '<p class="tags">' + tags + '</p></div>' +
-        '<a class="go" href="' + esc(s.url) + '" target="_blank" rel="noopener" aria-label="Open ' + esc(s.title) + '">' +
-          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
-        '</a></div>' +
-    '</li>';
-  }
-
-  function render() {
-    stopAll();
-    var list = sites.filter(function (s) {
-      var inCat = active === 'all' || active === 'recent' || (s.categories || []).some(function (c) { return slug(c) === active; });
-      var text = (s.title + ' ' + (s.categories || []).join(' ')).toLowerCase();
-      return inCat && (!query || text.indexOf(query) !== -1);
-    });
-    if (active === 'recent') list = list.slice(0, 12);
-    grid.innerHTML = list.map(cardHTML).join('');
-    empty.hidden = list.length > 0;
-    tabsEl.querySelectorAll('.tab').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.cat === active)); });
-    sheetList.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.cat === active)); });
-    moveInk();
-    observeFrames();
-  }
-
-  function setCategory(id, push) {
-    if (!tabs.some(function (t) { return t.id === id; })) id = 'all';
-    active = id;
-    render();
-    var b = tabsEl.querySelector('[data-cat="' + id + '"]');
-    if (b && b.scrollIntoView) b.scrollIntoView({ block: 'nearest', inline: 'center' });
-    if (push) history.replaceState(null, '', id === 'all' ? location.pathname + location.search : '#' + id);
-  }
-
-  // ---------- Live previews: the real site, scaled into the card ----------
-  var io = 'IntersectionObserver' in window ? new IntersectionObserver(onSeen, { rootMargin: '120px 0px', threshold: .15 }) : null;
-  var ro = 'ResizeObserver' in window ? new ResizeObserver(function (es) { es.forEach(function (e) { setScale(e.target); }); }) : null;
-
-  function setScale(frame) { frame.style.setProperty('--s', frame.clientWidth / DESKTOP_W); }
-
-  function observeFrames() {
-    grid.querySelectorAll('.frame').forEach(function (f) {
-      setScale(f);
-      if (ro) ro.observe(f);
-      if (io && f.dataset.live) io.observe(f);
-    });
-  }
-
-  function onSeen(entries) {
-    entries.forEach(function (e) {
-      var f = e.target;
-      if (e.isIntersecting) { clearTimeout(f._off); start(f); }
-      else { f._off = setTimeout(function () { stop(f); }, 1500); }
-    });
-  }
-
-  function start(f) {
-    if (f.querySelector('iframe')) { f._visible = true; return; }
-    var fr = document.createElement('iframe');
-    fr.src = f.dataset.live;
-    fr.title = 'Live preview';
-    fr.setAttribute('aria-hidden', 'true');
-    fr.tabIndex = -1;
-    fr.setAttribute('scrolling', 'no');
-    fr.setAttribute('allow', 'autoplay');
-    fr.addEventListener('load', function () {
-      setTimeout(function () { f.classList.add('is-live'); }, 500);
-      if (f.dataset.scroll) autoScroll(f, fr);
-    });
-    f._visible = true;
-    f.appendChild(fr);
-  }
-
-  function stop(f) {
-    f._visible = false;
-    var fr = f.querySelector('iframe');
-    if (fr) { f.classList.remove('is-live'); fr.remove(); }
-  }
-  function stopAll() { grid.querySelectorAll('.frame').forEach(stop); }
-
-  // Slowly scroll scroll-animated sites (same-site folders only), loop forever while visible
-  function autoScroll(f, fr) {
-    var w; try { w = fr.contentWindow; void w.document; } catch (err) { return; }
-    var y = 0, last = performance.now(), pause = 1200;
-    function tick(now) {
-      if (!f._visible || !fr.isConnected) return;
-      var dt = Math.min(64, now - last); last = now;
-      var max = Math.max(0, w.document.documentElement.scrollHeight - w.innerHeight);
-      if (pause > 0) { pause -= dt; }
-      else if (y >= max - 2) { y = 0; w.scrollTo(0, 0); pause = 1600; }
-      else { y = Math.min(max, y + dt * .32); w.scrollTo(0, y); if (y >= max - 2) pause = 1400; }
-      requestAnimationFrame(tick);
+  // ---------- ADDED: WhatsApp button + social icon ----------
+  var WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3.3 4.4c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.5 0 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4l-.5-.3-1.8-.9c-.3-.1-.4-.1-.6.2l-.9 1.1c-.2.2-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.4 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5Z"/></svg>';
+  var waDigits = String(CONFIG.whatsapp || '').replace(/\D/g, '');
+  function waLink(text) { return 'https://wa.me/' + waDigits + '?text=' + encodeURIComponent(text); }
+  if (waDigits) {
+    $('waFab').href = waLink(CONFIG.waText); $('waFab').hidden = false;
+    $('socials').insertAdjacentHTML('beforeend', '<a class="wa" href="' + esc(waLink(CONFIG.waText)) + '" target="_blank" rel="noopener" aria-label="WhatsApp">' + WA_ICON + '</a>');
+  } else { var sendTxt = $('leadSend').firstChild; if (sendTxt && sendTxt.nodeType === 3) sendTxt.nodeValue = 'Send my store link'; }
+  // ---------- ADDED: lead form ----------
+  $('leadForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, sent = $('leadSent');
+    if (f.website.value) return; // bot filled the hidden field
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    var d = { name: f.name.value.trim(), phone: f.phone.value.trim(), store: f.store.value.trim(), spend: f.spend.value, need: f.need.value, message: f.message.value.trim(), source: location.href };
+    var lines = ['New store teardown request', 'Name: ' + d.name, 'WhatsApp: ' + d.phone, 'Store: ' + d.store, 'Monthly ad spend: ' + d.spend, 'Need: ' + d.need].concat(d.message ? ['Note: ' + d.message] : []);
+    function done(msg) { sent.textContent = msg; sent.classList.add('on'); }
+    if (CONFIG.formEndpoint) {
+      $('leadSend').disabled = true;
+      fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(d) })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); f.reset(); done('Got it, ' + d.name.split(' ')[0] + '. Your teardown lands on WhatsApp within 24 hours.'); })
+        .catch(function () { done('Could not send just now. Email ' + CONFIG.email + ' or use the WhatsApp button instead.'); })
+        .then(function () { $('leadSend').disabled = false; });
+    } else if (waDigits) {
+      window.open(waLink(lines.join('\n')), '_blank', 'noopener');
+      done('WhatsApp opened with your details. Press send there and the teardown is on its way.');
+    } else {
+      location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent('Store teardown request: ' + d.store) + '&body=' + encodeURIComponent(lines.join('\n'));
+      done('Your email app opened with the details. Hit send and I will reply within 24 hours.');
     }
-    requestAnimationFrame(tick);
-  }
-
-  // ---------- Events ----------
-  tabsEl.addEventListener('click', function (e) { var b = e.target.closest('.tab'); if (b) setCategory(b.dataset.cat, true); });
-  grid.addEventListener('click', function (e) {
-    var g = e.target.closest('[data-goto]');
-    if (g) { e.preventDefault(); setCategory(g.dataset.goto, true); window.scrollTo({ top: 0, behavior: 'smooth' }); }
   });
-  document.getElementById('searchBtn').addEventListener('click', function () { searchBox.classList.add('is-open'); search.focus(); });
-  search.addEventListener('blur', function () { if (!search.value) searchBox.classList.remove('is-open'); });
-  search.addEventListener('input', function () {
-    query = search.value.trim().toLowerCase();
-    if (query && active !== 'all') setCategory('all', true); else render();
-  });
-  window.addEventListener('resize', moveInk);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveInk);
+  var logos = CLIENTS.map(function (c) { return '<img src="' + c[0] + '.webp" alt="' + esc(c[1]) + '" height="30" loading="lazy">'; }).join('');
+  $('logos').innerHTML = logos + logos.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
 
-  setCategory((location.hash || '').slice(1) || 'all', false);
-  window.addEventListener('hashchange', function () { setCategory((location.hash || '').slice(1) || 'all', false); });
-
-  // ---------- Automatic: every website folder in the repository becomes a card ----------
-  // Upload a folder that has an index.html inside and it appears here — no need to touch
-  // this file or sites.js. Optional, inside that website's own <head>:
-  //   <meta name="gallery-title" content="My Site">            (otherwise its <title> is used)
-  //   <meta name="gallery-category" content="3D, Landing Page"> (otherwise "Website")
-  //   <meta name="gallery-hide" content="true">                 (keep a folder out of the gallery)
-  // Thumbnail: put thumbs/<folder-name>.webp (or .jpg / .png) — otherwise the live site is the preview.
-  // A folder listed in sites.js keeps the details written there.
-  var SKIP = ['thumbs', 'assets', 'images', 'img', 'css', 'js', 'fonts', 'node_modules'];
-  var CACHE_MIN = 3; // how long a visitor's browser reuses the folder list before asking GitHub again
-  function repoFromLocation() {
-    if (window.GALLERY_REPO) return window.GALLERY_REPO;
-    var host = location.hostname.match(/^([^.]+)\.github\.io$/i);
-    if (!host) return null;
-    var first = location.pathname.split('/').filter(Boolean)[0];
-    // A project site lives at user.github.io/<repo>/; a user site is the repo user.github.io itself.
-    return host[1] + '/' + (first && !/\.html?$/i.test(first) ? first : host[1] + '.github.io');
-  }
-  function cached(key, maxAgeMin, loader) {
-    try {
-      var hit = JSON.parse(localStorage.getItem(key) || 'null');
-      if (hit && Date.now() - hit.t < maxAgeMin * 6e4) return Promise.resolve(hit.v);
-    } catch (e) {}
-    return loader().then(function (v) {
-      try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), v: v })); } catch (e) {}
-      return v;
-    });
-  }
-  function getJSON(url) {
-    return fetch(url, { headers: { Accept: 'application/vnd.github+json' } }).then(function (r) {
-      if (!r.ok) throw new Error(r.status);
-      return r.json();
-    });
-  }
-  var folderOf = function (u) { return String(u || '').replace(/^\.\//, '').replace(/\/?(index\.html?)?$/i, '').toLowerCase(); };
-  var pretty = function (name) { return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); }); };
-
-  function readSite(dir, thumbs, date) {
-    return fetch(dir + '/', { cache: 'no-cache' }).then(function (r) {
-      if (!r.ok) return null; // no index.html: not a website
-      return r.text().then(function (html) {
-        var doc = new DOMParser().parseFromString(html, 'text/html');
-        var meta = function (n) { var m = doc.querySelector('meta[name="' + n + '"]'); return m ? m.getAttribute('content').trim() : ''; };
-        if (/^(true|yes|1)$/i.test(meta('gallery-hide'))) return null;
-        var title = meta('gallery-title') || (doc.title || '').split(/\s+[—–|-]\s+|\s*[|·]\s*/)[0].trim() || pretty(dir);
-        var cats = (meta('gallery-category') || 'Website').split(',').map(function (c) { return c.trim(); }).filter(Boolean);
-        var thumb = thumbs[dir.toLowerCase()];
-        return { title: title, url: dir + '/', thumb: thumb ? 'thumbs/' + thumb : '', categories: cats, added: date || '', auto: true };
-      });
-    }).catch(function (err) {
-      if (window.console) console.warn('Gallery: could not read ' + dir + '/index.html', err);
-      return null;
-    });
-  }
-
-  function discover() {
-    var repo = repoFromLocation();
-    if (!repo || !window.fetch || !window.DOMParser) return;
-    var api = 'https://api.github.com/repos/' + repo;
-    var known = {};
-    sites.forEach(function (s) { if (!isExternal(s.url)) known[folderOf(s.url)] = true; });
-
-    cached('gallery-tree:' + repo, CACHE_MIN, function () {
-      // One request for the whole repository: every folder plus the files in thumbs/.
-      return getJSON(api).then(function (info) {
-        return getJSON(api + '/git/trees/' + encodeURIComponent(info.default_branch || 'main') + '?recursive=1');
-      }).then(function (tree) {
-        var dirs = [], thumbs = {};
-        (tree.tree || []).forEach(function (n) {
-          if (n.type === 'tree' && n.path.indexOf('/') === -1) dirs.push(n.path);
-          var m = n.type === 'blob' && n.path.match(/^thumbs\/(([^/]+)\.(webp|jpe?g|png|avif))$/i);
-          if (m) thumbs[m[2].toLowerCase()] = m[1];
-          if (n.type === 'blob' && /^[^/]+\/index\.html?$/i.test(n.path)) dirs.push('#' + n.path.split('/')[0]);
-        });
-        // Keep only top-level folders that contain an index.html
-        var withIndex = {};
-        dirs.forEach(function (d) { if (d[0] === '#') withIndex[d.slice(1)] = true; });
-        dirs = dirs.filter(function (d) { return d[0] !== '#' && withIndex[d]; });
-        return { dirs: dirs, thumbs: thumbs };
-      });
-    }).then(function (data) {
-      var fresh = data.dirs.filter(function (d) {
-        return !known[d.toLowerCase()] && d[0] !== '.' && d[0] !== '_' && SKIP.indexOf(d.toLowerCase()) === -1;
-      });
-      if (!fresh.length) return;
-      // When each folder was last uploaded, for "newest first" and the New badge.
-      return Promise.all(fresh.map(function (d) {
-        return cached('gallery-date:' + repo + ':' + d, 60 * 12, function () {
-          return getJSON(api + '/commits?per_page=1&path=' + encodeURIComponent(d)).then(function (c) {
-            return c[0] && c[0].commit && c[0].commit.committer ? c[0].commit.committer.date : '';
+  // Headings: wrap each word so it can rise in
+  document.querySelectorAll('.words').forEach(function (el) {
+    var i = 0;
+    (function walk(node) {
+      [].slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var w = document.createElement('span'); w.className = 'w';
+            var inner = document.createElement('span'); inner.textContent = part; inner.style.setProperty('--i', i++);
+            w.appendChild(inner); frag.appendChild(w);
           });
-        }).catch(function () { return ''; }).then(function (date) { return readSite(d, data.thumbs, date); });
-      })).then(function (found) {
-        found = found.filter(Boolean);
-        if (!found.length) return;
-        sites = sites.concat(found);
-        buildTabs();
-        setCategory(active, false);
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) { walk(n); }
       });
-    }).catch(function (err) {
-      // GitHub unreachable or rate-limited: the sites.js list alone still shows.
-      if (window.console) console.warn('Gallery: could not list the repository folders', err);
+    })(el);
+  });
+
+  // Scroll arrows
+  document.querySelectorAll('[data-scroll]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var rail = b.closest('.section').querySelector('.rail');
+      rail.scrollBy({ left: Number(b.dataset.scroll) * rail.clientWidth * .8, behavior: 'smooth' });
+    });
+  });
+
+  // ---------- Reveal + count-up ----------
+  function count(el) {
+    var end = Number(el.dataset.count), suf = el.dataset.suffix || '', t0 = performance.now();
+    if (reduced) { el.textContent = end + suf; return; }
+    (function step(t) {
+      var k = Math.min(1, (t - t0) / 1600);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + suf;
+      if (k < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('[data-count]').forEach(count);
+      io.unobserve(e.target);
+    });
+  }, { threshold: .15, rootMargin: '0px 0px -40px 0px' }) : null;
+  function observe() {
+    document.querySelectorAll('.rv:not(.in), .words:not(.in)').forEach(function (el) {
+      if (io && !reduced) io.observe(el);
+      else { el.classList.add('in'); el.querySelectorAll('[data-count]').forEach(count); }
     });
   }
-  discover();
+
+  // ---------- Visitor type ----------
+  var who = $('who');
+  function applyProfile(key) {
+    var p = PROFILES[key] || PROFILES.client, box = $('sections');
+    p.order.forEach(function (id) { var s = box.querySelector('[data-sec="' + id + '"]'); if (s) box.appendChild(s); });
+    // Keep the section numbers in order (01, 02, 03…) whatever the order is
+    [].slice.call(box.children).forEach(function (s, i) {
+      var lab = s.querySelector('.head .mono'), t = lab && lab.firstChild;
+      if (t && t.nodeType === 3) t.textContent = pad2(i + 1) + ' // ';
+    });
+    $('tagline').textContent = p.tagline;
+    $('whoName').textContent = p.short; $('whoInitial').textContent = p.short.charAt(0);
+    store.set('pf-visitor', key);
+    if (window.readRing) window.readRing();
+  }
+  function openWho() { who.classList.add('open'); document.body.classList.add('locked'); setTimeout(function () { who.querySelector('.profile').focus(); }, 300); }
+  function closeWho() { who.classList.remove('open'); document.body.classList.remove('locked'); observe(); }
+  document.querySelectorAll('[data-profile]').forEach(function (b) {
+    b.addEventListener('click', function () { applyProfile(b.dataset.profile); closeWho(); window.scrollTo(0, 0); });
+  });
+  $('whoBtn').addEventListener('click', openWho);
+  applyProfile(store.get('pf-visitor') || 'client');
+
+  // ---------- Intro (once per visit) ----------
+  var intro = $('intro');
+  function endIntro() {
+    if (intro.classList.contains('gone')) return;
+    intro.classList.add('gone'); session.set('pf-intro', '1');
+    if (store.get('pf-asked')) closeWho(); else { store.set('pf-asked', '1'); openWho(); }
+  }
+  if (session.get('pf-intro') || reduced) { intro.classList.add('gone'); closeWho(); }
+  else { $('inEnter').addEventListener('click', endIntro); $('inSkip').addEventListener('click', endIntro); setTimeout(function () { $('inEnter').focus(); }, 2600); }
+
+  // ---------- Nav, progress bar, burger ----------
+  var nav = $('nav'), bar = $('progress'), lastY = 0;
+  function onScroll() {
+    var y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
+    nav.classList.toggle('solid', y > 30);
+    nav.classList.toggle('hide', y > 400 && y > lastY && !document.body.classList.contains('menu-open'));
+    bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    lastY = y;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  function setMenu(open) { document.body.classList.toggle('menu-open', open); $('burger').setAttribute('aria-expanded', String(open)); }
+  $('burger').addEventListener('click', function () { setMenu(!document.body.classList.contains('menu-open')); });
+  document.querySelectorAll('#mmenu a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  // ---------- Services ring ----------
+  var ring = $('ring'), rcs = [].slice.call(ring.children), ringSec = $('services');
+  var wide = window.matchMedia('(min-width: 961px)');
+  var ringTurn = 0, ringTarget = 0;
+  window.readRing = function () {
+    if (!wide.matches) { ringTarget = 0; return; }
+    var r = ringSec.getBoundingClientRect(), span = ringSec.offsetHeight - window.innerHeight;
+    ringTarget = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) * (rcs.length - 1) : 0;
+  };
+  // Narrow screens: coverflow. Each card turns away by how far it sits from the centre of the row.
+  function coverflow() {
+    var mid = ring.scrollLeft + ring.clientWidth / 2;
+    rcs.forEach(function (c) {
+      var d = (c.offsetLeft + c.offsetWidth / 2 - mid) / c.offsetWidth, a = Math.max(-1.4, Math.min(1.4, d));
+      c.style.transform = reduced ? '' : 'rotateY(' + (a * -32).toFixed(1) + 'deg) scale(' + (1 - Math.min(1, Math.abs(a)) * .14).toFixed(3) + ') translateZ(' + (Math.abs(a) * -60).toFixed(0) + 'px)';
+      c.style.opacity = String(1 - Math.min(1, Math.abs(a)) * .45);
+      c.style.zIndex = String(10 - Math.round(Math.abs(a) * 5));
+      c.classList.toggle('front', Math.abs(d) < .35);
+    });
+    $('ringNow').textContent = pad2(1 + rcs.reduce(function (best, c, i) { return Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid) < Math.abs(rcs[best].offsetLeft + rcs[best].offsetWidth / 2 - mid) ? i : best; }, 0));
+  }
+  ring.addEventListener('scroll', function () { if (!wide.matches) requestAnimationFrame(coverflow); }, { passive: true });
+  function placeRing() {
+    if (!wide.matches) { coverflow(); return; }
+    var n = rcs.length, step = 360 / n, R = Math.max(340, Math.min(520, window.innerWidth * .3));
+    rcs.forEach(function (c, i) {
+      var a = (i - ringTurn) * step, rad = a * Math.PI / 180, facing = Math.cos(rad);
+      c.style.transform = 'rotateY(' + a + 'deg) translateZ(' + R + 'px)';
+      c.style.opacity = String(.22 + .78 * Math.max(0, facing));
+      c.classList.toggle('front', facing > .92);
+    });
+    $('ringNow').textContent = pad2(Math.min(n, Math.round(ringTurn) + 1));
+  }
+  (function ringLoop() {
+    var gap = ringTarget - ringTurn;
+    if (Math.abs(gap) > .0005 || !ring.dataset.ready) { ringTurn += gap * (reduced ? 1 : .1); placeRing(); ring.dataset.ready = '1'; }
+    requestAnimationFrame(ringLoop);
+  })();
+  window.addEventListener('scroll', window.readRing, { passive: true });
+  window.addEventListener('resize', function () { window.readRing(); placeRing(); });
+  window.readRing();
+
+
+  // ---------- Pointer effects (mouse/trackpad only) ----------
+  if (finePointer && !reduced) {
+    var cursor = $('cursor'), cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
+    document.addEventListener('pointermove', function (e) {
+      tx = e.clientX; ty = e.clientY; cursor.classList.add('on');
+      var t = e.target;
+      cursor.classList.toggle('view', !!(t.closest && t.closest('.card, .allsites, .m-more button')));
+      // Spotlight follows the cursor
+      var s = t.closest && t.closest('.spot');
+      if (s) { var sr = s.getBoundingClientRect(); s.style.setProperty('--mx', (e.clientX - sr.left) + 'px'); s.style.setProperty('--my', (e.clientY - sr.top) + 'px'); }
+    });
+    document.addEventListener('pointerout', function (e) {
+      if (!e.relatedTarget) cursor.classList.remove('on');
+    });
+    document.addEventListener('pointerdown', function () { cursor.classList.add('press'); });
+    document.addEventListener('pointerup', function () { cursor.classList.remove('press'); });
+    (function follow() { cx += (tx - cx) * .2; cy += (ty - cy) * .2; cursor.style.transform = 'translate(' + cx + 'px,' + cy + 'px)'; requestAnimationFrame(follow); })();
+
+    // Portrait card tilts toward the cursor
+    var hero = $('hero'), photo = $('photo');
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      photo.style.setProperty('--ry', (x * 16).toFixed(2) + 'deg'); photo.style.setProperty('--rx', (-y * 12).toFixed(2) + 'deg');
+    });
+    hero.addEventListener('pointerleave', function () { photo.style.setProperty('--ry', '0deg'); photo.style.setProperty('--rx', '0deg'); });
+
+    // Magnetic buttons
+    document.querySelectorAll('.mag').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .22).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px)';
+      });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  // =================== WOW LAYER ===================
+  var wow = document.documentElement.classList.contains('js-wow');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  // 1) Intro: particles fly in from everywhere and assemble into the S logo; Enter bursts them apart
+  var inCanvas = $('inCanvas'), particles = [], inRaf = 0, burst = false;
+  if (wow && !intro.classList.contains('gone')) {
+    var ictx = inCanvas.getContext('2d'), logoImg = intro.querySelector('.in-logo');
+    var startParticles = function () {
+      var W = inCanvas.width = innerWidth * DPR, H = inCanvas.height = innerHeight * DPR;
+      var r = logoImg.getBoundingClientRect();
+      var off = document.createElement('canvas'); off.width = Math.max(1, Math.round(r.width)); off.height = Math.max(1, Math.round(r.height));
+      var octx = off.getContext('2d'); octx.drawImage(logoImg, 0, 0, off.width, off.height);
+      var data = octx.getImageData(0, 0, off.width, off.height).data, step = innerWidth < 700 ? 3 : 2;
+      for (var y = 0; y < off.height; y += step) for (var x = 0; x < off.width; x += step) {
+        if (data[(y * off.width + x) * 4 + 3] > 140) {
+          var a = Math.random() * Math.PI * 2, d = Math.max(W, H) * (.6 + Math.random() * .6);
+          particles.push({ tx: (r.left + x) * DPR, ty: (r.top + y) * DPR, x: W / 2 + Math.cos(a) * d, y: H / 2 + Math.sin(a) * d,
+            vx: 0, vy: 0, s: (Math.random() * 1.1 + .7) * DPR, delay: Math.random() * 500 });
+        }
+      }
+      var t0 = performance.now();
+      (function frame(t) {
+        inRaf = requestAnimationFrame(frame);
+        ictx.clearRect(0, 0, W, H);
+        var settled = 0, el = t - t0;
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          if (burst) { p.x += p.vx; p.y += p.vy; p.vx *= 1.04; p.vy *= 1.04; }
+          else if (el > p.delay) { p.x += (p.tx - p.x) * .085; p.y += (p.ty - p.y) * .085; if (Math.abs(p.tx - p.x) < .6 && Math.abs(p.ty - p.y) < .6) settled++; }
+          ictx.globalAlpha = burst ? Math.max(0, 1 - (t - burst) / 900) : .9;
+          ictx.fillStyle = '#fff'; ictx.fillRect(p.x, p.y, p.s, p.s);
+        }
+        if (!burst && (settled > particles.length * .97 || el > 2600)) {
+          logoImg.classList.add('formed');
+          if (el > 2900) { ictx.clearRect(0, 0, W, H); cancelAnimationFrame(inRaf); }
+        }
+        if (burst && t - burst > 950) { cancelAnimationFrame(inRaf); ictx.clearRect(0, 0, W, H); }
+      })(t0);
+    };
+    if (logoImg.complete) startParticles(); else logoImg.addEventListener('load', startParticles);
+    // Safety net: the real logo always shows, even if the particles could not run
+    setTimeout(function () { logoImg.classList.add('formed'); }, 3000);
+  }
+  function burstIntro() {
+    if (!wow || !particles.length) return;
+    var cx = innerWidth * DPR / 2, cy = innerHeight * DPR / 2;
+    particles.forEach(function (p) { p.x = p.tx; p.y = p.ty; var a = Math.atan2(p.ty - cy, p.tx - cx) + (Math.random() - .5), v = (2 + Math.random() * 6) * DPR; p.vx = Math.cos(a) * v; p.vy = Math.sin(a) * v; });
+    burst = performance.now(); intro.querySelector('.in-logo').style.opacity = '0';
+    cancelAnimationFrame(inRaf);
+    var ictx2 = inCanvas.getContext('2d'), W = inCanvas.width, H = inCanvas.height;
+    (function frame(t) {
+      var k = (t - burst) / 900; if (k > 1) { ictx2.clearRect(0, 0, W, H); return; }
+      requestAnimationFrame(frame); ictx2.clearRect(0, 0, W, H); ictx2.globalAlpha = 1 - k; ictx2.fillStyle = '#fff';
+      particles.forEach(function (p) { p.x += p.vx; p.y += p.vy; p.vx *= 1.05; p.vy *= 1.05; ictx2.fillRect(p.x, p.y, p.s, p.s); });
+    })(burst);
+  }
+  if (wow) {
+    $('inEnter').addEventListener('click', burstIntro, true);
+    $('inSkip').addEventListener('click', burstIntro, true);
+  }
+
+  // 2) Hero: a 3D wave of dots that ripples under the cursor/finger and grows wilder with scroll
+  var wave = $('wave');
+  if (wow && wave.getContext) {
+    var wctx = wave.getContext('2d'), WW = 0, WH = 0, pts = [], heroOn = true, poke = { x: -9999, y: -9999, k: 0 };
+    var buildWave = function () {
+      WW = wave.width = wave.clientWidth * DPR; WH = wave.height = wave.clientHeight * DPR;
+      var cols = innerWidth < 700 ? 26 : 54, rows = innerWidth < 700 ? 18 : 26; pts = [];
+      for (var z = 0; z < rows; z++) for (var x = 0; x < cols; x++) pts.push({ gx: x / (cols - 1) - .5, gz: z / (rows - 1) });
+    };
+    buildWave(); window.addEventListener('resize', buildWave);
+    var heroEl = $('hero');
+    var setPoke = function (cx, cy) { var r = wave.getBoundingClientRect(); poke.x = (cx - r.left) * DPR; poke.y = (cy - r.top) * DPR; poke.k = 1; };
+    heroEl.addEventListener('pointermove', function (e) { setPoke(e.clientX, e.clientY); });
+    heroEl.addEventListener('touchmove', function (e) { setPoke(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { heroOn = es[0].isIntersecting; }).observe(heroEl);
+    (function draw(t) {
+      requestAnimationFrame(draw);
+      if (!heroOn) return;
+      var time = t / 1000, scrollK = Math.min(1, window.scrollY / Math.max(1, innerHeight)), amp = (26 + scrollK * 60) * DPR;
+      poke.k *= .96;
+      wctx.clearRect(0, 0, WW, WH);
+      var horizon = WH * .44, fov = WH * 1.05;
+      for (var i = 0; i < pts.length; i++) {
+        var p = pts[i], z = 1.2 + p.gz * 5.5, wx = p.gx * 14;
+        var y = Math.sin(wx * .55 + time * 1.1) * Math.cos(p.gz * 6 + time * .8) * amp;
+        var sx = WW / 2 + (wx / z) * fov * .55, sy = horizon + (2.2 / z) * fov * .55 - y / z;
+        var dx = sx - poke.x, dy = sy - poke.y, dist = Math.sqrt(dx * dx + dy * dy);
+        if (poke.k > .02 && dist < 220 * DPR) { var f = (1 - dist / (220 * DPR)) * poke.k; sy -= f * 46 * DPR * Math.sin(dist / (18 * DPR) - time * 8); }
+        if (sx < -10 || sx > WW + 10 || sy < -10 || sy > WH + 10) continue;
+        var depth = 1 - p.gz, s = Math.max(.6, 2.4 * depth) * DPR;
+        wctx.globalAlpha = .14 + depth * .62;
+        wctx.fillStyle = '#fff';
+        wctx.fillRect(sx, sy, s, s);
+      }
+    })(0);
+  }
+
+  // 3) Labels decode from scrambled characters when they appear
+  if (wow && 'IntersectionObserver' in window) {
+    var CH = '!<>-_\\/[]{}—=+*^?#01ABCDEFX';
+    var decode = function (el) {
+      var html = el.innerHTML, text = el.textContent, n = text.length, frame = 0, total = 22;
+      el.classList.add('scramble');
+      (function run() {
+        frame++;
+        var out = '';
+        for (var i = 0; i < n; i++) out += (text[i] === ' ' || i < (frame / total) * n) ? text[i] : CH[Math.floor(Math.random() * CH.length)];
+        el.textContent = out;
+        if (frame < total) requestAnimationFrame(run); else { el.innerHTML = html; el.classList.remove('scramble'); }
+      })();
+    };
+    var dio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { decode(e.target); dio.unobserve(e.target); } }); }, { threshold: .6 });
+    document.querySelectorAll('.head .mono, .allsites .mono, .panel .mono').forEach(function (el) { dio.observe(el); });
+  }
+
+  // 4) Project rows: images wipe open one after another when the row arrives
+  if (wow && 'IntersectionObserver' in window) {
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        [].slice.call(e.target.querySelectorAll('.card .art')).forEach(function (a, i) { a.style.setProperty('--d', (i * .12) + 's'); });
+        e.target.classList.add('shown'); rio.unobserve(e.target);
+      });
+    }, { threshold: .2 });
+    document.querySelectorAll('.rail').forEach(function (r) { rio.observe(r); });
+  } else { document.querySelectorAll('.rail').forEach(function (r) { r.classList.add('shown'); }); }
+
+
+  // ---------- Touch screens: the same effects without a mouse ----------
+  if (!finePointer) {
+    // The card nearest the middle of each row comes alive, as if hovered
+    document.querySelectorAll('.rail').forEach(function (rail) {
+      var cardsIn = [].slice.call(rail.querySelectorAll('.card'));
+      function pick() {
+        var mid = rail.scrollLeft + rail.clientWidth / 2, best = null, bestD = Infinity;
+        cardsIn.forEach(function (c) { var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < bestD) { bestD = d; best = c; } });
+        // On a wide tablet row the first card stays live until the row is scrolled
+        if (rail.scrollLeft < 8 && rail.scrollWidth > rail.clientWidth) best = cardsIn[0];
+        cardsIn.forEach(function (c) { c.classList.toggle('live', c === best && rail.dataset.seen === '1'); });
+      }
+      rail.addEventListener('scroll', function () { requestAnimationFrame(pick); }, { passive: true });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          rail.dataset.seen = es[0].isIntersecting ? '1' : '';
+          pick();
+        }, { threshold: .55 }).observe(rail);
+      }
+      window.addEventListener('resize', pick);
+    });
+
+    // The gallery banner and the About photo animate once they are on screen (reveal adds .in)
+    if (io) { document.querySelectorAll('.allsites, .about-img, .spot').forEach(function (el) { if (!el.classList.contains('rv')) io.observe(el); }); }
+
+    // Portrait card follows a finger, and the phone's tilt where the browser allows it (Android)
+    if (!reduced) {
+      var photoT = $('photo'), touching = false;
+      var setTilt = function (x, y) { photoT.style.setProperty('--rx', x.toFixed(2) + 'deg'); photoT.style.setProperty('--ry', y.toFixed(2) + 'deg'); };
+      $('photoWrap').addEventListener('touchmove', function (e) {
+        var p = e.touches[0], r = photoT.getBoundingClientRect(); touching = true;
+        setTilt(-((p.clientY - r.top) / r.height - .5) * 18, ((p.clientX - r.left) / r.width - .5) * 22);
+      }, { passive: true });
+      $('photoWrap').addEventListener('touchend', function () { touching = false; setTilt(0, 0); });
+      window.addEventListener('deviceorientation', function (e) {
+        if (e.gamma == null || touching) return;
+        setTilt(Math.max(-10, Math.min(10, (e.beta - 45) * .25)), Math.max(-12, Math.min(12, e.gamma * .4)));
+      });
+    }
+  }
+
+  // ---------- Project details ----------
+  var overlay = $('overlay'), lastFocus = null;
+  function openProject(i, srcEl) {
+    var p = ALL[i]; if (!p) return;
+    if (!overlay.classList.contains('open')) lastFocus = document.activeElement;
+    $('mArt').innerHTML = p.img ? '<img src="' + esc(p.img) + '" alt="' + esc(p.title) + '">' : '<span class="ph">' + esc(p.title) + '</span>';
+    $('mTitle').textContent = p.title;
+    $('mMeta').innerHTML = '<span class="chip">' + esc(p.kind) + '</span>' + p.tags.map(function (t) { return '<span class="chip">' + esc(t) + '</span>'; }).join('');
+    $('mDesc').textContent = p.desc;
+    $('mActs').innerHTML = '<a class="btn btn-white" href="' + esc(p.url) + '" target="_blank" rel="noopener">Visit live website ' + ARROW + '</a>' +
+      '<a class="btn btn-dark" href="' + esc(CONFIG.bookingLink) + '" target="_blank" rel="noopener">Book a call</a>';
+    var more = ALL.map(function (q, j) { return { q: q, j: j }; }).filter(function (o) { return o.j !== i && o.q.kind === p.kind && o.q.img; }).slice(0, 3);
+    $('mMore').innerHTML = more.map(function (o) { return '<button type="button" data-p="' + o.j + '"><img src="' + esc(o.q.img) + '" alt="" loading="lazy"><span>' + esc(o.q.title) + '</span></button>'; }).join('');
+    $('modal').scrollTop = 0;
+    overlay.classList.add('open'); document.body.classList.add('locked');
+    setTimeout(function () { $('mClose').focus(); }, 60);
+    // Morph: the card's own image flies into place as the details open
+    var src = srcEl && srcEl.querySelector('img'), dest = $('mArt').querySelector('img');
+    if (wow && src && dest && src.getBoundingClientRect().width > 0 && dest.animate) {
+      overlay.classList.add('noanim', 'flipping');
+      var a = src.getBoundingClientRect(), b = dest.getBoundingClientRect();
+      var clone = document.createElement('img'); clone.className = 'flip-img'; clone.src = p.img; clone.alt = '';
+      clone.style.left = b.left + 'px'; clone.style.top = b.top + 'px'; clone.style.width = b.width + 'px'; clone.style.height = b.height + 'px';
+      document.body.appendChild(clone);
+      var sx = a.width / b.width, sy = a.height / b.height;
+      clone.animate([
+        { transform: 'translate(' + (a.left - b.left) + 'px,' + (a.top - b.top) + 'px) scale(' + sx + ',' + sy + ')', transformOrigin: '0 0', borderRadius: '16px' },
+        { transform: 'none', transformOrigin: '0 0', borderRadius: '22px 22px 0 0' }
+      ], { duration: 650, easing: 'cubic-bezier(.22,1,.36,1)' }).onfinish = function () {
+        overlay.classList.remove('flipping'); clone.remove();
+        setTimeout(function () { overlay.classList.remove('noanim'); }, 50);
+      };
+    }
+  }
+  function closeProject() { overlay.classList.remove('open'); document.body.classList.remove('locked'); if (lastFocus) lastFocus.focus(); }
+  document.addEventListener('click', function (e) { var b = e.target.closest('[data-p]'); if (b) openProject(Number(b.dataset.p), b); });
+  $('mClose').addEventListener('click', closeProject);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeProject(); });
+
+  // ---------- ADDED: results in the project details (runs after the details are filled) ----------
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-p]'); if (!b) return;
+    var old = $('mDesc').parentNode.querySelector('.m-win'); if (old) old.remove();
+    var r = RESULTS[$('mTitle').textContent];
+    if (r && r.stats && r.stats.length) {
+      $('mDesc').insertAdjacentHTML('afterend', '<div class="m-win">' + r.stats.slice(0, 3).map(function (s) { return '<div><b>' + esc(s[0]) + '</b><span>' + esc(s[1]) + '</span></div>'; }).join('') + '</div>');
+    }
+  });
+
+  // ---------- Quick intro ----------
+  var SLIDES = [
+    { tag: 'Hello, I’m', title: 'Sameer', em: 'Saifi', text: 'Web developer and CRO expert. 4+ years of building Shopify stores that look premium, load fast and sell.', img: 'billboard.webp', pos: '50% 35%' },
+    { tag: 'Results', title: '250+', em: 'websites', text: 'Delivered for dropshippers, D2C brands and businesses across India, with 98% of clients coming back.', img: 'tapntrust.webp', pos: '35% 50%' },
+    { tag: 'Shopify stores', title: 'Built to', em: 'sell', text: 'SwasthHub, TapnTrust, Baby Ninja, Lumzo and Saekos: stores designed around one thing, checkout.', img: 'babyninja.webp', pos: '50% 50%' },
+    { tag: 'Web experiences', title: '3D &', em: 'motion', text: '3D temples, spinning wheels, space portals and parallax journeys. Websites people remember.', img: 'kage.webp', pos: '50% 50%' },
+    { tag: 'Let’s talk', title: 'Your store,', em: 'next', text: 'Book a free 15-minute call and let’s plan a store your customers love to buy from.', img: 'portrait.webp', pos: '50% 50%', cta: true, tall: true }
+  ];
+  var reel = $('reel'), cur = 0, paused = false, elapsed = 0, last = 0, raf = 0, DUR = 5600;
+  $('reelSlides').innerHTML = SLIDES.map(function (s) {
+    return '<div class="reel-slide"><img class="reel-amb" src="' + esc(s.img) + '" alt="" loading="lazy" aria-hidden="true">' +
+      '<div class="reel-in"><figure class="reel-media' + (s.tall ? ' tall' : '') + '">' +
+      (s.tall ? '<img class="full" src="' + esc(s.img) + '" alt="" loading="lazy">'
+              : '<img src="' + esc(s.img) + '" alt="" loading="lazy" style="object-position:' + s.pos + '">') + '</figure>' +
+      '<div class="reel-text"><span class="reel-tag"><i aria-hidden="true"></i>' + esc(s.tag) + '</span><h3 class="silver">' + esc(s.title) + ' <span class="serif">' + esc(s.em) + '</span></h3><p>' + esc(s.text) + '</p>' +
+      (s.cta ? '<a class="btn btn-white" href="' + esc(CONFIG.bookingLink) + '" target="_blank" rel="noopener">Book a 15-min call ' + ARROW + '</a>' : '') + '</div></div></div>';
+  }).join('');
+  $('reelBars').innerHTML = SLIDES.map(function () { return '<span><i></i></span>'; }).join('');
+  var slideEls = [].slice.call(reel.querySelectorAll('.reel-slide')), barEls = [].slice.call(reel.querySelectorAll('.reel-bars i'));
+  function setPaused(v) { paused = v; reel.classList.toggle('paused', v); $('reelPause').setAttribute('aria-label', v ? 'Play' : 'Pause'); }
+  function show(i) {
+    if (i >= SLIDES.length) { closeReel(); return; }
+    cur = Math.max(0, i); elapsed = 0; setPaused(false);
+    slideEls.forEach(function (s, k) { s.classList.toggle('on', k === cur); });
+    barEls.forEach(function (b, k) { b.style.width = k < cur ? '100%' : '0'; });
+    $('reelCount').innerHTML = '<b>' + pad2(cur + 1) + '</b> / ' + pad2(SLIDES.length);
+  }
+  function loop(t) {
+    raf = requestAnimationFrame(loop);
+    var dt = last ? t - last : 0; last = t;
+    if (paused) return;
+    elapsed += dt;
+    var k = Math.min(1, elapsed / DUR);
+    barEls[cur].style.width = (k * 100) + '%';
+    if (k >= 1) show(cur + 1);
+  }
+  function openReel() { lastFocus = document.activeElement; reel.classList.add('open'); document.body.classList.add('locked'); show(0); last = 0; cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); setTimeout(function () { $('reelClose').focus(); }, 60); }
+  function closeReel() { reel.classList.remove('open'); document.body.classList.remove('locked'); cancelAnimationFrame(raf); if (lastFocus) lastFocus.focus(); }
+  $('playIntro').addEventListener('click', openReel);
+  $('reelClose').addEventListener('click', closeReel);
+  $('reelPrev').addEventListener('click', function () { show(cur - 1); });
+  $('reelNext').addEventListener('click', function () { show(cur + 1); });
+  $('reelBack').addEventListener('click', function () { show(cur - 1); });
+  $('reelFwd').addEventListener('click', function () { show(cur + 1); });
+  $('reelPause').addEventListener('click', function () { setPaused(!paused); });
+
+  // ---------- Keyboard ----------
+  document.addEventListener('keydown', function (e) {
+    if (!intro.classList.contains('gone') && (e.key === 'Enter' || e.key === 'Escape')) { e.preventDefault(); endIntro(); return; }
+    if (reel.classList.contains('open')) {
+      if (e.key === 'Escape') closeReel();
+      else if (e.key === 'ArrowRight') show(cur + 1);
+      else if (e.key === 'ArrowLeft') show(cur - 1);
+      else if (e.key === ' ') { e.preventDefault(); setPaused(!paused); }
+      return;
+    }
+    if (e.key === 'Escape') {
+      if (overlay.classList.contains('open')) closeProject();
+      else if (document.body.classList.contains('menu-open')) setMenu(false);
+    }
+  });
 })();
 </script>
 </body>
