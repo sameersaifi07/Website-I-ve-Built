@@ -85,4 +85,12 @@ window.SITES = [
     categories: ['Shopify Stores'],
     added: '2026-10-08',
   },
+
+    {
+    title: 'SwasthHub',
+    url: 'https://www.swasthhub.in/',
+    thumb: 'thumbs/swasthhub.webp',
+    categories: ['Shopify Stores'],
+    added: '2026-10-08',
+  },
 ];
